@@ -168,6 +168,7 @@ return [
          */
 
         Backpack\Base\BaseServiceProvider::class,
+        Backpack\CRUD\CrudServiceProvider::class,
 
         /*
          * Application Service Providers...
