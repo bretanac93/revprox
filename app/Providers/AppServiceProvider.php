@@ -23,8 +23,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if ($this->app->environment() == 'local') {
-            // $this->app->register('Laracasts\Generators\GeneratorsServiceProvider');
+        if ($this->app->environment() !== 'production') {
+            $this->app->register('Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider');
+            $this->app->register('Barryvdh\Debugbar\ServiceProvider');
             $this->app->register('Backpack\Generators\GeneratorsServiceProvider');
         }
     }
