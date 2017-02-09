@@ -11,13 +11,24 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use Symfony\Component\Process\Process;
 
-Route::resource('/admin/reverseproxy', 'Admin\\ReverseProxyCrudController');
+Route::get('/dashboard', 'HomeController@index')->name('admin.dashboard');
 
-// Route::get('/file', function () {
+Route::resource('/proxies', 'ReverseProxyController');
+
+ Route::get('/file', function () {
+
+     $p = new Process('touch /etc/nginx/sites-available/proxy_other');
+     $p->run(function ($type, $buffer) {
+         if ($type === 'err') {
+             echo 'ERR > '.$buffer;
+         }
+         else {
+             echo 'OUT > '.$buffer;
+         }
+     });
+
 // 	$HOME_ROOT = "/home/bretanac93";
 	
 //     shell_exec("cat /var/log/nginx/error.log | grep emerg > $HOME_ROOT/filtered.log");
@@ -38,4 +49,6 @@ Route::resource('/admin/reverseproxy', 'Admin\\ReverseProxyCrudController');
 //     }
 
 
-// });
+ });
+
+Auth::routes();
