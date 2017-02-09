@@ -21,7 +21,7 @@ class ReverseProxyCrudController extends CrudController
 		*/
         $this->crud->setModel("App\ReverseProxy");
         $this->crud->setRoute("admin/reverseproxy");
-        $this->crud->setEntityNameStrings('reverseproxy', 'reverse_proxys');
+        $this->crud->setEntityNameStrings('Proxy Reverso', 'Proxies Reversos');
 
         /*
 		|--------------------------------------------------------------------------
@@ -29,7 +29,50 @@ class ReverseProxyCrudController extends CrudController
 		|--------------------------------------------------------------------------
 		*/
 
-        $this->crud->setFromDb();
+//        $this->crud->setFromDb();
+        $name_definition = [
+            'name' => 'name',
+            'label' => 'Nombre',
+            'type' => 'text'
+        ];
+
+        $server_ip_definition = [
+            'name' => 'server_ip',
+            'label' => 'IP Alojamiento',
+            'type' => 'text'
+        ];
+
+        $proxy_dns_definition = [
+            'name' => 'proxy_dns',
+            'label' => 'Dirección del proxy',
+            'type' => 'text',
+            'prefix' => 'http://'
+        ];
+
+        $has_ssl_definition = [
+            'name' => 'has_ssl',
+            'label' => 'SSL',
+            'type' => 'boolean'
+        ];
+
+        $has_ssl_definition_field = [
+            'name' => 'has_ssl',
+            'label' => 'SSL',
+            'type' => 'checkbox'
+        ];
+
+        $this->crud->addField($name_definition, 'update/create/both');
+        $this->crud->addColumn($name_definition);
+
+        $this->crud->addField($server_ip_definition, 'update/create/both');
+        $this->crud->addColumn($server_ip_definition);
+
+        $this->crud->addField($proxy_dns_definition, 'update/create/both');
+        $this->crud->addColumn($proxy_dns_definition);
+
+        $this->crud->addField($has_ssl_definition_field, 'update/create/both');
+        $this->crud->addColumn($has_ssl_definition);
+
 
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
@@ -75,12 +118,12 @@ class ReverseProxyCrudController extends CrudController
         // Please note the drawbacks of this though:
         // - 1-n and n-n columns are not searchable
         // - date and datetime columns won't be sortable anymore
-        // $this->crud->enableAjaxTable();
+//         $this->crud->enableAjaxTable();
 
         // ------ DATATABLE EXPORT BUTTONS
         // Show export to PDF, CSV, XLS and Print buttons on the table view.
         // Does not work well with AJAX datatables.
-        // $this->crud->enableExportButtons();
+//         $this->crud->enableExportButtons();
 
         // ------ ADVANCED QUERIES
         // $this->crud->addClause('active');
@@ -98,8 +141,10 @@ class ReverseProxyCrudController extends CrudController
 
 	public function store(StoreRequest $request)
 	{
-		// your additional operations before save here
+		// your additional operations before save here    
         $redirect_location = parent::storeCrud();
+
+//        dd($this->crud->entry);
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;

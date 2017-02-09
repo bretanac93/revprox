@@ -17,7 +17,7 @@ class CreateReverseProxyTable extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->string('server_ip');
-            $table->string('proxy_dns');
+            $table->string('proxy_dns')->unique();
             $table->boolean('has_ssl');
 
             $table->timestamps();
