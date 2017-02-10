@@ -77,7 +77,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -90,7 +90,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -167,9 +167,8 @@ return [
          * Package Service Providers...
          */
 
-        Backpack\Base\BaseServiceProvider::class,
-        Backpack\CRUD\CrudServiceProvider::class,
-
+        //
+//        Barryvdh\Elfinder\ElfinderServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -225,8 +224,7 @@ return [
         'Storage' => Illuminate\Support\Facades\Storage::class,
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
-        'View' => Illuminate\Support\Facades\View::class,
-
+        'View' => Illuminate\Support\Facades\View::class
     ],
 
 ];

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>elFinder 2.0 - TinyMCE4</title>
+    <title>elFinder 2.0</title>
 
     <!-- jQuery and jQuery UI (REQUIRED) -->
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
@@ -11,20 +11,16 @@
 
     <!-- elFinder CSS (REQUIRED) -->
     <link rel="stylesheet" type="text/css" href="<?= asset($dir.'/css/elfinder.min.css') ?>">
-    <!-- <link rel="stylesheet" type="text/css" href="<?= asset($dir.'/css/theme.css') ?>"> -->
-    <link rel="stylesheet" type="text/css" href="<?= asset('vendor/backpack/elfinder/elfinder.backpack.theme.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?= asset($dir.'/css/theme.css') ?>">
 
     <!-- elFinder JS (REQUIRED) -->
     <script src="<?= asset($dir.'/js/elfinder.min.js') ?>"></script>
 
-    <?php if ($locale) {
-    ?>
+    <?php if($locale){ ?>
         <!-- elFinder translation (OPTIONAL) -->
         <script src="<?= asset($dir."/js/i18n/elfinder.$locale.js") ?>"></script>
-    <?php
-
-} ?>
-
+    <?php } ?>
+    
     <!-- elFinder initialization (REQUIRED) -->
     <script type="text/javascript">
         var FileBrowserDialogue = {
@@ -43,31 +39,22 @@
         $().ready(function() {
             var elf = $('#elfinder').elfinder({
                 // set your elFinder options here
-                resizable: false,
-                <?php if ($locale) {
-    ?>
+                <?php if($locale){ ?>
                     lang: '<?= $locale ?>', // locale
-                <?php
-
-} ?>
-                customData: {
+                <?php } ?>
+                customData: { 
                     _token: '<?= csrf_token() ?>'
                 },
-                url: '<?= route('elfinder.connector') ?>',  // connector URL
+                url: '<?= route("elfinder.connector") ?>',  // connector URL
+                soundPath: '<?= asset($dir.'/sounds') ?>',
                 getFileCallback: function(file) { // editor callback
                     FileBrowserDialogue.mySubmit(file.url); // pass selected file path to TinyMCE
                 }
             }).elfinder('instance');
         });
-        $(window).resize(function(){
-            var h = ($(window).height());
-            if($('#elfinder').height() != h){
-                $('#elfinder').height(h).resize();
-            }
-        });
     </script>
 </head>
-<body class="elfinder">
+<body>
     <!-- Element where elFinder will be created (REQUIRED) -->
     <div id="elfinder"></div>
 </body>
