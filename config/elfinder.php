@@ -10,7 +10,7 @@ return [
     | The dir where to store the images (relative from public)
     |
     */
-    'dir' => ['uploads'],
+    'dir' => ['nginx-storage'],
 
     /*
     |--------------------------------------------------------------------------
@@ -26,7 +26,10 @@ return [
     |    ]
     */
     'disks' => [
-        // 'uploads',
+        'nginx-storage' => [
+            'URL' => storage_path('/etc/nginx/sites-available/'),
+            'alias' => 'Configuración de sitios de Nginx',
+        ],
     ],
 
     /*
@@ -39,7 +42,7 @@ return [
     */
 
     'route' => [
-        'prefix'     => config('backpack.base.route_prefix').'/elfinder',
+        'prefix'     => '/elfinder',
         'middleware' => ['web', 'auth'], //Set to null to disable middleware filter
     ],
 

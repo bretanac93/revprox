@@ -5,16 +5,9 @@
 @section('content')
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <!-- Default box -->
-            {{--@if ($errors->any())--}}
-                {{--<div class="alert alert-danger">--}}
-                    {{--@foreach ($errors->all() as $error)--}}
-                        {{--{{ $error }}<br>--}}
-                    {{--@endforeach--}}
-                {{--</div>--}}
-            {{--@endif--}}
+
             <a href="{{ url('proxies') }}"><i class="fa fa-angle-double-left"></i> Volver al listado</a><br><br>
-            <form method="POST" action="{{ url('proxies') }}" accept-charset="UTF-8">
+            <form method="POST" id="form" action="{{ url('proxies') }}" accept-charset="UTF-8">
                 {{ csrf_field() }}
 
                 <div class="box">
@@ -60,10 +53,6 @@
 
                 </div>
             </form><!-- /.box -->
-
         </div>
     </div>
-@stop
-@section('level_scripts')
-    <script src="{{ asset('plugins/input-mask/jquery.inputmask.js') }}"></script>
 @stop

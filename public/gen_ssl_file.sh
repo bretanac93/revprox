@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+#Usage:
+# sh gen_ssl_file.sh <proxy_dns> <server_ip>
+
+#TODO: Replace openssl for letsencrypt
+
+
 mkdir /etc/nginx/ssl 2>/dev/null
 
 PATH_SSL="/etc/nginx/ssl"

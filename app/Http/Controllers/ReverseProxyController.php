@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreRevProxyRequest;
 use App\ReverseProxy;
-
+use Proengsoft\JsValidation\Facades\JsValidatorFacade as JsValidator;
+use Symfony\Component\Process\Process;
 
 class ReverseProxyController extends Controller
 {
@@ -29,22 +30,35 @@ class ReverseProxyController extends Controller
             $data['has_ssl'] = false;
         } else {
             $data['has_ssl'] = true;
+
         }
 //        dd($data);
         $rules = ReverseProxy::$rules;
-        $messages = [
-            'required' => 'El atributo :atribute es requerido',
-            'ip' => 'No es una dirección IP válida'
-        ];
-        $validator = \Validator::make($data, $rules, $messages);
+
+        $validator = \Validator::make($data, $rules);
 
         if ($validator->fails()) {
-            return redirect(route('proxies.create'))
+            return redirect()
+                ->back()
                 ->withErrors($validator);
         }
         else {
-            ReverseProxy::create($data);
-            return redirect(route('proxies.index'));
+
+            $p = new Process('whoami');
+            $p->run();
+            $whoami = $p->getOutput();
+
+            if ($whoami !== "root\n")
+                return redirect()->back();
+            else {
+                try {
+                    $this->generate_nginx_file($data['proxy_dns'], $data['server_ip'], $data['has_ssl']);
+                    ReverseProxy::create($data);
+                    return redirect(route('proxies.index'));
+                } catch (\RuntimeException $e) {
+                    dd($e->getMessage());
+                }
+            }
         }
     }
 }

@@ -26,7 +26,7 @@ Route::resource('/proxies', 'ReverseProxyController');
 
  Route::get('/file', function () {
 
-     $p = new Process('touch /etc/nginx/sites-available/proxy_other');
+     $p = new Process('');
      $p->run(function ($type, $buffer) {
          if ($type === 'err') {
              echo 'ERR > '.$buffer;
