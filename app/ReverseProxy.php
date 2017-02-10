@@ -65,6 +65,11 @@ class ReverseProxy extends Model
      * @var array
      */
     // protected $dates = [];
+    static $rules = [
+        'name' => 'required|unique:reverse_proxies|max:255',
+        'server_ip' => 'required|ip',
+        'proxy_dns' => 'required|unique:reverse_proxies'
+    ];
 
     /*
 	|--------------------------------------------------------------------------
@@ -95,4 +100,5 @@ class ReverseProxy extends Model
 	| MUTATORS
 	|--------------------------------------------------------------------------
 	*/
+
 }
