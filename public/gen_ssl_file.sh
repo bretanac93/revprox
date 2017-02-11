@@ -21,8 +21,7 @@ then
 fi
 
 block="server {
-    
-    listen 80;
+
     listen 443 ssl;
     server_name $1;
 
