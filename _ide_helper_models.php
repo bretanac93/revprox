@@ -31,3 +31,25 @@ namespace App{
 	class User extends \Eloquent {}
 }
 
+namespace App{
+/**
+ * App\ReverseProxy
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $server_ip
+ * @property string $proxy_dns
+ * @property bool $has_ssl
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @method static \Illuminate\Database\Query\Builder|\App\ReverseProxy whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\ReverseProxy whereHasSsl($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\ReverseProxy whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\ReverseProxy whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\ReverseProxy whereProxyDns($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\ReverseProxy whereServerIp($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\ReverseProxy whereUpdatedAt($value)
+ */
+	class ReverseProxy extends \Eloquent {}
+}
+

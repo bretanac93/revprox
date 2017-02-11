@@ -41,7 +41,7 @@
                             <td>
                                 <div class="btn-group">
                                     <a class="btn btn-default btn-sm" href="#"><i class="fa fa-refresh"></i></a>
-                                    <a class="btn btn-default btn-sm" href="#"><i class="fa fa-edit"></i></a>
+                                    <a class="btn btn-default btn-sm" href="{{ url(route('proxies.edit', ['id' => $item->id])) }}"><i class="fa fa-edit"></i></a>
                                     <a class="btn btn-default btn-sm" href="#"><i class="fa fa-remove"></i></a>
                                 </div>
                             </td>
