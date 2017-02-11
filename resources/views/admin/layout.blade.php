@@ -7,7 +7,7 @@
     <title>revProx | @yield('title')</title>
 
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-
+    <link href="{{ asset('plugins/pace-loader/flash-white.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     @yield('page_level_styles')
 
@@ -26,7 +26,7 @@
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="{{ url('/') }}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>r</b>P</span>
             <!-- logo for regular state and mobile devices -->
@@ -274,6 +274,7 @@
 <script src="{{ asset('js/app.js') }}"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('plugins/pace-loader/pace.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('js/vendor.min.js') }}"></script>
 

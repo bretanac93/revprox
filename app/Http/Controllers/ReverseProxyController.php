@@ -82,10 +82,10 @@ class ReverseProxyController extends Controller
 
     public function edit($id) {
         if ($id == null)
-            return new Response(view('errors.400'), 400);
+            return view('errors.400', [], 400);
         $rev_proxy = ReverseProxy::find($id);
         if ($rev_proxy == null)
-            return new Response(view('errors.404'), 404);
+            return view('errors.404', [], 404);
 
         return view('admin.proxies.edit')
             ->with('rev_prox', $rev_proxy);
@@ -93,10 +93,10 @@ class ReverseProxyController extends Controller
 
     public function update($id) {
         if ($id == null)
-            return new Response(view('errors.400'), 400);
+            return view('errors.400', [], 400);
         $rev_proxy = ReverseProxy::find($id);
         if ($rev_proxy == null)
-            return new Response(view('errors.404'), 404);
+            return view('errors.404', [], 404);
 
         $old_dns = $rev_proxy->proxy_dns;
 
@@ -143,5 +143,25 @@ class ReverseProxyController extends Controller
             Flash::error('Error inesperado, intente de nuevo');
             return redirect()->back();
         }
+    }
+    //TODO: Get a file content for showing to users in the ui.
+    //TODO: Show and delete functions.
+
+    public function destroy($id) {
+        if ($id == null) {
+            return view('errors.400', [], 400);
+        }
+        $prox = ReverseProxy::find($id);
+        if ($prox == null) {
+            return view('errors.404', [], 404);
+        }
+        $rm_res = NginxFacade::removeFile($prox->proxy_dns);
+
+        if (!$rm_res[0]) {
+            Flash::error($rm_res[1]);
+            return redirect()->back();
+        }
+        $prox->delete();
+        return redirect()->to(route('proxies.index'));
     }
 }

@@ -133,4 +133,24 @@ class Nginx
         }
         return [false, $res];
     }
+
+    public function getFile($proxy_dns) {
+        return $this->exec("cat /etc/nginx/sites-available/$proxy_dns");
+    }
+
+    public function upSite($proxy_dns) {
+        $this->exec("ln -fs /etc/nginx/sites-available/$proxy_dns /etc/nginx/sites-enabled/$proxy_dns");
+    }
+
+    public function downSite($proxy_dns) {
+        $this->exec("rm -f /etc/nginx/sites-enabled/$proxy_dns");
+    }
+
+    public function onMaintenance($proxy_dns) {
+        $this->exec("cp -f maintenance_templates/503.html /etc/nginx/maintenance/503_$proxy_dns.html");
+    }
+
+    public function offMaintenance($proxy_dns) {
+        $this->exec("rm -f /etc/nginx/maintenance/503_$proxy_dns");
+    }
 }
