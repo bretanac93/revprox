@@ -1,0 +1,19 @@
+@extends('admin.layout')
+@section('title', 'Editar Proxy')
+@section('page_header', 'Editar Proxy')
+
+@section('content')
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <a href="{{ url('proxies') }}"><i class="fa fa-angle-double-left"></i> Volver al listado</a><br><br>
+            <form method="POST" id="form" action="{{ url(route('files.update', ['id' => $id])) }}" accept-charset="UTF-8">
+                <input type="hidden" name="_method" value="PUT">
+                {{ csrf_field() }}
+                <textarea name="file_content" id="file_content" cols="30">
+                    {{ $content }}
+                </textarea>
+            </form>
+            <!-- /.box -->
+        </div>
+    </div>
+@stop

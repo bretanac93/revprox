@@ -6,6 +6,9 @@
 <li class="{{ Request::is('proxies*') ? 'active': ''}}">
     <a href="{{ url('proxies') }}"><i class="fa fa-tasks"></i> <span>Proxies</span></a>
 </li>
+<li class="{{ Request::is('files*') ? 'active': ''}}">
+    <a href="{{ url('files') }}"><i class="fa fa-file-text-o"></i> <span>Archivos</span></a>
+</li>
 <li><a href="{{ url('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i> <span>Salir</span></a></li>
 
 
