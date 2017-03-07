@@ -24,38 +24,6 @@ Route::get('/dashboard', 'HomeController@index')->name('admin.dashboard');
 
 Route::resource('/proxies', 'ReverseProxyController');
 
- Route::get('/file', function () {
-
-     $p = new Process('');
-     $p->run(function ($type, $buffer) {
-         if ($type === 'err') {
-             echo 'ERR > '.$buffer;
-         }
-         else {
-             echo 'OUT > '.$buffer;
-         }
-     });
-
-// 	$HOME_ROOT = "/home/bretanac93";
-	
-//     shell_exec("cat /var/log/nginx/error.log | grep emerg > $HOME_ROOT/filtered.log");
-    
-//     if (file_exists("$HOME_ROOT/filtered.log")) {
-    	
-//     	$file = fopen("$HOME_ROOT/filtered.log", 'r');
-//     	$a = [];
-//     	while ($line = fgets($file)) {
-//     		$a[] = $line;
-//     	}
-//     	shell_exec("rm -f $HOME_ROOT/filtered.log");
-//     	dd($a);
-
-//     } else {
-//     	dd("File not found");
-    	
-//     }
-
-
- });
+Route::resource('/files', 'FileManController');
 
 Auth::routes();

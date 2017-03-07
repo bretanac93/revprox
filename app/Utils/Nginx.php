@@ -134,23 +134,44 @@ class Nginx
         return [false, $res];
     }
 
+    /**
+     * Get the content of a file given it's name
+     * @param $proxy_dns The filename
+     * @return string The content of the file
+     */
     public function getFile($proxy_dns) {
         return $this->exec("cat /etc/nginx/sites-available/$proxy_dns");
     }
 
+    /**
+     * Makes a symlink of a file on sites_enabled to activate the site
+     * @param $proxy_dns The filename
+     */
     public function upSite($proxy_dns) {
         $this->exec("ln -fs /etc/nginx/sites-available/$proxy_dns /etc/nginx/sites-enabled/$proxy_dns");
     }
 
+    /**
+     * Removes the symlink of the file on sites_enabled to deactivate the site
+     * @param $proxy_dns The filename
+     */
     public function downSite($proxy_dns) {
         $this->exec("rm -f /etc/nginx/sites-enabled/$proxy_dns");
     }
 
+    /**
+     * Activates maintenance mode of a website given the dns
+     * @param $proxy_dns The filename
+     */
     public function onMaintenance($proxy_dns) {
         $this->exec("cp -f maintenance_templates/503.html /etc/nginx/maintenance/503_$proxy_dns.html");
     }
 
+    /**
+     * Deactivates maintenance mode of a website given the dns
+     * @param $proxy_dns The filename
+     */
     public function offMaintenance($proxy_dns) {
-        $this->exec("rm -f /etc/nginx/maintenance/503_$proxy_dns");
+        $this->exec("rm -f /etc/nginx/maintenance/503_$proxy_dns.html");
     }
 }
