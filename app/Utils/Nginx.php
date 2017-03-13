@@ -99,6 +99,11 @@ class Nginx
             throw new \BadMethodCallException('El proceso no está siendo ejecutado con permisos de administración.');
         }
 
+        // Make a backup in case the file exists.
+        if (file_exists("/etc/nginx/sites-available/$proxy_dns")) {
+            $this->exec("mv /etc/nginx/sites-available/$proxy_dns /etc/nginx/sites-available/$proxy_dns.bak");
+        }
+
         $script = $has_ssl ? "gen_ssl_file.sh" : "gen_http_file.sh";
 
         $p = new Process("sh $script $proxy_dns $server_ip");
@@ -176,6 +181,13 @@ class Nginx
         $this->exec("rm -f /etc/nginx/maintenance/503_$proxy_dns.html");
     }
 
+    /**
+     * Process the file content, extracts info and generates
+     * the new configuration file
+     * @param $file_content The File content
+     * @return array The first position will hold the extracted data,
+     * and the second one the result of the file generation.
+     */
     public function processFileData($file_content) {
         $string_col = explode("\r\n", $file_content);
 
@@ -202,7 +214,12 @@ class Nginx
 
             return $col;
         });
-        return $this->transformPattern($col);
+
+        $data = $this->transformPattern($col);
+        $data['server_ip'] = $this->cleanIp($data['server_ip']);
+        $gen_res = $this->genNginxFile($data["proxy_dns"], $data["server_ip"], $data["has_ssl"]);
+
+        return [$data, $gen_res];
     }
 
     /**
@@ -228,5 +245,8 @@ class Nginx
             }
         }
         return $pattern;
+    }
+    private function cleanIp($ip) {
+        return trim($ip, "http://");
     }
 }

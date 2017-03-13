@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\ReverseProxy;
 use App\Facades\NginxFacade;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Input;
-use Symfony\Component\Process\Process;
+
+use Flash;
 
 class FileManController extends Controller
 {
@@ -25,6 +24,21 @@ class FileManController extends Controller
     public function update($id) {
         $content = request('file_content');
 
-        dd(NginxFacade::processFileData($content));
+        $func_res = NginxFacade::processFileData($content);
+        $data = $func_res[0];
+        $res = $func_res[1];
+
+        if ($res[0] = true) {
+            $proxy = ReverseProxy::whereId($id);
+            $proxy->update($data);
+        }
+
+        else {
+            Flash::error($res[1]);
+            return redirect()->back();
+        }
+
+        Flash::success('Fichero modificado satisfactoriamente.');
+        return redirect(route('files.index'));
     }
 }
