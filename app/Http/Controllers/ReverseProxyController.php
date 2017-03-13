@@ -47,7 +47,6 @@ class ReverseProxyController extends Controller
                 ->withErrors($validator);
         }
         else {
-
             $p = new Process('whoami');
             $p->run();
             $whoami = $p->getOutput();

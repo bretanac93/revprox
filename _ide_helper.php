@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.3.30 on 2017-02-03.
+ * Generated for Laravel 5.3.30 on 2017-03-13.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -2750,28 +2750,6 @@ namespace {
         }
         
         /**
-         * Get a schema builder instance for the connection.
-         *
-         * @return \Illuminate\Database\Schema\MySqlBuilder 
-         * @static 
-         */
-        public static function getSchemaBuilder(){
-            return \Illuminate\Database\MySqlConnection::getSchemaBuilder();
-        }
-        
-        /**
-         * Bind values to their parameters in the given statement.
-         *
-         * @param \PDOStatement $statement
-         * @param array $bindings
-         * @return void 
-         * @static 
-         */
-        public static function bindValues($statement, $bindings){
-            \Illuminate\Database\MySqlConnection::bindValues($statement, $bindings);
-        }
-        
-        /**
          * Set the query grammar to the default implementation.
          *
          * @return void 
@@ -2779,7 +2757,7 @@ namespace {
          */
         public static function useDefaultQueryGrammar(){
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::useDefaultQueryGrammar();
+            \Illuminate\Database\SQLiteConnection::useDefaultQueryGrammar();
         }
         
         /**
@@ -2790,7 +2768,7 @@ namespace {
          */
         public static function useDefaultSchemaGrammar(){
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::useDefaultSchemaGrammar();
+            \Illuminate\Database\SQLiteConnection::useDefaultSchemaGrammar();
         }
         
         /**
@@ -2801,7 +2779,18 @@ namespace {
          */
         public static function useDefaultPostProcessor(){
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::useDefaultPostProcessor();
+            \Illuminate\Database\SQLiteConnection::useDefaultPostProcessor();
+        }
+        
+        /**
+         * Get a schema builder instance for the connection.
+         *
+         * @return \Illuminate\Database\Schema\Builder 
+         * @static 
+         */
+        public static function getSchemaBuilder(){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\SQLiteConnection::getSchemaBuilder();
         }
         
         /**
@@ -2813,7 +2802,7 @@ namespace {
          */
         public static function table($table){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::table($table);
+            return \Illuminate\Database\SQLiteConnection::table($table);
         }
         
         /**
@@ -2824,7 +2813,7 @@ namespace {
          */
         public static function query(){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::query();
+            return \Illuminate\Database\SQLiteConnection::query();
         }
         
         /**
@@ -2836,7 +2825,7 @@ namespace {
          */
         public static function raw($value){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::raw($value);
+            return \Illuminate\Database\SQLiteConnection::raw($value);
         }
         
         /**
@@ -2850,7 +2839,7 @@ namespace {
          */
         public static function selectOne($query, $bindings = array(), $useReadPdo = true){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::selectOne($query, $bindings, $useReadPdo);
+            return \Illuminate\Database\SQLiteConnection::selectOne($query, $bindings, $useReadPdo);
         }
         
         /**
@@ -2863,7 +2852,7 @@ namespace {
          */
         public static function selectFromWriteConnection($query, $bindings = array()){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::selectFromWriteConnection($query, $bindings);
+            return \Illuminate\Database\SQLiteConnection::selectFromWriteConnection($query, $bindings);
         }
         
         /**
@@ -2877,7 +2866,7 @@ namespace {
          */
         public static function select($query, $bindings = array(), $useReadPdo = true){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::select($query, $bindings, $useReadPdo);
+            return \Illuminate\Database\SQLiteConnection::select($query, $bindings, $useReadPdo);
         }
         
         /**
@@ -2891,7 +2880,20 @@ namespace {
          */
         public static function cursor($query, $bindings = array(), $useReadPdo = true){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::cursor($query, $bindings, $useReadPdo);
+            return \Illuminate\Database\SQLiteConnection::cursor($query, $bindings, $useReadPdo);
+        }
+        
+        /**
+         * Bind values to their parameters in the given statement.
+         *
+         * @param \PDOStatement $statement
+         * @param array $bindings
+         * @return void 
+         * @static 
+         */
+        public static function bindValues($statement, $bindings){
+            //Method inherited from \Illuminate\Database\Connection            
+            \Illuminate\Database\SQLiteConnection::bindValues($statement, $bindings);
         }
         
         /**
@@ -2904,7 +2906,7 @@ namespace {
          */
         public static function insert($query, $bindings = array()){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::insert($query, $bindings);
+            return \Illuminate\Database\SQLiteConnection::insert($query, $bindings);
         }
         
         /**
@@ -2917,7 +2919,7 @@ namespace {
          */
         public static function update($query, $bindings = array()){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::update($query, $bindings);
+            return \Illuminate\Database\SQLiteConnection::update($query, $bindings);
         }
         
         /**
@@ -2930,7 +2932,7 @@ namespace {
          */
         public static function delete($query, $bindings = array()){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::delete($query, $bindings);
+            return \Illuminate\Database\SQLiteConnection::delete($query, $bindings);
         }
         
         /**
@@ -2943,7 +2945,7 @@ namespace {
          */
         public static function statement($query, $bindings = array()){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::statement($query, $bindings);
+            return \Illuminate\Database\SQLiteConnection::statement($query, $bindings);
         }
         
         /**
@@ -2956,7 +2958,7 @@ namespace {
          */
         public static function affectingStatement($query, $bindings = array()){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::affectingStatement($query, $bindings);
+            return \Illuminate\Database\SQLiteConnection::affectingStatement($query, $bindings);
         }
         
         /**
@@ -2968,7 +2970,7 @@ namespace {
          */
         public static function unprepared($query){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::unprepared($query);
+            return \Illuminate\Database\SQLiteConnection::unprepared($query);
         }
         
         /**
@@ -2980,7 +2982,7 @@ namespace {
          */
         public static function prepareBindings($bindings){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::prepareBindings($bindings);
+            return \Illuminate\Database\SQLiteConnection::prepareBindings($bindings);
         }
         
         /**
@@ -2994,7 +2996,7 @@ namespace {
          */
         public static function transaction($callback, $attempts = 1){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::transaction($callback, $attempts);
+            return \Illuminate\Database\SQLiteConnection::transaction($callback, $attempts);
         }
         
         /**
@@ -3006,7 +3008,7 @@ namespace {
          */
         public static function beginTransaction(){
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::beginTransaction();
+            \Illuminate\Database\SQLiteConnection::beginTransaction();
         }
         
         /**
@@ -3017,7 +3019,7 @@ namespace {
          */
         public static function commit(){
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::commit();
+            \Illuminate\Database\SQLiteConnection::commit();
         }
         
         /**
@@ -3028,7 +3030,7 @@ namespace {
          */
         public static function rollBack(){
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::rollBack();
+            \Illuminate\Database\SQLiteConnection::rollBack();
         }
         
         /**
@@ -3039,7 +3041,7 @@ namespace {
          */
         public static function transactionLevel(){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::transactionLevel();
+            return \Illuminate\Database\SQLiteConnection::transactionLevel();
         }
         
         /**
@@ -3051,7 +3053,7 @@ namespace {
          */
         public static function pretend($callback){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::pretend($callback);
+            return \Illuminate\Database\SQLiteConnection::pretend($callback);
         }
         
         /**
@@ -3065,7 +3067,7 @@ namespace {
          */
         public static function logQuery($query, $bindings, $time = null){
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::logQuery($query, $bindings, $time);
+            \Illuminate\Database\SQLiteConnection::logQuery($query, $bindings, $time);
         }
         
         /**
@@ -3077,7 +3079,7 @@ namespace {
          */
         public static function listen($callback){
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::listen($callback);
+            \Illuminate\Database\SQLiteConnection::listen($callback);
         }
         
         /**
@@ -3088,7 +3090,7 @@ namespace {
          */
         public static function isDoctrineAvailable(){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::isDoctrineAvailable();
+            return \Illuminate\Database\SQLiteConnection::isDoctrineAvailable();
         }
         
         /**
@@ -3101,7 +3103,7 @@ namespace {
          */
         public static function getDoctrineColumn($table, $column){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getDoctrineColumn($table, $column);
+            return \Illuminate\Database\SQLiteConnection::getDoctrineColumn($table, $column);
         }
         
         /**
@@ -3112,7 +3114,7 @@ namespace {
          */
         public static function getDoctrineSchemaManager(){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getDoctrineSchemaManager();
+            return \Illuminate\Database\SQLiteConnection::getDoctrineSchemaManager();
         }
         
         /**
@@ -3123,7 +3125,7 @@ namespace {
          */
         public static function getDoctrineConnection(){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getDoctrineConnection();
+            return \Illuminate\Database\SQLiteConnection::getDoctrineConnection();
         }
         
         /**
@@ -3134,7 +3136,7 @@ namespace {
          */
         public static function getPdo(){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getPdo();
+            return \Illuminate\Database\SQLiteConnection::getPdo();
         }
         
         /**
@@ -3145,7 +3147,7 @@ namespace {
          */
         public static function getReadPdo(){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getReadPdo();
+            return \Illuminate\Database\SQLiteConnection::getReadPdo();
         }
         
         /**
@@ -3157,7 +3159,7 @@ namespace {
          */
         public static function setPdo($pdo){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::setPdo($pdo);
+            return \Illuminate\Database\SQLiteConnection::setPdo($pdo);
         }
         
         /**
@@ -3169,7 +3171,7 @@ namespace {
          */
         public static function setReadPdo($pdo){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::setReadPdo($pdo);
+            return \Illuminate\Database\SQLiteConnection::setReadPdo($pdo);
         }
         
         /**
@@ -3181,7 +3183,7 @@ namespace {
          */
         public static function setReconnector($reconnector){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::setReconnector($reconnector);
+            return \Illuminate\Database\SQLiteConnection::setReconnector($reconnector);
         }
         
         /**
@@ -3192,7 +3194,7 @@ namespace {
          */
         public static function getName(){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getName();
+            return \Illuminate\Database\SQLiteConnection::getName();
         }
         
         /**
@@ -3204,7 +3206,7 @@ namespace {
          */
         public static function getConfig($option){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getConfig($option);
+            return \Illuminate\Database\SQLiteConnection::getConfig($option);
         }
         
         /**
@@ -3215,7 +3217,7 @@ namespace {
          */
         public static function getDriverName(){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getDriverName();
+            return \Illuminate\Database\SQLiteConnection::getDriverName();
         }
         
         /**
@@ -3226,7 +3228,7 @@ namespace {
          */
         public static function getQueryGrammar(){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getQueryGrammar();
+            return \Illuminate\Database\SQLiteConnection::getQueryGrammar();
         }
         
         /**
@@ -3238,7 +3240,7 @@ namespace {
          */
         public static function setQueryGrammar($grammar){
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::setQueryGrammar($grammar);
+            \Illuminate\Database\SQLiteConnection::setQueryGrammar($grammar);
         }
         
         /**
@@ -3249,7 +3251,7 @@ namespace {
          */
         public static function getSchemaGrammar(){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getSchemaGrammar();
+            return \Illuminate\Database\SQLiteConnection::getSchemaGrammar();
         }
         
         /**
@@ -3261,7 +3263,7 @@ namespace {
          */
         public static function setSchemaGrammar($grammar){
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::setSchemaGrammar($grammar);
+            \Illuminate\Database\SQLiteConnection::setSchemaGrammar($grammar);
         }
         
         /**
@@ -3272,7 +3274,7 @@ namespace {
          */
         public static function getPostProcessor(){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getPostProcessor();
+            return \Illuminate\Database\SQLiteConnection::getPostProcessor();
         }
         
         /**
@@ -3284,7 +3286,7 @@ namespace {
          */
         public static function setPostProcessor($processor){
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::setPostProcessor($processor);
+            \Illuminate\Database\SQLiteConnection::setPostProcessor($processor);
         }
         
         /**
@@ -3295,7 +3297,7 @@ namespace {
          */
         public static function getEventDispatcher(){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getEventDispatcher();
+            return \Illuminate\Database\SQLiteConnection::getEventDispatcher();
         }
         
         /**
@@ -3307,7 +3309,7 @@ namespace {
          */
         public static function setEventDispatcher($events){
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::setEventDispatcher($events);
+            \Illuminate\Database\SQLiteConnection::setEventDispatcher($events);
         }
         
         /**
@@ -3318,7 +3320,7 @@ namespace {
          */
         public static function pretending(){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::pretending();
+            return \Illuminate\Database\SQLiteConnection::pretending();
         }
         
         /**
@@ -3329,7 +3331,7 @@ namespace {
          */
         public static function getFetchMode(){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getFetchMode();
+            return \Illuminate\Database\SQLiteConnection::getFetchMode();
         }
         
         /**
@@ -3340,7 +3342,7 @@ namespace {
          */
         public static function getFetchArgument(){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getFetchArgument();
+            return \Illuminate\Database\SQLiteConnection::getFetchArgument();
         }
         
         /**
@@ -3351,7 +3353,7 @@ namespace {
          */
         public static function getFetchConstructorArgument(){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getFetchConstructorArgument();
+            return \Illuminate\Database\SQLiteConnection::getFetchConstructorArgument();
         }
         
         /**
@@ -3365,7 +3367,7 @@ namespace {
          */
         public static function setFetchMode($fetchMode, $fetchArgument = null, $fetchConstructorArgument = array()){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::setFetchMode($fetchMode, $fetchArgument, $fetchConstructorArgument);
+            return \Illuminate\Database\SQLiteConnection::setFetchMode($fetchMode, $fetchArgument, $fetchConstructorArgument);
         }
         
         /**
@@ -3376,7 +3378,7 @@ namespace {
          */
         public static function getQueryLog(){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getQueryLog();
+            return \Illuminate\Database\SQLiteConnection::getQueryLog();
         }
         
         /**
@@ -3387,7 +3389,7 @@ namespace {
          */
         public static function flushQueryLog(){
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::flushQueryLog();
+            \Illuminate\Database\SQLiteConnection::flushQueryLog();
         }
         
         /**
@@ -3398,7 +3400,7 @@ namespace {
          */
         public static function enableQueryLog(){
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::enableQueryLog();
+            \Illuminate\Database\SQLiteConnection::enableQueryLog();
         }
         
         /**
@@ -3409,7 +3411,7 @@ namespace {
          */
         public static function disableQueryLog(){
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::disableQueryLog();
+            \Illuminate\Database\SQLiteConnection::disableQueryLog();
         }
         
         /**
@@ -3420,7 +3422,7 @@ namespace {
          */
         public static function logging(){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::logging();
+            return \Illuminate\Database\SQLiteConnection::logging();
         }
         
         /**
@@ -3431,7 +3433,7 @@ namespace {
          */
         public static function getDatabaseName(){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getDatabaseName();
+            return \Illuminate\Database\SQLiteConnection::getDatabaseName();
         }
         
         /**
@@ -3443,7 +3445,7 @@ namespace {
          */
         public static function setDatabaseName($database){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::setDatabaseName($database);
+            return \Illuminate\Database\SQLiteConnection::setDatabaseName($database);
         }
         
         /**
@@ -3454,7 +3456,7 @@ namespace {
          */
         public static function getTablePrefix(){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::getTablePrefix();
+            return \Illuminate\Database\SQLiteConnection::getTablePrefix();
         }
         
         /**
@@ -3466,7 +3468,7 @@ namespace {
          */
         public static function setTablePrefix($prefix){
             //Method inherited from \Illuminate\Database\Connection            
-            \Illuminate\Database\MySqlConnection::setTablePrefix($prefix);
+            \Illuminate\Database\SQLiteConnection::setTablePrefix($prefix);
         }
         
         /**
@@ -3478,7 +3480,7 @@ namespace {
          */
         public static function withTablePrefix($grammar){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::withTablePrefix($grammar);
+            return \Illuminate\Database\SQLiteConnection::withTablePrefix($grammar);
         }
         
     }
@@ -9747,18 +9749,7 @@ namespace {
          * @static 
          */
         public static function hasTable($table){
-            return \Illuminate\Database\Schema\MySqlBuilder::hasTable($table);
-        }
-        
-        /**
-         * Get the column listing for a given table.
-         *
-         * @param string $table
-         * @return array 
-         * @static 
-         */
-        public static function getColumnListing($table){
-            return \Illuminate\Database\Schema\MySqlBuilder::getColumnListing($table);
+            return \Illuminate\Database\Schema\Builder::hasTable($table);
         }
         
         /**
@@ -9770,8 +9761,7 @@ namespace {
          * @static 
          */
         public static function hasColumn($table, $column){
-            //Method inherited from \Illuminate\Database\Schema\Builder            
-            return \Illuminate\Database\Schema\MySqlBuilder::hasColumn($table, $column);
+            return \Illuminate\Database\Schema\Builder::hasColumn($table, $column);
         }
         
         /**
@@ -9783,8 +9773,7 @@ namespace {
          * @static 
          */
         public static function hasColumns($table, $columns){
-            //Method inherited from \Illuminate\Database\Schema\Builder            
-            return \Illuminate\Database\Schema\MySqlBuilder::hasColumns($table, $columns);
+            return \Illuminate\Database\Schema\Builder::hasColumns($table, $columns);
         }
         
         /**
@@ -9796,8 +9785,18 @@ namespace {
          * @static 
          */
         public static function getColumnType($table, $column){
-            //Method inherited from \Illuminate\Database\Schema\Builder            
-            return \Illuminate\Database\Schema\MySqlBuilder::getColumnType($table, $column);
+            return \Illuminate\Database\Schema\Builder::getColumnType($table, $column);
+        }
+        
+        /**
+         * Get the column listing for a given table.
+         *
+         * @param string $table
+         * @return array 
+         * @static 
+         */
+        public static function getColumnListing($table){
+            return \Illuminate\Database\Schema\Builder::getColumnListing($table);
         }
         
         /**
@@ -9809,8 +9808,7 @@ namespace {
          * @static 
          */
         public static function table($table, $callback){
-            //Method inherited from \Illuminate\Database\Schema\Builder            
-            \Illuminate\Database\Schema\MySqlBuilder::table($table, $callback);
+            \Illuminate\Database\Schema\Builder::table($table, $callback);
         }
         
         /**
@@ -9822,8 +9820,7 @@ namespace {
          * @static 
          */
         public static function create($table, $callback){
-            //Method inherited from \Illuminate\Database\Schema\Builder            
-            \Illuminate\Database\Schema\MySqlBuilder::create($table, $callback);
+            \Illuminate\Database\Schema\Builder::create($table, $callback);
         }
         
         /**
@@ -9834,8 +9831,7 @@ namespace {
          * @static 
          */
         public static function drop($table){
-            //Method inherited from \Illuminate\Database\Schema\Builder            
-            \Illuminate\Database\Schema\MySqlBuilder::drop($table);
+            \Illuminate\Database\Schema\Builder::drop($table);
         }
         
         /**
@@ -9846,8 +9842,7 @@ namespace {
          * @static 
          */
         public static function dropIfExists($table){
-            //Method inherited from \Illuminate\Database\Schema\Builder            
-            \Illuminate\Database\Schema\MySqlBuilder::dropIfExists($table);
+            \Illuminate\Database\Schema\Builder::dropIfExists($table);
         }
         
         /**
@@ -9859,8 +9854,7 @@ namespace {
          * @static 
          */
         public static function rename($from, $to){
-            //Method inherited from \Illuminate\Database\Schema\Builder            
-            \Illuminate\Database\Schema\MySqlBuilder::rename($from, $to);
+            \Illuminate\Database\Schema\Builder::rename($from, $to);
         }
         
         /**
@@ -9870,8 +9864,7 @@ namespace {
          * @static 
          */
         public static function enableForeignKeyConstraints(){
-            //Method inherited from \Illuminate\Database\Schema\Builder            
-            return \Illuminate\Database\Schema\MySqlBuilder::enableForeignKeyConstraints();
+            return \Illuminate\Database\Schema\Builder::enableForeignKeyConstraints();
         }
         
         /**
@@ -9881,8 +9874,7 @@ namespace {
          * @static 
          */
         public static function disableForeignKeyConstraints(){
-            //Method inherited from \Illuminate\Database\Schema\Builder            
-            return \Illuminate\Database\Schema\MySqlBuilder::disableForeignKeyConstraints();
+            return \Illuminate\Database\Schema\Builder::disableForeignKeyConstraints();
         }
         
         /**
@@ -9892,8 +9884,7 @@ namespace {
          * @static 
          */
         public static function getConnection(){
-            //Method inherited from \Illuminate\Database\Schema\Builder            
-            return \Illuminate\Database\Schema\MySqlBuilder::getConnection();
+            return \Illuminate\Database\Schema\Builder::getConnection();
         }
         
         /**
@@ -9904,8 +9895,7 @@ namespace {
          * @static 
          */
         public static function setConnection($connection){
-            //Method inherited from \Illuminate\Database\Schema\Builder            
-            return \Illuminate\Database\Schema\MySqlBuilder::setConnection($connection);
+            return \Illuminate\Database\Schema\Builder::setConnection($connection);
         }
         
         /**
@@ -9916,8 +9906,7 @@ namespace {
          * @static 
          */
         public static function blueprintResolver($resolver){
-            //Method inherited from \Illuminate\Database\Schema\Builder            
-            \Illuminate\Database\Schema\MySqlBuilder::blueprintResolver($resolver);
+            \Illuminate\Database\Schema\Builder::blueprintResolver($resolver);
         }
         
     }
@@ -11820,1263 +11809,224 @@ namespace {
     }
 
 
-    class Alert extends \Prologue\Alerts\Facades\Alert{
+    class Flash extends \Laracasts\Flash\Flash{
         
         /**
-         * Store the messages in the current session.
+         * Flash an information message.
          *
-         * @return \Prologue\Alerts\AlertsMessageBag 
-         * @static 
-         */
-        public static function flash(){
-            return \Prologue\Alerts\AlertsMessageBag::flash();
-        }
-        
-        /**
-         * Returns the alert levels from the config.
-         *
-         * @return array 
-         * @static 
-         */
-        public static function getLevels(){
-            return \Prologue\Alerts\AlertsMessageBag::getLevels();
-        }
-        
-        /**
-         * Returns the Illuminate Session Store.
-         *
-         * @return \Illuminate\Session\Store 
-         * @static 
-         */
-        public static function getSession(){
-            return \Prologue\Alerts\AlertsMessageBag::getSession();
-        }
-        
-        /**
-         * Returns the Illuminate Config Repository.
-         *
-         * @return \Illuminate\Config\Repository 
-         * @static 
-         */
-        public static function getConfig(){
-            return \Prologue\Alerts\AlertsMessageBag::getConfig();
-        }
-        
-        /**
-         * Get the keys present in the message bag.
-         *
-         * @return array 
-         * @static 
-         */
-        public static function keys(){
-            //Method inherited from \Illuminate\Support\MessageBag            
-            return \Prologue\Alerts\AlertsMessageBag::keys();
-        }
-        
-        /**
-         * Add a message to the bag.
-         *
-         * @param string $key
          * @param string $message
          * @return $this 
          * @static 
          */
-        public static function add($key, $message){
-            //Method inherited from \Illuminate\Support\MessageBag            
-            return \Prologue\Alerts\AlertsMessageBag::add($key, $message);
+        public static function info($message){
+            return \Laracasts\Flash\FlashNotifier::info($message);
         }
         
         /**
-         * Merge a new array of messages into the bag.
+         * Flash a success message.
          *
-         * @param \Illuminate\Contracts\Support\MessageProvider|array $messages
+         * @param string $message
          * @return $this 
          * @static 
          */
-        public static function merge($messages){
-            //Method inherited from \Illuminate\Support\MessageBag            
-            return \Prologue\Alerts\AlertsMessageBag::merge($messages);
+        public static function success($message){
+            return \Laracasts\Flash\FlashNotifier::success($message);
         }
         
         /**
-         * Determine if messages exist for all of the given keys.
+         * Flash an error message.
          *
-         * @param array|string $key
-         * @return bool 
-         * @static 
-         */
-        public static function has($key){
-            //Method inherited from \Illuminate\Support\MessageBag            
-            return \Prologue\Alerts\AlertsMessageBag::has($key);
-        }
-        
-        /**
-         * Determine if messages exist for any of the given keys.
-         *
-         * @param array $keys
-         * @return bool 
-         * @static 
-         */
-        public static function hasAny($keys = array()){
-            //Method inherited from \Illuminate\Support\MessageBag            
-            return \Prologue\Alerts\AlertsMessageBag::hasAny($keys);
-        }
-        
-        /**
-         * Get the first message from the bag for a given key.
-         *
-         * @param string $key
-         * @param string $format
-         * @return string 
-         * @static 
-         */
-        public static function first($key = null, $format = null){
-            //Method inherited from \Illuminate\Support\MessageBag            
-            return \Prologue\Alerts\AlertsMessageBag::first($key, $format);
-        }
-        
-        /**
-         * Get all of the messages from the bag for a given key.
-         *
-         * @param string $key
-         * @param string $format
-         * @return array 
-         * @static 
-         */
-        public static function get($key, $format = null){
-            //Method inherited from \Illuminate\Support\MessageBag            
-            return \Prologue\Alerts\AlertsMessageBag::get($key, $format);
-        }
-        
-        /**
-         * Get all of the messages for every key in the bag.
-         *
-         * @param string $format
-         * @return array 
-         * @static 
-         */
-        public static function all($format = null){
-            //Method inherited from \Illuminate\Support\MessageBag            
-            return \Prologue\Alerts\AlertsMessageBag::all($format);
-        }
-        
-        /**
-         * Get all of the unique messages for every key in the bag.
-         *
-         * @param string $format
-         * @return array 
-         * @static 
-         */
-        public static function unique($format = null){
-            //Method inherited from \Illuminate\Support\MessageBag            
-            return \Prologue\Alerts\AlertsMessageBag::unique($format);
-        }
-        
-        /**
-         * Get the raw messages in the container.
-         *
-         * @return array 
-         * @static 
-         */
-        public static function messages(){
-            //Method inherited from \Illuminate\Support\MessageBag            
-            return \Prologue\Alerts\AlertsMessageBag::messages();
-        }
-        
-        /**
-         * Get the raw messages in the container.
-         *
-         * @return array 
-         * @static 
-         */
-        public static function getMessages(){
-            //Method inherited from \Illuminate\Support\MessageBag            
-            return \Prologue\Alerts\AlertsMessageBag::getMessages();
-        }
-        
-        /**
-         * Get the messages for the instance.
-         *
-         * @return \Illuminate\Support\MessageBag 
-         * @static 
-         */
-        public static function getMessageBag(){
-            //Method inherited from \Illuminate\Support\MessageBag            
-            return \Prologue\Alerts\AlertsMessageBag::getMessageBag();
-        }
-        
-        /**
-         * Get the default message format.
-         *
-         * @return string 
-         * @static 
-         */
-        public static function getFormat(){
-            //Method inherited from \Illuminate\Support\MessageBag            
-            return \Prologue\Alerts\AlertsMessageBag::getFormat();
-        }
-        
-        /**
-         * Set the default message format.
-         *
-         * @param string $format
-         * @return \Illuminate\Support\MessageBag 
-         * @static 
-         */
-        public static function setFormat($format = ':message'){
-            //Method inherited from \Illuminate\Support\MessageBag            
-            return \Prologue\Alerts\AlertsMessageBag::setFormat($format);
-        }
-        
-        /**
-         * Determine if the message bag has any messages.
-         *
-         * @return bool 
-         * @static 
-         */
-        public static function isEmpty(){
-            //Method inherited from \Illuminate\Support\MessageBag            
-            return \Prologue\Alerts\AlertsMessageBag::isEmpty();
-        }
-        
-        /**
-         * Determine if the message bag has any messages.
-         *
-         * @return bool 
-         * @static 
-         */
-        public static function any(){
-            //Method inherited from \Illuminate\Support\MessageBag            
-            return \Prologue\Alerts\AlertsMessageBag::any();
-        }
-        
-        /**
-         * Get the number of messages in the container.
-         *
-         * @return int 
-         * @static 
-         */
-        public static function count(){
-            //Method inherited from \Illuminate\Support\MessageBag            
-            return \Prologue\Alerts\AlertsMessageBag::count();
-        }
-        
-        /**
-         * Get the instance as an array.
-         *
-         * @return array 
-         * @static 
-         */
-        public static function toArray(){
-            //Method inherited from \Illuminate\Support\MessageBag            
-            return \Prologue\Alerts\AlertsMessageBag::toArray();
-        }
-        
-        /**
-         * Convert the object into something JSON serializable.
-         *
-         * @return array 
-         * @static 
-         */
-        public static function jsonSerialize(){
-            //Method inherited from \Illuminate\Support\MessageBag            
-            return \Prologue\Alerts\AlertsMessageBag::jsonSerialize();
-        }
-        
-        /**
-         * Convert the object to its JSON representation.
-         *
-         * @param int $options
-         * @return string 
-         * @static 
-         */
-        public static function toJson($options = 0){
-            //Method inherited from \Illuminate\Support\MessageBag            
-            return \Prologue\Alerts\AlertsMessageBag::toJson($options);
-        }
-        
-    }
-
-
-    class Date extends \Jenssegers\Date\Date{
-        
-    }
-
-
-    class CRUD extends \Backpack\CRUD\CrudServiceProvider{
-        
-    }
-
-
-    class Form extends \Collective\Html\FormFacade{
-        
-        /**
-         * Open up a new HTML form.
-         *
-         * @param array $options
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function open($options = array()){
-            return \Collective\Html\FormBuilder::open($options);
-        }
-        
-        /**
-         * Create a new model based form builder.
-         *
-         * @param mixed $model
-         * @param array $options
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function model($model, $options = array()){
-            return \Collective\Html\FormBuilder::model($model, $options);
-        }
-        
-        /**
-         * Set the model instance on the form builder.
-         *
-         * @param mixed $model
-         * @return void 
-         * @static 
-         */
-        public static function setModel($model){
-            \Collective\Html\FormBuilder::setModel($model);
-        }
-        
-        /**
-         * Close the current form.
-         *
-         * @return string 
-         * @static 
-         */
-        public static function close(){
-            return \Collective\Html\FormBuilder::close();
-        }
-        
-        /**
-         * Generate a hidden field with the current CSRF token.
-         *
-         * @return string 
-         * @static 
-         */
-        public static function token(){
-            return \Collective\Html\FormBuilder::token();
-        }
-        
-        /**
-         * Create a form label element.
-         *
-         * @param string $name
-         * @param string $value
-         * @param array $options
-         * @param bool $escape_html
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function label($name, $value = null, $options = array(), $escape_html = true){
-            return \Collective\Html\FormBuilder::label($name, $value, $options, $escape_html);
-        }
-        
-        /**
-         * Create a form input field.
-         *
-         * @param string $type
-         * @param string $name
-         * @param string $value
-         * @param array $options
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function input($type, $name, $value = null, $options = array()){
-            return \Collective\Html\FormBuilder::input($type, $name, $value, $options);
-        }
-        
-        /**
-         * Create a text input field.
-         *
-         * @param string $name
-         * @param string $value
-         * @param array $options
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function text($name, $value = null, $options = array()){
-            return \Collective\Html\FormBuilder::text($name, $value, $options);
-        }
-        
-        /**
-         * Create a password input field.
-         *
-         * @param string $name
-         * @param array $options
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function password($name, $options = array()){
-            return \Collective\Html\FormBuilder::password($name, $options);
-        }
-        
-        /**
-         * Create a hidden input field.
-         *
-         * @param string $name
-         * @param string $value
-         * @param array $options
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function hidden($name, $value = null, $options = array()){
-            return \Collective\Html\FormBuilder::hidden($name, $value, $options);
-        }
-        
-        /**
-         * Create an e-mail input field.
-         *
-         * @param string $name
-         * @param string $value
-         * @param array $options
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function email($name, $value = null, $options = array()){
-            return \Collective\Html\FormBuilder::email($name, $value, $options);
-        }
-        
-        /**
-         * Create a tel input field.
-         *
-         * @param string $name
-         * @param string $value
-         * @param array $options
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function tel($name, $value = null, $options = array()){
-            return \Collective\Html\FormBuilder::tel($name, $value, $options);
-        }
-        
-        /**
-         * Create a number input field.
-         *
-         * @param string $name
-         * @param string $value
-         * @param array $options
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function number($name, $value = null, $options = array()){
-            return \Collective\Html\FormBuilder::number($name, $value, $options);
-        }
-        
-        /**
-         * Create a date input field.
-         *
-         * @param string $name
-         * @param string $value
-         * @param array $options
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function date($name, $value = null, $options = array()){
-            return \Collective\Html\FormBuilder::date($name, $value, $options);
-        }
-        
-        /**
-         * Create a datetime input field.
-         *
-         * @param string $name
-         * @param string $value
-         * @param array $options
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function datetime($name, $value = null, $options = array()){
-            return \Collective\Html\FormBuilder::datetime($name, $value, $options);
-        }
-        
-        /**
-         * Create a datetime-local input field.
-         *
-         * @param string $name
-         * @param string $value
-         * @param array $options
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function datetimeLocal($name, $value = null, $options = array()){
-            return \Collective\Html\FormBuilder::datetimeLocal($name, $value, $options);
-        }
-        
-        /**
-         * Create a time input field.
-         *
-         * @param string $name
-         * @param string $value
-         * @param array $options
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function time($name, $value = null, $options = array()){
-            return \Collective\Html\FormBuilder::time($name, $value, $options);
-        }
-        
-        /**
-         * Create a url input field.
-         *
-         * @param string $name
-         * @param string $value
-         * @param array $options
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function url($name, $value = null, $options = array()){
-            return \Collective\Html\FormBuilder::url($name, $value, $options);
-        }
-        
-        /**
-         * Create a file input field.
-         *
-         * @param string $name
-         * @param array $options
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function file($name, $options = array()){
-            return \Collective\Html\FormBuilder::file($name, $options);
-        }
-        
-        /**
-         * Create a textarea input field.
-         *
-         * @param string $name
-         * @param string $value
-         * @param array $options
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function textarea($name, $value = null, $options = array()){
-            return \Collective\Html\FormBuilder::textarea($name, $value, $options);
-        }
-        
-        /**
-         * Create a select box field.
-         *
-         * @param string $name
-         * @param array $list
-         * @param string $selected
-         * @param array $options
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function select($name, $list = array(), $selected = null, $options = array()){
-            return \Collective\Html\FormBuilder::select($name, $list, $selected, $options);
-        }
-        
-        /**
-         * Create a select range field.
-         *
-         * @param string $name
-         * @param string $begin
-         * @param string $end
-         * @param string $selected
-         * @param array $options
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function selectRange($name, $begin, $end, $selected = null, $options = array()){
-            return \Collective\Html\FormBuilder::selectRange($name, $begin, $end, $selected, $options);
-        }
-        
-        /**
-         * Create a select year field.
-         *
-         * @param string $name
-         * @param string $begin
-         * @param string $end
-         * @param string $selected
-         * @param array $options
-         * @return mixed 
-         * @static 
-         */
-        public static function selectYear(){
-            return \Collective\Html\FormBuilder::selectYear();
-        }
-        
-        /**
-         * Create a select month field.
-         *
-         * @param string $name
-         * @param string $selected
-         * @param array $options
-         * @param string $format
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function selectMonth($name, $selected = null, $options = array(), $format = '%B'){
-            return \Collective\Html\FormBuilder::selectMonth($name, $selected, $options, $format);
-        }
-        
-        /**
-         * Get the select option for the given value.
-         *
-         * @param string $display
-         * @param string $value
-         * @param string $selected
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function getSelectOption($display, $value, $selected){
-            return \Collective\Html\FormBuilder::getSelectOption($display, $value, $selected);
-        }
-        
-        /**
-         * Create a checkbox input field.
-         *
-         * @param string $name
-         * @param mixed $value
-         * @param bool $checked
-         * @param array $options
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function checkbox($name, $value = 1, $checked = null, $options = array()){
-            return \Collective\Html\FormBuilder::checkbox($name, $value, $checked, $options);
-        }
-        
-        /**
-         * Create a radio button input field.
-         *
-         * @param string $name
-         * @param mixed $value
-         * @param bool $checked
-         * @param array $options
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function radio($name, $value = null, $checked = null, $options = array()){
-            return \Collective\Html\FormBuilder::radio($name, $value, $checked, $options);
-        }
-        
-        /**
-         * Create a HTML reset input element.
-         *
-         * @param string $value
-         * @param array $attributes
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function reset($value, $attributes = array()){
-            return \Collective\Html\FormBuilder::reset($value, $attributes);
-        }
-        
-        /**
-         * Create a HTML image input element.
-         *
-         * @param string $url
-         * @param string $name
-         * @param array $attributes
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function image($url, $name = null, $attributes = array()){
-            return \Collective\Html\FormBuilder::image($url, $name, $attributes);
-        }
-        
-        /**
-         * Create a color input field.
-         *
-         * @param string $name
-         * @param string $value
-         * @param array $options
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function color($name, $value = null, $options = array()){
-            return \Collective\Html\FormBuilder::color($name, $value, $options);
-        }
-        
-        /**
-         * Create a submit button element.
-         *
-         * @param string $value
-         * @param array $options
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function submit($value = null, $options = array()){
-            return \Collective\Html\FormBuilder::submit($value, $options);
-        }
-        
-        /**
-         * Create a button element.
-         *
-         * @param string $value
-         * @param array $options
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function button($value = null, $options = array()){
-            return \Collective\Html\FormBuilder::button($value, $options);
-        }
-        
-        /**
-         * Get the ID attribute for a field name.
-         *
-         * @param string $name
-         * @param array $attributes
-         * @return string 
-         * @static 
-         */
-        public static function getIdAttribute($name, $attributes){
-            return \Collective\Html\FormBuilder::getIdAttribute($name, $attributes);
-        }
-        
-        /**
-         * Get the value that should be assigned to the field.
-         *
-         * @param string $name
-         * @param string $value
-         * @return mixed 
-         * @static 
-         */
-        public static function getValueAttribute($name, $value = null){
-            return \Collective\Html\FormBuilder::getValueAttribute($name, $value);
-        }
-        
-        /**
-         * Get a value from the session's old input.
-         *
-         * @param string $name
-         * @return mixed 
-         * @static 
-         */
-        public static function old($name){
-            return \Collective\Html\FormBuilder::old($name);
-        }
-        
-        /**
-         * Determine if the old input is empty.
-         *
-         * @return bool 
-         * @static 
-         */
-        public static function oldInputIsEmpty(){
-            return \Collective\Html\FormBuilder::oldInputIsEmpty();
-        }
-        
-        /**
-         * Get the session store implementation.
-         *
-         * @return \Illuminate\Session\SessionInterface $session
-         * @static 
-         */
-        public static function getSessionStore(){
-            return \Collective\Html\FormBuilder::getSessionStore();
-        }
-        
-        /**
-         * Set the session store implementation.
-         *
-         * @param \Illuminate\Session\SessionInterface $session
+         * @param string $message
          * @return $this 
          * @static 
          */
-        public static function setSessionStore($session){
-            return \Collective\Html\FormBuilder::setSessionStore($session);
+        public static function error($message){
+            return \Laracasts\Flash\FlashNotifier::error($message);
         }
         
         /**
-         * Register a custom macro.
+         * Flash a warning message.
          *
-         * @param string $name
-         * @param callable $macro
-         * @return void 
+         * @param string $message
+         * @return $this 
          * @static 
          */
-        public static function macro($name, $macro){
-            \Collective\Html\FormBuilder::macro($name, $macro);
+        public static function warning($message){
+            return \Laracasts\Flash\FlashNotifier::warning($message);
         }
         
         /**
-         * Checks if macro is registered.
+         * Flash an overlay modal.
          *
-         * @param string $name
-         * @return bool 
+         * @param string $message
+         * @param string $title
+         * @param string $level
+         * @return $this 
          * @static 
          */
-        public static function hasMacro($name){
-            return \Collective\Html\FormBuilder::hasMacro($name);
+        public static function overlay($message, $title = 'Notice', $level = 'info'){
+            return \Laracasts\Flash\FlashNotifier::overlay($message, $title, $level);
         }
         
         /**
-         * Dynamically handle calls to the class.
+         * Flash a general message.
          *
-         * @param string $method
-         * @param array $parameters
-         * @return mixed 
-         * @throws \BadMethodCallException
+         * @param string $message
+         * @param string $level
+         * @return $this 
          * @static 
          */
-        public static function macroCall($method, $parameters){
-            return \Collective\Html\FormBuilder::macroCall($method, $parameters);
+        public static function message($message, $level = 'info'){
+            return \Laracasts\Flash\FlashNotifier::message($message, $level);
         }
         
         /**
-         * Register a custom component.
+         * Add an "important" flash to the session.
          *
-         * @param $name
-         * @param $view
-         * @param array $signature
-         * @return void 
+         * @return $this 
          * @static 
          */
-        public static function component($name, $view, $signature){
-            \Collective\Html\FormBuilder::component($name, $view, $signature);
-        }
-        
-        /**
-         * Check if a component is registered.
-         *
-         * @param $name
-         * @return bool 
-         * @static 
-         */
-        public static function hasComponent($name){
-            return \Collective\Html\FormBuilder::hasComponent($name);
-        }
-        
-        /**
-         * Dynamically handle calls to the class.
-         *
-         * @param string $method
-         * @param array $parameters
-         * @return \Illuminate\Contracts\View\View|mixed 
-         * @throws \BadMethodCallException
-         * @static 
-         */
-        public static function componentCall($method, $parameters){
-            return \Collective\Html\FormBuilder::componentCall($method, $parameters);
+        public static function important(){
+            return \Laracasts\Flash\FlashNotifier::important();
         }
         
     }
 
 
-    class Html extends \Collective\Html\HtmlFacade{
+    class Nginx extends \App\Facades\NginxFacade{
         
         /**
-         * Convert an HTML string to entities.
+         * Executes a `nginx -t` command to check if everything is good.
          *
-         * @param string $value
-         * @return string 
          * @static 
          */
-        public static function entities($value){
-            return \Collective\Html\HtmlBuilder::entities($value);
+        public static function testConfiguration(){
+            return \App\Utils\Nginx::testConfiguration();
         }
         
         /**
-         * Convert all applicable characters to HTML entities.
+         * Restart the nginx process.
          *
-         * @param string $value
-         * @return string 
          * @static 
          */
-        public static function escapeAll($value){
-            return \Collective\Html\HtmlBuilder::escapeAll($value);
+        public static function rebootNginxInstance(){
+            return \App\Utils\Nginx::rebootNginxInstance();
         }
         
         /**
-         * Convert entities to HTML characters.
+         * Generates nginx configuration file corresponding to the following parameters.
          *
-         * @param string $value
-         * @return string 
+         * @param $proxy_dns string Proxy DNS
+         * @param $server_ip string Server IP
+         * @param $has_ssl boolean Determine whether the created proxy
+         * should be secure or not
+         * @return array The first position will contains if the operation was completed or not
+         * and the second one will be the reason, if the pos0 == true then pos1 = null.
          * @static 
          */
-        public static function decode($value){
-            return \Collective\Html\HtmlBuilder::decode($value);
+        public static function genNginxFile($proxy_dns, $server_ip, $has_ssl){
+            return \App\Utils\Nginx::genNginxFile($proxy_dns, $server_ip, $has_ssl);
         }
         
         /**
-         * Generate a link to a JavaScript file.
+         * Remove a configuration file and test nginx
          *
-         * @param string $url
-         * @param array $attributes
-         * @param bool $secure
-         * @return \Illuminate\Support\HtmlString 
+         * @param $proxy_dns string The Proxy url
+         * @return array The first position will contains if the operation was completed or not
+         * and the second one will be the reason, if the pos0 == true then pos1 = null.
          * @static 
          */
-        public static function script($url, $attributes = array(), $secure = null){
-            return \Collective\Html\HtmlBuilder::script($url, $attributes, $secure);
+        public static function removeFile($proxy_dns){
+            return \App\Utils\Nginx::removeFile($proxy_dns);
         }
         
         /**
-         * Generate a link to a CSS file.
+         * Get the content of a file given it's name
          *
-         * @param string $url
-         * @param array $attributes
-         * @param bool $secure
-         * @return \Illuminate\Support\HtmlString 
+         * @param $proxy_dns The filename
+         * @return string The content of the file
          * @static 
          */
-        public static function style($url, $attributes = array(), $secure = null){
-            return \Collective\Html\HtmlBuilder::style($url, $attributes, $secure);
+        public static function getFile($proxy_dns){
+            return \App\Utils\Nginx::getFile($proxy_dns);
         }
         
         /**
-         * Generate an HTML image element.
+         * Makes a symlink of a file on sites_enabled to activate the site
          *
-         * @param string $url
-         * @param string $alt
-         * @param array $attributes
-         * @param bool $secure
-         * @return \Illuminate\Support\HtmlString 
+         * @param $proxy_dns The filename
          * @static 
          */
-        public static function image($url, $alt = null, $attributes = array(), $secure = null){
-            return \Collective\Html\HtmlBuilder::image($url, $alt, $attributes, $secure);
+        public static function upSite($proxy_dns){
+            return \App\Utils\Nginx::upSite($proxy_dns);
         }
         
         /**
-         * Generate a link to a Favicon file.
+         * Removes the symlink of the file on sites_enabled to deactivate the site
          *
-         * @param string $url
-         * @param array $attributes
-         * @param bool $secure
-         * @return \Illuminate\Support\HtmlString 
+         * @param $proxy_dns The filename
          * @static 
          */
-        public static function favicon($url, $attributes = array(), $secure = null){
-            return \Collective\Html\HtmlBuilder::favicon($url, $attributes, $secure);
+        public static function downSite($proxy_dns){
+            return \App\Utils\Nginx::downSite($proxy_dns);
         }
         
         /**
-         * Generate a HTML link.
+         * Activates maintenance mode of a website given the dns
          *
-         * @param string $url
-         * @param string $title
-         * @param array $attributes
-         * @param bool $secure
-         * @param bool $escape
-         * @return \Illuminate\Support\HtmlString 
+         * @param $proxy_dns The filename
          * @static 
          */
-        public static function link($url, $title = null, $attributes = array(), $secure = null, $escape = true){
-            return \Collective\Html\HtmlBuilder::link($url, $title, $attributes, $secure, $escape);
+        public static function onMaintenance($proxy_dns){
+            return \App\Utils\Nginx::onMaintenance($proxy_dns);
         }
         
         /**
-         * Generate a HTTPS HTML link.
+         * Deactivates maintenance mode of a website given the dns
          *
-         * @param string $url
-         * @param string $title
-         * @param array $attributes
-         * @return \Illuminate\Support\HtmlString 
+         * @param $proxy_dns The filename
          * @static 
          */
-        public static function secureLink($url, $title = null, $attributes = array()){
-            return \Collective\Html\HtmlBuilder::secureLink($url, $title, $attributes);
+        public static function offMaintenance($proxy_dns){
+            return \App\Utils\Nginx::offMaintenance($proxy_dns);
         }
         
         /**
-         * Generate a HTML link to an asset.
+         * 
          *
-         * @param string $url
-         * @param string $title
-         * @param array $attributes
-         * @param bool $secure
-         * @return \Illuminate\Support\HtmlString 
          * @static 
          */
-        public static function linkAsset($url, $title = null, $attributes = array(), $secure = null){
-            return \Collective\Html\HtmlBuilder::linkAsset($url, $title, $attributes, $secure);
+        public static function processFileData($file_content){
+            return \App\Utils\Nginx::processFileData($file_content);
         }
         
         /**
-         * Generate a HTTPS HTML link to an asset.
+         * Transforms given data to readable array.
          *
-         * @param string $url
-         * @param string $title
-         * @param array $attributes
-         * @return \Illuminate\Support\HtmlString 
+         * @param $data array|Collection The extracted data from the modified file.
+         * @return array The readable array.
          * @static 
          */
-        public static function linkSecureAsset($url, $title = null, $attributes = array()){
-            return \Collective\Html\HtmlBuilder::linkSecureAsset($url, $title, $attributes);
+        public static function transformPattern($data){
+            return \App\Utils\Nginx::transformPattern($data);
         }
         
         /**
-         * Generate a HTML link to a named route.
+         * 
          *
-         * @param string $name
-         * @param string $title
-         * @param array $parameters
-         * @param array $attributes
-         * @return \Illuminate\Support\HtmlString 
          * @static 
          */
-        public static function linkRoute($name, $title = null, $parameters = array(), $attributes = array()){
-            return \Collective\Html\HtmlBuilder::linkRoute($name, $title, $parameters, $attributes);
+        public static function contains($param, $str){
+            return \App\Utils\Nginx::contains($param, $str);
         }
         
         /**
-         * Generate a HTML link to a controller action.
+         * 
          *
-         * @param string $action
-         * @param string $title
-         * @param array $parameters
-         * @param array $attributes
-         * @return \Illuminate\Support\HtmlString 
          * @static 
          */
-        public static function linkAction($action, $title = null, $parameters = array(), $attributes = array()){
-            return \Collective\Html\HtmlBuilder::linkAction($action, $title, $parameters, $attributes);
-        }
-        
-        /**
-         * Generate a HTML link to an email address.
-         *
-         * @param string $email
-         * @param string $title
-         * @param array $attributes
-         * @param bool $escape
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function mailto($email, $title = null, $attributes = array(), $escape = true){
-            return \Collective\Html\HtmlBuilder::mailto($email, $title, $attributes, $escape);
-        }
-        
-        /**
-         * Obfuscate an e-mail address to prevent spam-bots from sniffing it.
-         *
-         * @param string $email
-         * @return string 
-         * @static 
-         */
-        public static function email($email){
-            return \Collective\Html\HtmlBuilder::email($email);
-        }
-        
-        /**
-         * Generates non-breaking space entities based on number supplied.
-         *
-         * @param int $num
-         * @return string 
-         * @static 
-         */
-        public static function nbsp($num = 1){
-            return \Collective\Html\HtmlBuilder::nbsp($num);
-        }
-        
-        /**
-         * Generate an ordered list of items.
-         *
-         * @param array $list
-         * @param array $attributes
-         * @return \Illuminate\Support\HtmlString|string 
-         * @static 
-         */
-        public static function ol($list, $attributes = array()){
-            return \Collective\Html\HtmlBuilder::ol($list, $attributes);
-        }
-        
-        /**
-         * Generate an un-ordered list of items.
-         *
-         * @param array $list
-         * @param array $attributes
-         * @return \Illuminate\Support\HtmlString|string 
-         * @static 
-         */
-        public static function ul($list, $attributes = array()){
-            return \Collective\Html\HtmlBuilder::ul($list, $attributes);
-        }
-        
-        /**
-         * Generate a description list of items.
-         *
-         * @param array $list
-         * @param array $attributes
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function dl($list, $attributes = array()){
-            return \Collective\Html\HtmlBuilder::dl($list, $attributes);
-        }
-        
-        /**
-         * Build an HTML attribute string from an array.
-         *
-         * @param array $attributes
-         * @return string 
-         * @static 
-         */
-        public static function attributes($attributes){
-            return \Collective\Html\HtmlBuilder::attributes($attributes);
-        }
-        
-        /**
-         * Obfuscate a string to prevent spam-bots from sniffing it.
-         *
-         * @param string $value
-         * @return string 
-         * @static 
-         */
-        public static function obfuscate($value){
-            return \Collective\Html\HtmlBuilder::obfuscate($value);
-        }
-        
-        /**
-         * Generate a meta tag.
-         *
-         * @param string $name
-         * @param string $content
-         * @param array $attributes
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function meta($name, $content, $attributes = array()){
-            return \Collective\Html\HtmlBuilder::meta($name, $content, $attributes);
-        }
-        
-        /**
-         * Generate an html tag.
-         *
-         * @param string $tag
-         * @param mixed $content
-         * @param array $attributes
-         * @return \Illuminate\Support\HtmlString 
-         * @static 
-         */
-        public static function tag($tag, $content, $attributes = array()){
-            return \Collective\Html\HtmlBuilder::tag($tag, $content, $attributes);
-        }
-        
-        /**
-         * Register a custom macro.
-         *
-         * @param string $name
-         * @param callable $macro
-         * @return void 
-         * @static 
-         */
-        public static function macro($name, $macro){
-            \Collective\Html\HtmlBuilder::macro($name, $macro);
-        }
-        
-        /**
-         * Checks if macro is registered.
-         *
-         * @param string $name
-         * @return bool 
-         * @static 
-         */
-        public static function hasMacro($name){
-            return \Collective\Html\HtmlBuilder::hasMacro($name);
-        }
-        
-        /**
-         * Dynamically handle calls to the class.
-         *
-         * @param string $method
-         * @param array $parameters
-         * @return mixed 
-         * @throws \BadMethodCallException
-         * @static 
-         */
-        public static function macroCall($method, $parameters){
-            return \Collective\Html\HtmlBuilder::macroCall($method, $parameters);
-        }
-        
-        /**
-         * Register a custom component.
-         *
-         * @param $name
-         * @param $view
-         * @param array $signature
-         * @return void 
-         * @static 
-         */
-        public static function component($name, $view, $signature){
-            \Collective\Html\HtmlBuilder::component($name, $view, $signature);
-        }
-        
-        /**
-         * Check if a component is registered.
-         *
-         * @param $name
-         * @return bool 
-         * @static 
-         */
-        public static function hasComponent($name){
-            return \Collective\Html\HtmlBuilder::hasComponent($name);
-        }
-        
-        /**
-         * Dynamically handle calls to the class.
-         *
-         * @param string $method
-         * @param array $parameters
-         * @return \Illuminate\Contracts\View\View|mixed 
-         * @throws \BadMethodCallException
-         * @static 
-         */
-        public static function componentCall($method, $parameters){
-            return \Collective\Html\HtmlBuilder::componentCall($method, $parameters);
-        }
-        
-    }
-
-
-    class Image extends \Intervention\Image\Facades\Image{
-        
-        /**
-         * Overrides configuration settings
-         *
-         * @param array $config
-         * @static 
-         */
-        public static function configure($config = array()){
-            return \Intervention\Image\ImageManager::configure($config);
-        }
-        
-        /**
-         * Initiates an Image instance from different input types
-         *
-         * @param mixed $data
-         * @return \Intervention\Image\Image 
-         * @static 
-         */
-        public static function make($data){
-            return \Intervention\Image\ImageManager::make($data);
-        }
-        
-        /**
-         * Creates an empty image canvas
-         *
-         * @param integer $width
-         * @param integer $height
-         * @param mixed $background
-         * @return \Intervention\Image\Image 
-         * @static 
-         */
-        public static function canvas($width, $height, $background = null){
-            return \Intervention\Image\ImageManager::canvas($width, $height, $background);
-        }
-        
-        /**
-         * Create new cached image and run callback
-         * (requires additional package intervention/imagecache)
-         *
-         * @param \Closure $callback
-         * @param integer $lifetime
-         * @param boolean $returnObj
-         * @return \Image 
-         * @static 
-         */
-        public static function cache($callback, $lifetime = null, $returnObj = false){
-            return \Intervention\Image\ImageManager::cache($callback, $lifetime, $returnObj);
+        public static function toCharArray($str){
+            return \App\Utils\Nginx::toCharArray($str);
         }
         
     }

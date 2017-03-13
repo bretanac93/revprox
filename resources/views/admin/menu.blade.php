@@ -9,6 +9,21 @@
 <li class="{{ Request::is('files*') ? 'active': ''}}">
     <a href="{{ url('files') }}"><i class="fa fa-file-text-o"></i> <span>Archivos</span></a>
 </li>
+<li>
+    <a href="#"><i class="fa fa-history"></i> <span>Historial</span></a>
+</li>
+<li class="treeview">
+    <a href="#">
+        <i class="fa fa-reorder"></i> <span>Preferencias</span>
+        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+    </a>
+    <ul class="treeview-menu">
+        <li class=""><a href="index.html"><i class="fa fa-terminal"></i> Scripts</a></li>
+        <li><a href="index2.html"><i class="fa fa-toggle-on"></i> Rutas</a></li>
+    </ul>
+</li>
 <li><a href="{{ url('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i> <span>Salir</span></a></li>
 
 
