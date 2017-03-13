@@ -11,8 +11,6 @@
 |
 */
 
-use Symfony\Component\Process\Process;
-
 Route::get('/', function () {
     if (!Auth::user())
         return redirect()->to('login');
@@ -25,5 +23,11 @@ Route::get('/dashboard', 'HomeController@index')->name('admin.dashboard');
 Route::resource('/proxies', 'ReverseProxyController');
 
 Route::resource('/files', 'FileManController');
+
+Route::get('/preferences/scripts', 'PreferencesController@scripts_index')
+    ->name('preferences.scripts.index');
+
+Route::put('/preferences/scripts', 'PreferencesController@scripts_update')
+    ->name('preferences.scripts.update');
 
 Auth::routes();
