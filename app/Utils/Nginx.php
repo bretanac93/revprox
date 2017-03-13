@@ -174,4 +174,29 @@ class Nginx
     public function offMaintenance($proxy_dns) {
         $this->exec("rm -f /etc/nginx/maintenance/503_$proxy_dns.html");
     }
+
+    /**
+     * Transforms given data to readable array.
+     * @param $data array|Collection The extracted data from the modified file.
+     * @return array The readable array.
+     */
+    public function transformPattern($data) {
+        $translator = ['server_name' => 'proxy_dns', 'proxy_pass' => 'server_ip', 'listen' => 'has_ssl'];
+        $pattern = [];
+
+        foreach ($data as $item) {
+            /* Check if the length of the current item is greater than 2.
+             * This operation is because is a fact that the only item with more than 2
+             * elements is `listen`, but this rule is not mandatory, can exists the possibility
+             * that the value of this key be 443 without ssl or 80, in this case we got to check this as well.
+            */
+            if (strcmp($item[0], 'listen') == 0) {
+                $pattern[$translator[$item[0]]] = strcmp("443", $item[1]) == 0;
+            }
+            else {
+                $pattern[$translator[$item[0]]] = $item[1];
+            }
+        }
+        return $pattern;
+    }
 }
