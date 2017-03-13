@@ -12,6 +12,7 @@ use Symfony\Component\Process\Process;
 
 class Nginx
 {
+    use ExtraMethods;
 
     /**
      * Check if the server is running by a root user.
@@ -173,6 +174,35 @@ class Nginx
      */
     public function offMaintenance($proxy_dns) {
         $this->exec("rm -f /etc/nginx/maintenance/503_$proxy_dns.html");
+    }
+
+    public function processFileData($file_content) {
+        $string_col = explode("\r\n", $file_content);
+
+        $col = collect($string_col);
+        $to_forget = [];
+
+        for ($i = 0; $i < count($string_col); $i++) {
+            $item = $string_col[$i];
+            if (!strpos($item, "listen") && !strpos($item, "server_name") && !strpos($item, "proxy_pass")) {
+                array_push($to_forget, $i);
+            }
+        }
+        $col->forget($to_forget);
+
+        $col = $col->map(function ($item) {
+            $item = trim($item);
+
+            $col = collect(explode(" ", $item))->toArray();
+
+            for ($i = 0; $i < count($col); $i++) {
+                if ($this->contains(';', $col[$i]));
+                $col[$i] = trim($col[$i], ';');
+            }
+
+            return $col;
+        });
+        return $this->transformPattern($col);
     }
 
     /**
