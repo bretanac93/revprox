@@ -24,17 +24,6 @@ class Nginx
     }
 
     /**
-     * Method for process execution abstraction
-     * @param $command string The command to execute i.e. 'ls -al'
-     * @return string The Output of the command
-     */
-    private function exec($command) {
-        $p = new Process("$command");
-        $p->run();
-        return $p->getOutput();
-    }
-
-    /**
      * Remove the temp files created in the project.
      */
     private function flushTemp() {

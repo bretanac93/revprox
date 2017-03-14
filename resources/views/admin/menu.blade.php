@@ -12,7 +12,7 @@
 <li>
     <a href="#"><i class="fa fa-history"></i> <span>Historial</span></a>
 </li>
-<li class="treeview">
+<li class="treeview {{ Request::is('preferences/*') ? 'active': '' }}">
     <a href="#">
         <i class="fa fa-reorder"></i> <span>Preferencias</span>
         <span class="pull-right-container">
@@ -20,8 +20,8 @@
             </span>
     </a>
     <ul class="treeview-menu">
-        <li class=""><a href="index.html"><i class="fa fa-terminal"></i> Scripts</a></li>
-        <li><a href="index2.html"><i class="fa fa-toggle-on"></i> Rutas</a></li>
+        <li class="{{ Request::is('preferences/scripts*') ? 'active': '' }}"><a href="{!! url(route('preferences.scripts.index')) !!}"><i class="fa fa-terminal"></i> Scripts</a></li>
+        <li><a href="{{ Request::is('preferences/routes*') ? 'active': '' }}"><i class="fa fa-toggle-on"></i> Rutas</a></li>
     </ul>
 </li>
 <li><a href="{{ url('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i> <span>Salir</span></a></li>

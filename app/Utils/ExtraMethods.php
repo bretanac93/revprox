@@ -8,6 +8,8 @@
 
 namespace App\Utils;
 
+use Symfony\Component\Process\Process;
+
 trait ExtraMethods {
     public function contains($param, $str) {
         foreach ($this->toCharArray($str) as $char) {
@@ -23,5 +25,16 @@ trait ExtraMethods {
             array_push($res, $str[$i]);
         }
         return $res;
+    }
+
+    /**
+     * Method for process execution abstraction
+     * @param $command string The command to execute i.e. 'ls -al'
+     * @return string The Output of the command
+     */
+    public function exec($command) {
+        $p = new Process("$command");
+        $p->run();
+        return $p->getOutput();
     }
 }
