@@ -5,9 +5,11 @@
 @section('page_level_styles')
     <link rel="stylesheet" href="{{ asset('plugins/codemirror/lib/codemirror.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/codemirror/lib/material.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/codemirror/lib/simplescrollbars.css') }}">
 
     <script src="{{ asset('plugins/codemirror/lib/codemirror.js') }}"></script>
     <script src="{{ asset('plugins/codemirror/lib/nginx.js') }}"></script>
+    <script src="{{ asset('plugins/codemirror/lib/simplescrollbars.js') }}"></script>
 
 @stop
 @section('content')
@@ -38,7 +40,7 @@
             matchBrackets: true,
             theme: 'material',
             indentUnit: 4,
-            
+            scrollbarStyle: 'simple'
         });
     </script>
 @stop
