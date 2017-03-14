@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use League\Flysystem\Exception;
 use Symfony\Component\Process\Process;
 
 class PreferencesController extends Controller
@@ -31,5 +32,15 @@ class PreferencesController extends Controller
         if ($res != false) {
             return redirect()->to(route('preferences.scripts.index'));
         }
+        return redirect()->back();
+    }
+
+    /*
+     * TODO: Nginx firewall routes on demand, this means that I will
+     * make a bunch of files in the server, and copy them to the nginx config dir
+     * when I need it.
+    */
+    public function routes_index() {
+        throw new Exception('Not implemented');
     }
 }
