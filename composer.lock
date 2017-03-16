@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2886f3331a907e06a9f05c9ff9e6ee8f",
-    "content-hash": "8d411164770b7b40f4919209eac9273d",
+    "content-hash": "376201ba977571d4de5f031ade4d32e4",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -17,7 +16,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/almasaeed2010-adminlte-2be703222af2edcb87e562d3da2299e4352bff8a-zip-566ec6.zip",
+                "url": "https://api.github.com/repos/almasaeed2010/AdminLTE/zipball/2be703222af2edcb87e562d3da2299e4352bff8a",
                 "reference": "2be703222af2edcb87e562d3da2299e4352bff8a",
                 "shasum": "b36a9453757cd28d6c98b031a1516326b6e91dea"
             },
@@ -45,7 +44,7 @@
                 "theme",
                 "web"
             ],
-            "time": "2017-01-08 21:03:57"
+            "time": "2017-01-08T21:03:57+00:00"
         },
         {
             "name": "backpack/base",
@@ -57,7 +56,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/backpack-base-f7cc0678db9c7f51c4915028dd00c0ba6577211c-zip-225a83.zip",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Base/zipball/f7cc0678db9c7f51c4915028dd00c0ba6577211c",
                 "reference": "f7cc0678db9c7f51c4915028dd00c0ba6577211c",
                 "shasum": "5e032dc5abb2faa43c546e571049c662135e2921"
             },
@@ -104,7 +103,7 @@
                 "backpack",
                 "base"
             ],
-            "time": "2017-01-08 09:18:28"
+            "time": "2017-01-08T09:18:28+00:00"
         },
         {
             "name": "backpack/crud",
@@ -116,7 +115,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/backpack-crud-457ba75710e0ff1a96c7ec357724477ccd8c1372-zip-68bc1e.zip",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/457ba75710e0ff1a96c7ec357724477ccd8c1372",
                 "reference": "457ba75710e0ff1a96c7ec357724477ccd8c1372",
                 "shasum": "07826a13d0eef3b6cf9fb5476aafb51b2ddd96be"
             },
@@ -168,7 +167,7 @@
                 "read",
                 "update"
             ],
-            "time": "2017-01-20 07:45:58"
+            "time": "2017-01-20T07:45:58+00:00"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -180,7 +179,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/barryvdh-elfinder-flysystem-driver-61d70d94786e12eecdfb97de289ffa5c33c521e5-zip-e75368.zip",
+                "url": "https://api.github.com/repos/barryvdh/elfinder-flysystem-driver/zipball/61d70d94786e12eecdfb97de289ffa5c33c521e5",
                 "reference": "61d70d94786e12eecdfb97de289ffa5c33c521e5",
                 "shasum": "25a99cfdd06fed62d3337808263c4f3093db4373"
             },
@@ -224,7 +223,7 @@
                 "elfinder",
                 "filesystem"
             ],
-            "time": "2016-04-05 14:47:48"
+            "time": "2016-04-05T14:47:48+00:00"
         },
         {
             "name": "barryvdh/laravel-elfinder",
@@ -236,7 +235,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/barryvdh-laravel-elfinder-23e16281f60c682b85ce41461dd06392249c880e-zip-4e39d9.zip",
+                "url": "https://api.github.com/repos/barryvdh/laravel-elfinder/zipball/23e16281f60c682b85ce41461dd06392249c880e",
                 "reference": "23e16281f60c682b85ce41461dd06392249c880e",
                 "shasum": "321b07745d53051db25e4021df5bb7425d35d26f"
             },
@@ -276,7 +275,7 @@
                 "laravel",
                 "tinymce"
             ],
-            "time": "2017-01-26 07:43:28"
+            "time": "2017-01-26T07:43:28+00:00"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -288,7 +287,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/classpreloader-classpreloader-bc7206aa892b5a33f4680421b69b191efd32b096-zip-1e24f3.zip",
+                "url": "https://api.github.com/repos/ClassPreloader/ClassPreloader/zipball/bc7206aa892b5a33f4680421b69b191efd32b096",
                 "reference": "bc7206aa892b5a33f4680421b69b191efd32b096",
                 "shasum": "23133c35f3882f4c10c0a176b781ce7f5c92673a"
             },
@@ -330,7 +329,7 @@
                 "class",
                 "preload"
             ],
-            "time": "2016-09-16 12:50:15"
+            "time": "2016-09-16T12:50:15+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -342,7 +341,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/dnoegel-php-xdg-base-dir-265b8593498b997dc2d31e75b89f053b5cc9621a-zip-01f3f4.zip",
+                "url": "https://api.github.com/repos/dnoegel/php-xdg-base-dir/zipball/265b8593498b997dc2d31e75b89f053b5cc9621a",
                 "reference": "265b8593498b997dc2d31e75b89f053b5cc9621a",
                 "shasum": "ec9e95dd52b197bad412ec89cde563b2626dc171"
             },
@@ -363,7 +362,7 @@
                 "MIT"
             ],
             "description": "implementation of xdg base directory specification for php",
-            "time": "2014-10-24 07:27:01"
+            "time": "2014-10-24T07:27:01+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -375,7 +374,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/doctrine-annotations-bd4461328621bde0ae6b1b2675fbc6aca4ceb558-zip-d10630.zip",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/bd4461328621bde0ae6b1b2675fbc6aca4ceb558",
                 "reference": "bd4461328621bde0ae6b1b2675fbc6aca4ceb558",
                 "shasum": "0488e9e23408a5fb5a38ecab1fe61075d301c104"
             },
@@ -431,7 +430,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2016-12-30 15:59:45"
+            "time": "2016-12-30T15:59:45+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -443,7 +442,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/doctrine-cache-b6f544a20f4807e81f7044d31e679ccbb1866dc3-zip-04548a.zip",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/b6f544a20f4807e81f7044d31e679ccbb1866dc3",
                 "reference": "b6f544a20f4807e81f7044d31e679ccbb1866dc3",
                 "shasum": "5d555b504609d2ee7f377cb5dde96b875cdf6781"
             },
@@ -501,7 +500,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2016-10-29 11:16:17"
+            "time": "2016-10-29T11:16:17+00:00"
         },
         {
             "name": "doctrine/collections",
@@ -513,7 +512,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/doctrine-collections-1a4fb7e902202c33cce8c55989b945612943c2ba-zip-cefe7d.zip",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/1a4fb7e902202c33cce8c55989b945612943c2ba",
                 "reference": "1a4fb7e902202c33cce8c55989b945612943c2ba",
                 "shasum": "839c8149c375daf949dd844a1a034a0d1ad1bb6e"
             },
@@ -568,7 +567,7 @@
                 "collections",
                 "iterator"
             ],
-            "time": "2017-01-03 10:49:41"
+            "time": "2017-01-03T10:49:41+00:00"
         },
         {
             "name": "doctrine/common",
@@ -580,7 +579,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/doctrine-common-930297026c8009a567ac051fd545bf6124150347-zip-c9771e.zip",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/930297026c8009a567ac051fd545bf6124150347",
                 "reference": "930297026c8009a567ac051fd545bf6124150347",
                 "shasum": "8560616c884137bb212696ee21abc90daa51d5f2"
             },
@@ -641,7 +640,7 @@
                 "persistence",
                 "spl"
             ],
-            "time": "2017-01-13 14:02:13"
+            "time": "2017-01-13T14:02:13+00:00"
         },
         {
             "name": "doctrine/dbal",
@@ -653,7 +652,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/doctrine-dbal-fc376f7a61498e18520cd6fa083752a4ca08072b-zip-7f91bf.zip",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/fc376f7a61498e18520cd6fa083752a4ca08072b",
                 "reference": "fc376f7a61498e18520cd6fa083752a4ca08072b",
                 "shasum": "d6af70397ee95f48f4923d4bd288c2ae39388c91"
             },
@@ -712,7 +711,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2017-01-23 23:17:10"
+            "time": "2017-01-23T23:17:10+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -724,7 +723,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/doctrine-inflector-90b2128806bfde671b6952ab8bea493942c1fdae-zip-a91357.zip",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/90b2128806bfde671b6952ab8bea493942c1fdae",
                 "reference": "90b2128806bfde671b6952ab8bea493942c1fdae",
                 "shasum": "e58278559b984188ff428f73feada7c97dc3b938"
             },
@@ -779,7 +778,7 @@
                 "singularize",
                 "string"
             ],
-            "time": "2015-11-06 14:35:42"
+            "time": "2015-11-06T14:35:42+00:00"
         },
         {
             "name": "doctrine/lexer",
@@ -791,7 +790,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/doctrine-lexer-83893c552fd2045dd78aef794c31e694c37c0b8c-zip-53c158.zip",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/83893c552fd2045dd78aef794c31e694c37c0b8c",
                 "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c",
                 "shasum": "39d554638332ed78f88bfdb24e4bb19fd4099990"
             },
@@ -833,7 +832,7 @@
                 "lexer",
                 "parser"
             ],
-            "time": "2014-09-09 13:34:57"
+            "time": "2014-09-09T13:34:57+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -845,7 +844,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/guzzlehttp-psr7-5c6447c9df362e8f8093bda8f5d8873fe5c7f65b-zip-6df47d.zip",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/5c6447c9df362e8f8093bda8f5d8873fe5c7f65b",
                 "reference": "5c6447c9df362e8f8093bda8f5d8873fe5c7f65b",
                 "shasum": "7a87c24a02e295514e964b8803291b7731a63147"
             },
@@ -891,7 +890,7 @@
                 "stream",
                 "uri"
             ],
-            "time": "2016-06-24 23:00:38"
+            "time": "2016-06-24T23:00:38+00:00"
         },
         {
             "name": "intervention/image",
@@ -903,7 +902,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/intervention-image-88911910dcbb7bf617f1370602ba1706489c8505-zip-a0921b.zip",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/88911910dcbb7bf617f1370602ba1706489c8505",
                 "reference": "88911910dcbb7bf617f1370602ba1706489c8505",
                 "shasum": "350f3be3753a1c683a9bc54af42f98373a523901"
             },
@@ -953,7 +952,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2017-01-25 18:52:04"
+            "time": "2017-01-25T18:52:04+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -965,7 +964,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/jakub-onderka-php-console-color-e0b393dacf7703fc36a4efc3df1435485197e6c1-zip-c96f1c.zip",
+                "url": "https://api.github.com/repos/JakubOnderka/PHP-Console-Color/zipball/e0b393dacf7703fc36a4efc3df1435485197e6c1",
                 "reference": "e0b393dacf7703fc36a4efc3df1435485197e6c1",
                 "shasum": "4d00ca6f6a73781cf0cd4afd8955519fbee4991c"
             },
@@ -996,7 +995,7 @@
                     "homepage": "http://www.acci.cz"
                 }
             ],
-            "time": "2014-04-08 15:00:19"
+            "time": "2014-04-08T15:00:19+00:00"
         },
         {
             "name": "jakub-onderka/php-console-highlighter",
@@ -1008,7 +1007,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/jakub-onderka-php-console-highlighter-7daa75df45242c8d5b75a22c00a201e7954e4fb5-zip-a01700.zip",
+                "url": "https://api.github.com/repos/JakubOnderka/PHP-Console-Highlighter/zipball/7daa75df45242c8d5b75a22c00a201e7954e4fb5",
                 "reference": "7daa75df45242c8d5b75a22c00a201e7954e4fb5",
                 "shasum": "750e65d9680831ee68c52b7fec8bc4d6aa511ff4"
             },
@@ -1040,7 +1039,7 @@
                     "homepage": "http://www.acci.cz/"
                 }
             ],
-            "time": "2015-04-20 18:58:01"
+            "time": "2015-04-20T18:58:01+00:00"
         },
         {
             "name": "jenssegers/date",
@@ -1052,7 +1051,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/jenssegers-date-ad55257ae655af540e055c0fcd48bc3ec1962ec4-zip-3ce5df.zip",
+                "url": "https://api.github.com/repos/jenssegers/date/zipball/ad55257ae655af540e055c0fcd48bc3ec1962ec4",
                 "reference": "ad55257ae655af540e055c0fcd48bc3ec1962ec4",
                 "shasum": "d8e59f8f048dae12e5a04c9bfa7f1ffc18c2c5ee"
             },
@@ -1097,7 +1096,7 @@
                 "time",
                 "translation"
             ],
-            "time": "2017-01-02 09:21:15"
+            "time": "2017-01-02T09:21:15+00:00"
         },
         {
             "name": "jeremeamia/SuperClosure",
@@ -1109,7 +1108,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/jeremeamia-superclosure-443c3df3207f176a1b41576ee2a66968a507b3db-zip-967d59.zip",
+                "url": "https://api.github.com/repos/jeremeamia/super_closure/zipball/443c3df3207f176a1b41576ee2a66968a507b3db",
                 "reference": "443c3df3207f176a1b41576ee2a66968a507b3db",
                 "shasum": "30e2802623aa86a07fe0cde55b3730bf9add8cea"
             },
@@ -1155,7 +1154,50 @@
                 "serialize",
                 "tokenizer"
             ],
-            "time": "2016-12-07 09:37:55"
+            "time": "2016-12-07T09:37:55+00:00"
+        },
+        {
+            "name": "laracasts/flash",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laracasts/flash.git",
+                "reference": "03eec812fd6ae948664ff51b4320785f6d15ee5d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laracasts/flash/zipball/03eec812fd6ae948664ff51b4320785f6d15ee5d",
+                "reference": "03eec812fd6ae948664ff51b4320785f6d15ee5d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Laracasts\\Flash": "src/"
+                },
+                "files": [
+                    "src/Laracasts/Flash/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Way",
+                    "email": "jeffrey@laracasts.com"
+                }
+            ],
+            "description": "Easy flash notifications",
+            "time": "2016-07-11T20:46:02+00:00"
         },
         {
             "name": "laravel/framework",
@@ -1167,7 +1209,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/laravel-framework-2d4e8c95f584b38d2279b552e2868fc447b97578-zip-614a99.zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/2d4e8c95f584b38d2279b552e2868fc447b97578",
                 "reference": "2d4e8c95f584b38d2279b552e2868fc447b97578",
                 "shasum": "fd67efd26f879017922413a179d98d55e8416852"
             },
@@ -1283,7 +1325,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-01-26 14:29:55"
+            "time": "2017-01-26T14:29:55+00:00"
         },
         {
             "name": "laravelcollective/html",
@@ -1295,7 +1337,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/laravelcollective-html-2f7f2e127c6fed47f269ea29ab5efeb8f65e9d35-zip-63f868.zip",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/2f7f2e127c6fed47f269ea29ab5efeb8f65e9d35",
                 "reference": "2f7f2e127c6fed47f269ea29ab5efeb8f65e9d35",
                 "shasum": "6b18c85b4c2b1ed85376093e00840a9dd0d32e73"
             },
@@ -1337,7 +1379,7 @@
             ],
             "description": "HTML and Form Builders for the Laravel Framework",
             "homepage": "http://laravelcollective.com",
-            "time": "2016-12-13 14:23:36"
+            "time": "2016-12-13T14:23:36+00:00"
         },
         {
             "name": "league/flysystem",
@@ -1349,7 +1391,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/league-flysystem-469ad53c13ea19a0e54e3e5d70f61227ddcc0299-zip-693b8a.zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/469ad53c13ea19a0e54e3e5d70f61227ddcc0299",
                 "reference": "469ad53c13ea19a0e54e3e5d70f61227ddcc0299",
                 "shasum": "b85b8489acc22417550e04f87b68c3501a6b4d44"
             },
@@ -1420,7 +1462,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2017-01-30 17:41:17"
+            "time": "2017-01-30T17:41:17+00:00"
         },
         {
             "name": "league/flysystem-cached-adapter",
@@ -1432,7 +1474,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/league-flysystem-cached-adapter-c5ee196c42ae99ac723cbac62a2fd4831010d4e7-zip-3e5034.zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem-cached-adapter/zipball/c5ee196c42ae99ac723cbac62a2fd4831010d4e7",
                 "reference": "c5ee196c42ae99ac723cbac62a2fd4831010d4e7",
                 "shasum": "3f24d9bf8ffa487f087a7f3891f837643f0ee181"
             },
@@ -1468,7 +1510,7 @@
                 }
             ],
             "description": "An adapter decorator to enable meta-data caching.",
-            "time": "2016-11-20 21:02:42"
+            "time": "2016-11-20T21:02:42+00:00"
         },
         {
             "name": "livecontrol/eloquent-datatable",
@@ -1480,7 +1522,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/livecontrol-eloquent-datatable-49488446f3116ebf725447bb805bb76c28109d1b-zip-1373d5.zip",
+                "url": "https://api.github.com/repos/LiveControl/EloquentDataTable/zipball/49488446f3116ebf725447bb805bb76c28109d1b",
                 "reference": "49488446f3116ebf725447bb805bb76c28109d1b",
                 "shasum": "0ba96fb0adc9743a2b8813901f974a5e40337951"
             },
@@ -1513,7 +1555,7 @@
                 "eloquent",
                 "laravel"
             ],
-            "time": "2015-09-15 11:39:39"
+            "time": "2015-09-15T11:39:39+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1525,7 +1567,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/monolog-monolog-bad29cb8d18ab0315e6c477751418a82c850d558-zip-96ac6d.zip",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/bad29cb8d18ab0315e6c477751418a82c850d558",
                 "reference": "bad29cb8d18ab0315e6c477751418a82c850d558",
                 "shasum": "718b5e8b905ba0b58938f34a8ac5cdcbf4b1536d"
             },
@@ -1591,7 +1633,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-11-26 00:15:39"
+            "time": "2016-11-26T00:15:39+00:00"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -1603,7 +1645,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/mtdowling-cron-expression-9504fa9ea681b586028adaaa0877db4aecf32bad-zip-befff6.zip",
+                "url": "https://api.github.com/repos/mtdowling/cron-expression/zipball/9504fa9ea681b586028adaaa0877db4aecf32bad",
                 "reference": "9504fa9ea681b586028adaaa0877db4aecf32bad",
                 "shasum": "c00d8e58b4dc3147000d993094d817a7110dc7ec"
             },
@@ -1635,7 +1677,7 @@
                 "cron",
                 "schedule"
             ],
-            "time": "2017-01-23 04:29:33"
+            "time": "2017-01-23T04:29:33+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -1647,7 +1689,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/nesbot-carbon-7cdf42c0b1cc763ab7e4c33c47a24e27c66bfccc-zip-a91f9e.zip",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/7cdf42c0b1cc763ab7e4c33c47a24e27c66bfccc",
                 "reference": "7cdf42c0b1cc763ab7e4c33c47a24e27c66bfccc",
                 "shasum": "0eaf40d82e9f202118e68a2241e445c9fc33b4c3"
             },
@@ -1688,7 +1730,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2017-01-16 07:55:07"
+            "time": "2017-01-16T07:55:07+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -1700,7 +1742,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/nikic-php-parser-adf44419c0fc014a0f191db6f89d3e55d4211744-zip-f24ae6.zip",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/adf44419c0fc014a0f191db6f89d3e55d4211744",
                 "reference": "adf44419c0fc014a0f191db6f89d3e55d4211744",
                 "shasum": "f9dec0f0608dd4f77153050bbbc27c3f196911f5"
             },
@@ -1739,7 +1781,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2016-12-06 11:30:35"
+            "time": "2016-12-06T11:30:35+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -1751,7 +1793,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/paragonie-random_compat-a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e-zip-270862.zip",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e",
                 "reference": "a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e",
                 "shasum": "47af1fc90fc790b531c25f218c62aa15feb349d9"
             },
@@ -1787,7 +1829,66 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-11-07 23:38:38"
+            "time": "2016-11-07T23:38:38+00:00"
+        },
+        {
+            "name": "proengsoft/laravel-jsvalidation",
+            "version": "v1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/proengsoft/laravel-jsvalidation.git",
+                "reference": "62a3b44d9e74bc20cb0b68339f6ca8bf0439382c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/proengsoft/laravel-jsvalidation/zipball/62a3b44d9e74bc20cb0b68339f6ca8bf0439382c",
+                "reference": "62a3b44d9e74bc20cb0b68339f6ca8bf0439382c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "~5.0",
+                "illuminate/contracts": "~5.0",
+                "illuminate/http": "~5.0",
+                "illuminate/support": "~5.0",
+                "illuminate/translation": "~5.0",
+                "illuminate/validation": "~5.0",
+                "illuminate/view": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Proengsoft\\JsValidation\\": "src",
+                    "Proengsoft\\JsValidation\\Tests\\": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Albert Moreno",
+                    "email": "albert@memorylimit.net",
+                    "homepage": "https://github.com/torrentalle"
+                }
+            ],
+            "description": "Validate forms transparently with Javascript reusing your Laravel Validation Rules, Messages, and FormRequest",
+            "homepage": "https://github.com/proengsoft/laravel-jsvalidation",
+            "keywords": [
+                "form",
+                "javascript",
+                "jquery",
+                "laravel",
+                "proengsoft",
+                "validation",
+                "validator"
+            ],
+            "time": "2017-01-22T18:05:33+00:00"
         },
         {
             "name": "prologue/alerts",
@@ -1799,7 +1900,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/prologue-alerts-2a7184a9f39ab6f6dde85dbe0b9c783241bf52ea-zip-1da839.zip",
+                "url": "https://api.github.com/repos/prologuephp/alerts/zipball/2a7184a9f39ab6f6dde85dbe0b9c783241bf52ea",
                 "reference": "2a7184a9f39ab6f6dde85dbe0b9c783241bf52ea",
                 "shasum": "1dd7e3a00baa82981ceb5f726e3e81e33e5e2a16"
             },
@@ -1837,7 +1938,7 @@
                 "laravel",
                 "messages"
             ],
-            "time": "2017-01-24 13:22:25"
+            "time": "2017-01-24T13:22:25+00:00"
         },
         {
             "name": "psr/cache",
@@ -1849,7 +1950,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/psr-cache-d11b50ad223250cf17b86e38383413f5a6764bf8-zip-89985a.zip",
+                "url": "https://api.github.com/repos/php-fig/cache/zipball/d11b50ad223250cf17b86e38383413f5a6764bf8",
                 "reference": "d11b50ad223250cf17b86e38383413f5a6764bf8",
                 "shasum": "d70abc3c2528dd8a3615e1751a28736bcc8537ee"
             },
@@ -1883,7 +1984,7 @@
                 "psr",
                 "psr-6"
             ],
-            "time": "2016-08-06 20:24:11"
+            "time": "2016-08-06T20:24:11+00:00"
         },
         {
             "name": "psr/http-message",
@@ -1895,7 +1996,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/psr-http-message-f6561bf28d520154e4b0ec72be95418abe6d9363-zip-7ab320.zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
                 "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
                 "shasum": "151d24638b8ec2d91058e2778f3093d273ce3092"
             },
@@ -1933,7 +2034,7 @@
                 "request",
                 "response"
             ],
-            "time": "2016-08-06 14:39:51"
+            "time": "2016-08-06T14:39:51+00:00"
         },
         {
             "name": "psr/log",
@@ -1945,7 +2046,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/psr-log-4ebe3a8bf773a19edfe0a84b6585ba3d401b724d-zip-6434e8.zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
                 "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
                 "shasum": "8e2f32165a256a747f542661b13a86e561c0df4c"
             },
@@ -1980,7 +2081,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10 12:19:37"
+            "time": "2016-10-10T12:19:37+00:00"
         },
         {
             "name": "psy/psysh",
@@ -1992,7 +2093,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/psy-psysh-701e8a1cc426ee170f1296f5d9f6b8a26ad25c4a-zip-da2554.zip",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/701e8a1cc426ee170f1296f5d9f6b8a26ad25c4a",
                 "reference": "701e8a1cc426ee170f1296f5d9f6b8a26ad25c4a",
                 "shasum": "34ccc0e79ecac1ea551a98c4c95cbbc68860d390"
             },
@@ -2053,7 +2154,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2017-01-15 17:54:13"
+            "time": "2017-01-15T17:54:13+00:00"
         },
         {
             "name": "ramsey/uuid",
@@ -2065,7 +2166,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/ramsey-uuid-5677cfe02397dd6b58c861870dfaa5d9007d3954-zip-8bbdbf.zip",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/5677cfe02397dd6b58c861870dfaa5d9007d3954",
                 "reference": "5677cfe02397dd6b58c861870dfaa5d9007d3954",
                 "shasum": "2b587c1912ba67744a591a429810718dc680365b"
             },
@@ -2135,7 +2236,7 @@
                 "identifier",
                 "uuid"
             ],
-            "time": "2016-11-22 19:21:44"
+            "time": "2016-11-22T19:21:44+00:00"
         },
         {
             "name": "studio-42/elfinder",
@@ -2147,7 +2248,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/studio-42-elfinder-7ccdfb3e4f2c7cb015a6c2efd7779d4bbca8b7cd-zip-5d6d64.zip",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/7ccdfb3e4f2c7cb015a6c2efd7779d4bbca8b7cd",
                 "reference": "7ccdfb3e4f2c7cb015a6c2efd7779d4bbca8b7cd",
                 "shasum": "bb37a6d4765ecc4525778a6c623f61b45db4b38b"
             },
@@ -2193,7 +2294,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2017-01-11 14:33:46"
+            "time": "2017-01-11T14:33:46+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2205,7 +2306,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/swiftmailer-swiftmailer-cd142238a339459b10da3d8234220963f392540c-zip-3db607.zip",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/cd142238a339459b10da3d8234220963f392540c",
                 "reference": "cd142238a339459b10da3d8234220963f392540c",
                 "shasum": "ae06263a339ca67486bfbf3003859de3855646bd"
             },
@@ -2247,7 +2348,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2016-12-29 10:02:40"
+            "time": "2016-12-29T10:02:40+00:00"
         },
         {
             "name": "symfony/console",
@@ -2259,7 +2360,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/symfony-console-047f16485d68c083bd5d9b73ff16f9cb9c1a9f52-zip-07b7b0.zip",
+                "url": "https://api.github.com/repos/symfony/console/zipball/047f16485d68c083bd5d9b73ff16f9cb9c1a9f52",
                 "reference": "047f16485d68c083bd5d9b73ff16f9cb9c1a9f52",
                 "shasum": "15c54e9e410cab2f11b251da3b76d60580c54ffb"
             },
@@ -2308,7 +2409,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-01-08 20:43:43"
+            "time": "2017-01-08T20:43:43+00:00"
         },
         {
             "name": "symfony/debug",
@@ -2320,7 +2421,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/symfony-debug-c6661361626b3cf5cf2089df98b3b5006a197e85-zip-931043.zip",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/c6661361626b3cf5cf2089df98b3b5006a197e85",
                 "reference": "c6661361626b3cf5cf2089df98b3b5006a197e85",
                 "shasum": "10a0dae640bc43641f9e6e6218701491ef2be092"
             },
@@ -2365,7 +2466,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2017-01-28 00:04:57"
+            "time": "2017-01-28T00:04:57+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -2377,7 +2478,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/symfony-event-dispatcher-9137eb3a3328e413212826d63eeeb0217836e2b6-zip-0a07b6.zip",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/9137eb3a3328e413212826d63eeeb0217836e2b6",
                 "reference": "9137eb3a3328e413212826d63eeeb0217836e2b6",
                 "shasum": "0ef968120a882bb6316f97503139099e9f0b6489"
             },
@@ -2425,7 +2526,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2017-01-02 20:32:22"
+            "time": "2017-01-02T20:32:22+00:00"
         },
         {
             "name": "symfony/finder",
@@ -2437,7 +2538,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/symfony-finder-59687a255d1562f2c17b012418273862083d85f7-zip-f7ae13.zip",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/59687a255d1562f2c17b012418273862083d85f7",
                 "reference": "59687a255d1562f2c17b012418273862083d85f7",
                 "shasum": "e220093a3be542fe5ee89dc6d8d244bbd11c56d1"
             },
@@ -2474,7 +2575,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2017-01-02 20:31:54"
+            "time": "2017-01-02T20:31:54+00:00"
         },
         {
             "name": "symfony/http-foundation",
@@ -2486,7 +2587,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/symfony-http-foundation-cef0ad49a2e90455cfc649522025b5a2929648c0-zip-177996.zip",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/cef0ad49a2e90455cfc649522025b5a2929648c0",
                 "reference": "cef0ad49a2e90455cfc649522025b5a2929648c0",
                 "shasum": "3f58c963fff6d63a4cccf88a946f1d1b8bbc31b2"
             },
@@ -2527,7 +2628,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2017-01-08 20:43:43"
+            "time": "2017-01-08T20:43:43+00:00"
         },
         {
             "name": "symfony/http-kernel",
@@ -2539,7 +2640,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/symfony-http-kernel-c830387dec1b48c100473d10a6a356c3c3ae2a13-zip-697565.zip",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/c830387dec1b48c100473d10a6a356c3c3ae2a13",
                 "reference": "c830387dec1b48c100473d10a6a356c3c3ae2a13",
                 "shasum": "6b9e366847f6a7f96d73fbf62c113186a3fba139"
             },
@@ -2609,7 +2710,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2017-01-28 02:53:17"
+            "time": "2017-01-28T02:53:17+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -2621,7 +2722,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/symfony-polyfill-mbstring-e79d363049d1c2128f133a2667e4f4190904f7f4-zip-34592d.zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/e79d363049d1c2128f133a2667e4f4190904f7f4",
                 "reference": "e79d363049d1c2128f133a2667e4f4190904f7f4",
                 "shasum": "130afc740ccee3b2c4649c1ff1dcad78dc3aade2"
             },
@@ -2668,7 +2769,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-11-14 01:06:16"
+            "time": "2016-11-14T01:06:16+00:00"
         },
         {
             "name": "symfony/polyfill-php56",
@@ -2680,7 +2781,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/symfony-polyfill-php56-1dd42b9b89556f18092f3d1ada22cb05ac85383c-zip-075163.zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php56/zipball/1dd42b9b89556f18092f3d1ada22cb05ac85383c",
                 "reference": "1dd42b9b89556f18092f3d1ada22cb05ac85383c",
                 "shasum": "a3839313008db160037168624e515a0b633dadb3"
             },
@@ -2724,7 +2825,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-11-14 01:06:16"
+            "time": "2016-11-14T01:06:16+00:00"
         },
         {
             "name": "symfony/polyfill-util",
@@ -2736,7 +2837,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/symfony-polyfill-util-746bce0fca664ac0a575e465f65c6643faddf7fb-zip-f1603a.zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-util/zipball/746bce0fca664ac0a575e465f65c6643faddf7fb",
                 "reference": "746bce0fca664ac0a575e465f65c6643faddf7fb",
                 "shasum": "8987da6c46b840434705de5d0d2fa01c77a554dd"
             },
@@ -2776,7 +2877,7 @@
                 "polyfill",
                 "shim"
             ],
-            "time": "2016-11-14 01:06:16"
+            "time": "2016-11-14T01:06:16+00:00"
         },
         {
             "name": "symfony/process",
@@ -2788,7 +2889,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/symfony-process-2605753c5f8c531623d24d002825ebb1d6a22248-zip-5ae4ff.zip",
+                "url": "https://api.github.com/repos/symfony/process/zipball/2605753c5f8c531623d24d002825ebb1d6a22248",
                 "reference": "2605753c5f8c531623d24d002825ebb1d6a22248",
                 "shasum": "4d73ca71e9bdf5f9966a68d07f2c240c3b7eb804"
             },
@@ -2825,7 +2926,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2017-01-21 17:13:55"
+            "time": "2017-01-21T17:13:55+00:00"
         },
         {
             "name": "symfony/routing",
@@ -2837,7 +2938,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/symfony-routing-f25581d4eb0a82962c291917f826166f0dcd8a9a-zip-40019c.zip",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/f25581d4eb0a82962c291917f826166f0dcd8a9a",
                 "reference": "f25581d4eb0a82962c291917f826166f0dcd8a9a",
                 "shasum": "f8d02fe754604cf231839014411538929dd4c380"
             },
@@ -2900,7 +3001,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-01-28 00:04:57"
+            "time": "2017-01-28T00:04:57+00:00"
         },
         {
             "name": "symfony/translation",
@@ -2912,7 +3013,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/symfony-translation-d5a20fab5f63f44c233c69b3041c3cb1d4945e45-zip-502800.zip",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/d5a20fab5f63f44c233c69b3041c3cb1d4945e45",
                 "reference": "d5a20fab5f63f44c233c69b3041c3cb1d4945e45",
                 "shasum": "7ae78be470b0d7d8a6a4f0ede8353f0c49c4eb74"
             },
@@ -2964,7 +3065,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2017-01-21 17:01:39"
+            "time": "2017-01-21T17:01:39+00:00"
         },
         {
             "name": "symfony/var-dumper",
@@ -2976,7 +3077,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/symfony-var-dumper-16df11647e5b992d687cb4eeeb9a882d5f5c26b9-zip-daf67c.zip",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/16df11647e5b992d687cb4eeeb9a882d5f5c26b9",
                 "reference": "16df11647e5b992d687cb4eeeb9a882d5f5c26b9",
                 "shasum": "d7bfec250c47fc87fa6cc21482b0aa03c1d08810"
             },
@@ -3027,7 +3128,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-01-24 13:02:38"
+            "time": "2017-01-24T13:02:38+00:00"
         },
         {
             "name": "venturecraft/revisionable",
@@ -3039,7 +3140,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/venturecraft-revisionable-5a76d29b897d4864cef41c605e7e03258dd5d051-zip-8254ce.zip",
+                "url": "https://api.github.com/repos/VentureCraft/revisionable/zipball/5a76d29b897d4864cef41c605e7e03258dd5d051",
                 "reference": "5a76d29b897d4864cef41c605e7e03258dd5d051",
                 "shasum": "56f72729f7f9c13a3106d2c7f767b3ec9e26065e"
             },
@@ -3075,7 +3176,7 @@
                 "model",
                 "revision"
             ],
-            "time": "2016-08-02 02:32:00"
+            "time": "2016-08-02T02:32:00+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -3087,7 +3188,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/vlucas-phpdotenv-3cc116adbe4b11be5ec557bf1d24dc5e3a21d18c-zip-f95db2.zip",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/3cc116adbe4b11be5ec557bf1d24dc5e3a21d18c",
                 "reference": "3cc116adbe4b11be5ec557bf1d24dc5e3a21d18c",
                 "shasum": "de0fd99d9d76b4c26fb047f7333302bf8117d5cd"
             },
@@ -3125,7 +3226,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2016-09-01 10:05:43"
+            "time": "2016-09-01T10:05:43+00:00"
         }
     ],
     "packages-dev": [
@@ -3139,7 +3240,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/backpack-generators-1df0fa0bd23e8cccc1e5906f1b603f6f4e3ef3e5-zip-2e1405.zip",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Generators/zipball/1df0fa0bd23e8cccc1e5906f1b603f6f4e3ef3e5",
                 "reference": "1df0fa0bd23e8cccc1e5906f1b603f6f4e3ef3e5",
                 "shasum": "98d2c5819223b7bad7d6ff52493c940a22ae9026"
             },
@@ -3184,7 +3285,176 @@
                 "request",
                 "view"
             ],
-            "time": "2016-12-21 10:06:14"
+            "time": "2016-12-21T10:06:14+00:00"
+        },
+        {
+            "name": "barryvdh/laravel-debugbar",
+            "version": "v2.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/barryvdh/laravel-debugbar.git",
+                "reference": "24e4f0261e352d3fd86d0447791b56ae49398674"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/24e4f0261e352d3fd86d0447791b56ae49398674",
+                "reference": "24e4f0261e352d3fd86d0447791b56ae49398674",
+                "shasum": "91bd0fea037930980c7c201414d0872085eb2e94"
+            },
+            "require": {
+                "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*",
+                "maximebf/debugbar": "~1.13.0",
+                "php": ">=5.5.9",
+                "symfony/finder": "~2.7|~3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Barryvdh\\Debugbar\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
+                }
+            ],
+            "description": "PHP Debugbar integration for Laravel",
+            "keywords": [
+                "debug",
+                "debugbar",
+                "laravel",
+                "profiler",
+                "webprofiler"
+            ],
+            "time": "2017-01-19T08:19:49+00:00"
+        },
+        {
+            "name": "barryvdh/laravel-ide-helper",
+            "version": "v2.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/barryvdh/laravel-ide-helper.git",
+                "reference": "a7fc2ec489aada6062d3a63ddc915004a21e38af"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/a7fc2ec489aada6062d3a63ddc915004a21e38af",
+                "reference": "a7fc2ec489aada6062d3a63ddc915004a21e38af",
+                "shasum": "e05ce86067065770a3f510010d0ea34ad2d74d97"
+            },
+            "require": {
+                "barryvdh/reflection-docblock": "^2.0.4",
+                "illuminate/console": "^5.0,<5.5",
+                "illuminate/filesystem": "^5.0,<5.5",
+                "illuminate/support": "^5.0,<5.5",
+                "php": ">=5.4.0",
+                "symfony/class-loader": "^2.3|^3.0"
+            },
+            "require-dev": {
+                "doctrine/dbal": "~2.3",
+                "phpunit/phpunit": "4.*",
+                "scrutinizer/ocular": "~1.1",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "suggest": {
+                "doctrine/dbal": "Load information from the database about models for phpdocs (~2.3)"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Barryvdh\\LaravelIdeHelper\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
+                }
+            ],
+            "description": "Laravel IDE Helper, generates correct PHPDocs for all Facade classes, to improve auto-completion.",
+            "keywords": [
+                "autocomplete",
+                "codeintel",
+                "helper",
+                "ide",
+                "laravel",
+                "netbeans",
+                "phpdoc",
+                "phpstorm",
+                "sublime"
+            ],
+            "time": "2017-01-05T21:20:42+00:00"
+        },
+        {
+            "name": "barryvdh/reflection-docblock",
+            "version": "v2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/barryvdh/ReflectionDocBlock.git",
+                "reference": "3dcbd98b5d9384a5357266efba8fd29884458e5c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barryvdh/ReflectionDocBlock/zipball/3dcbd98b5d9384a5357266efba8fd29884458e5c",
+                "reference": "3dcbd98b5d9384a5357266efba8fd29884458e5c",
+                "shasum": "5fe68ff5672967dd6a4962147c3696be5c0dd59f"
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0,<4.5"
+            },
+            "suggest": {
+                "dflydev/markdown": "~1.0",
+                "erusev/parsedown": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Barryvdh": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mike van Riel",
+                    "email": "mike.vanriel@naenius.com"
+                }
+            ],
+            "time": "2016-06-13T19:28:20+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -3196,7 +3466,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/doctrine-instantiator-8e884e78f9f0eb1329e445619e04456e64d8051d-zip-681b88.zip",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/8e884e78f9f0eb1329e445619e04456e64d8051d",
                 "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d",
                 "shasum": "eadcd4c9fab6da49ac101fa4cac5dd6fed1be0ab"
             },
@@ -3238,7 +3508,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2015-06-14 21:17:01"
+            "time": "2015-06-14T21:17:01+00:00"
         },
         {
             "name": "fzaninotto/faker",
@@ -3250,7 +3520,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/fzaninotto-faker-44f9a286a04b80c76a4e5fb7aad8bb539b920123-zip-6ed28f.zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/44f9a286a04b80c76a4e5fb7aad8bb539b920123",
                 "reference": "44f9a286a04b80c76a4e5fb7aad8bb539b920123",
                 "shasum": "dba37a7ff62d48ee918d48eb75e15c8d7950b463"
             },
@@ -3286,7 +3556,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2016-04-29 12:21:54"
+            "time": "2016-04-29T12:21:54+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -3298,7 +3568,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/hamcrest-hamcrest-php-b37020aa976fa52d3de9aa904aa2522dc518f79c-zip-2bc6c0.zip",
+                "url": "https://api.github.com/repos/hamcrest/hamcrest-php/zipball/b37020aa976fa52d3de9aa904aa2522dc518f79c",
                 "reference": "b37020aa976fa52d3de9aa904aa2522dc518f79c",
                 "shasum": "d7cf4d2338f4cd597c19b6b79e1875294607a68a"
             },
@@ -3331,7 +3601,68 @@
             "keywords": [
                 "test"
             ],
-            "time": "2015-05-11 14:41:42"
+            "time": "2015-05-11T14:41:42+00:00"
+        },
+        {
+            "name": "maximebf/debugbar",
+            "version": "1.13.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maximebf/php-debugbar.git",
+                "reference": "afee79a236348e39a44cb837106b7c5b4897ac2a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/afee79a236348e39a44cb837106b7c5b4897ac2a",
+                "reference": "afee79a236348e39a44cb837106b7c5b4897ac2a",
+                "shasum": "0bf1583ad5611f61c1004afd1b0c2b3a60cba77c"
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "psr/log": "^1.0",
+                "symfony/var-dumper": "^2.6|^3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0|^5.0"
+            },
+            "suggest": {
+                "kriswallsmith/assetic": "The best way to manage assets",
+                "monolog/monolog": "Log using Monolog",
+                "predis/predis": "Redis storage"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.13-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DebugBar\\": "src/DebugBar/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxime Bouroumeau-Fuseau",
+                    "email": "maxime.bouroumeau@gmail.com",
+                    "homepage": "http://maximebf.com"
+                },
+                {
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
+                }
+            ],
+            "description": "Debug bar in the browser for php application",
+            "homepage": "https://github.com/maximebf/php-debugbar",
+            "keywords": [
+                "debug",
+                "debugbar"
+            ],
+            "time": "2017-01-05T08:46:19+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -3343,7 +3674,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/mockery-mockery-4de7969f4664da3cef1ccd83866c9f59378c3371-zip-c8b095.zip",
+                "url": "https://api.github.com/repos/padraic/mockery/zipball/4de7969f4664da3cef1ccd83866c9f59378c3371",
                 "reference": "4de7969f4664da3cef1ccd83866c9f59378c3371",
                 "shasum": "5caf49fe3f6617cc6fecbde42f4267da295a689e"
             },
@@ -3396,7 +3727,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2016-12-19 14:50:55"
+            "time": "2016-12-19T14:50:55+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -3408,7 +3739,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/myclabs-deep-copy-5a5a9fc8025a08d8919be87d6884d5a92520cefe-zip-c650ed.zip",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/5a5a9fc8025a08d8919be87d6884d5a92520cefe",
                 "reference": "5a5a9fc8025a08d8919be87d6884d5a92520cefe",
                 "shasum": "c237e91115f5a4b3054b2bd161e1d46c6c173fd0"
             },
@@ -3438,7 +3769,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2017-01-26 22:05:40"
+            "time": "2017-01-26T22:05:40+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -3450,7 +3781,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/phpdocumentor-reflection-common-144c307535e82c8fdcaacbcfc1d6d8eeb896687c-zip-c3be2d.zip",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/144c307535e82c8fdcaacbcfc1d6d8eeb896687c",
                 "reference": "144c307535e82c8fdcaacbcfc1d6d8eeb896687c",
                 "shasum": "db4bbc460e8f090cdc0fa9c0f95f31595ad93352"
             },
@@ -3492,7 +3823,7 @@
                 "reflection",
                 "static analysis"
             ],
-            "time": "2015-12-27 11:43:31"
+            "time": "2015-12-27T11:43:31+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -3504,7 +3835,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/phpdocumentor-reflection-docblock-8331b5efe816ae05461b7ca1e721c01b46bafb3e-zip-319752.zip",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/8331b5efe816ae05461b7ca1e721c01b46bafb3e",
                 "reference": "8331b5efe816ae05461b7ca1e721c01b46bafb3e",
                 "shasum": "f65b62f1fe953a33262257820bd0429b5b6c516c"
             },
@@ -3537,7 +3868,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2016-09-30 07:12:33"
+            "time": "2016-09-30T07:12:33+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -3549,7 +3880,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/phpdocumentor-type-resolver-e224fb2ea2fba6d3ad6fdaef91cd09a172155ccb-zip-e5468a.zip",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/e224fb2ea2fba6d3ad6fdaef91cd09a172155ccb",
                 "reference": "e224fb2ea2fba6d3ad6fdaef91cd09a172155ccb",
                 "shasum": "7c684bc9dca28478c9411d51f8a29b3f0ad5312b"
             },
@@ -3584,7 +3915,7 @@
                     "email": "me@mikevanriel.com"
                 }
             ],
-            "time": "2016-11-25 06:54:22"
+            "time": "2016-11-25T06:54:22+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -3596,7 +3927,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/phpspec-prophecy-6c52c2722f8460122f96f86346600e1077ce22cb-zip-573078.zip",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/6c52c2722f8460122f96f86346600e1077ce22cb",
                 "reference": "6c52c2722f8460122f96f86346600e1077ce22cb",
                 "shasum": "e9de54dc2c786d11cf0707e97a67ce75dbc4d647"
             },
@@ -3647,7 +3978,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2016-11-21 14:58:47"
+            "time": "2016-11-21T14:58:47+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -3659,7 +3990,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/phpunit-php-code-coverage-c19cfc7cbb0e9338d8c469c7eedecc2a428b0971-zip-7197b1.zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/c19cfc7cbb0e9338d8c469c7eedecc2a428b0971",
                 "reference": "c19cfc7cbb0e9338d8c469c7eedecc2a428b0971",
                 "shasum": "8addd94adead1ad00e3c6bc256fe9b2d4fb6237c"
             },
@@ -3710,7 +4041,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-01-20 15:06:43"
+            "time": "2017-01-20T15:06:43+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -3722,7 +4053,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/phpunit-php-file-iterator-3cc8f69b3028d0f96a9078e6295d86e9bf019be5-zip-184bc9.zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/3cc8f69b3028d0f96a9078e6295d86e9bf019be5",
                 "reference": "3cc8f69b3028d0f96a9078e6295d86e9bf019be5",
                 "shasum": "823efbe51fbf0764d30b17b13f4ec6425abc8b26"
             },
@@ -3757,7 +4088,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2016-10-03 07:40:28"
+            "time": "2016-10-03T07:40:28+00:00"
         },
         {
             "name": "phpunit/php-text-template",
@@ -3769,7 +4100,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/phpunit-php-text-template-31f8b717e51d9a2afca6c9f046f5d69fc27c8686-zip-c6bcbd.zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-text-template/zipball/31f8b717e51d9a2afca6c9f046f5d69fc27c8686",
                 "reference": "31f8b717e51d9a2afca6c9f046f5d69fc27c8686",
                 "shasum": "bcb918efc31df548303338bf4ee4d5c16f0d6d33"
             },
@@ -3798,7 +4129,7 @@
             "keywords": [
                 "template"
             ],
-            "time": "2015-06-21 13:50:34"
+            "time": "2015-06-21T13:50:34+00:00"
         },
         {
             "name": "phpunit/php-timer",
@@ -3810,7 +4141,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/phpunit-php-timer-38e9124049cf1a164f1e4537caf19c99bf1eb260-zip-cb2ac7.zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/38e9124049cf1a164f1e4537caf19c99bf1eb260",
                 "reference": "38e9124049cf1a164f1e4537caf19c99bf1eb260",
                 "shasum": "398f4cb7fcd2bfb77e13a8f26ef6270de8d0bb50"
             },
@@ -3842,7 +4173,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2016-05-12 18:03:57"
+            "time": "2016-05-12T18:03:57+00:00"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -3854,7 +4185,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/phpunit-php-token-stream-3b402f65a4cc90abf6e1104e388b896ce209631b-zip-6915ed.zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/3b402f65a4cc90abf6e1104e388b896ce209631b",
                 "reference": "3b402f65a4cc90abf6e1104e388b896ce209631b",
                 "shasum": "4d1e0d29c2d39d4e59a8113ca98e69ad3fe1b78e"
             },
@@ -3891,7 +4222,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2016-11-15 14:06:22"
+            "time": "2016-11-15T14:06:22+00:00"
         },
         {
             "name": "phpunit/phpunit",
@@ -3903,7 +4234,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/phpunit-phpunit-69f832b87c731d5cacad7f91948778fe98335fdd-zip-9af143.zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/69f832b87c731d5cacad7f91948778fe98335fdd",
                 "reference": "69f832b87c731d5cacad7f91948778fe98335fdd",
                 "shasum": "0741ccd514c6d875dd7bdb7b0502fbd0373e62f7"
             },
@@ -3973,7 +4304,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-01-28 06:14:33"
+            "time": "2017-01-28T06:14:33+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3985,7 +4316,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/phpunit-phpunit-mock-objects-3ab72b65b39b491e0c011e2e09bb2206c2aa8e24-zip-3b7026.zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/3ab72b65b39b491e0c011e2e09bb2206c2aa8e24",
                 "reference": "3ab72b65b39b491e0c011e2e09bb2206c2aa8e24",
                 "shasum": "b5c695b804b4d1e531986f89b9ccd5e9a6521147"
             },
@@ -4032,7 +4363,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2016-12-08 20:27:08"
+            "time": "2016-12-08T20:27:08+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -4044,7 +4375,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/sebastian-code-unit-reverse-lookup-c36f5e7cfce482fde5bf8d10d41a53591e0198fe-zip-91f3fd.zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/code-unit-reverse-lookup/zipball/c36f5e7cfce482fde5bf8d10d41a53591e0198fe",
                 "reference": "c36f5e7cfce482fde5bf8d10d41a53591e0198fe",
                 "shasum": "f987b2137a23bf4b5cfa69bb058211fea4444c9e"
             },
@@ -4077,7 +4408,7 @@
             ],
             "description": "Looks up which function or method a line of code belongs to",
             "homepage": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/",
-            "time": "2016-02-13 06:45:14"
+            "time": "2016-02-13T06:45:14+00:00"
         },
         {
             "name": "sebastian/comparator",
@@ -4089,7 +4420,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/sebastian-comparator-2b7424b55f5047b47ac6e5ccb20b2aea4011d9be-zip-5c4a53.zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/2b7424b55f5047b47ac6e5ccb20b2aea4011d9be",
                 "reference": "2b7424b55f5047b47ac6e5ccb20b2aea4011d9be",
                 "shasum": "ed70e89d081f5e0f4e96b4b8c6389bf4f610e242"
             },
@@ -4141,7 +4472,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2017-01-29 09:50:25"
+            "time": "2017-01-29T09:50:25+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -4153,7 +4484,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/sebastian-diff-13edfd8706462032c2f52b4b862974dd46b71c9e-zip-13c115.zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/13edfd8706462032c2f52b4b862974dd46b71c9e",
                 "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e",
                 "shasum": "a174826f5fa7509f55490345d9dbc3bbbe595aad"
             },
@@ -4193,7 +4524,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2015-12-08 07:14:41"
+            "time": "2015-12-08T07:14:41+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -4205,7 +4536,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/sebastian-environment-5795ffe5dc5b02460c3e34222fee8cbe245d8fac-zip-f320b8.zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/5795ffe5dc5b02460c3e34222fee8cbe245d8fac",
                 "reference": "5795ffe5dc5b02460c3e34222fee8cbe245d8fac",
                 "shasum": "45b94b4a8cf20826b49b80cde61ffd0e745f14e0"
             },
@@ -4243,7 +4574,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2016-11-26 07:53:53"
+            "time": "2016-11-26T07:53:53+00:00"
         },
         {
             "name": "sebastian/exporter",
@@ -4255,7 +4586,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/sebastian-exporter-ce474bdd1a34744d7ac5d6aad3a46d48d9bac4c4-zip-72608d.zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/ce474bdd1a34744d7ac5d6aad3a46d48d9bac4c4",
                 "reference": "ce474bdd1a34744d7ac5d6aad3a46d48d9bac4c4",
                 "shasum": "1b22c0294e82c822865253f57dc9661182988df2"
             },
@@ -4310,7 +4641,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2016-11-19 08:54:04"
+            "time": "2016-11-19T08:54:04+00:00"
         },
         {
             "name": "sebastian/global-state",
@@ -4322,7 +4653,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/sebastian-global-state-bc37d50fea7d017d3d340f230811c9f1d7280af4-zip-c4abec.zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/bc37d50fea7d017d3d340f230811c9f1d7280af4",
                 "reference": "bc37d50fea7d017d3d340f230811c9f1d7280af4",
                 "shasum": "57bdca2997e8f687c657abd212ba39e1cb976c3b"
             },
@@ -4361,7 +4692,7 @@
             "keywords": [
                 "global state"
             ],
-            "time": "2015-10-12 03:26:01"
+            "time": "2015-10-12T03:26:01+00:00"
         },
         {
             "name": "sebastian/object-enumerator",
@@ -4373,7 +4704,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/sebastian-object-enumerator-96f8a3f257b69e8128ad74d3a7fd464bcbaa3b35-zip-43f40f.zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/object-enumerator/zipball/96f8a3f257b69e8128ad74d3a7fd464bcbaa3b35",
                 "reference": "96f8a3f257b69e8128ad74d3a7fd464bcbaa3b35",
                 "shasum": "8e8bedb58b9ae12176b1e9fc2edf2d01f908902f"
             },
@@ -4407,7 +4738,7 @@
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
             "homepage": "https://github.com/sebastianbergmann/object-enumerator/",
-            "time": "2016-11-19 07:35:10"
+            "time": "2016-11-19T07:35:10+00:00"
         },
         {
             "name": "sebastian/recursion-context",
@@ -4419,7 +4750,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/sebastian-recursion-context-2c3ba150cbec723aa057506e73a8d33bdb286c9a-zip-567089.zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/recursion-context/zipball/2c3ba150cbec723aa057506e73a8d33bdb286c9a",
                 "reference": "2c3ba150cbec723aa057506e73a8d33bdb286c9a",
                 "shasum": "9db109a79a402c115ee39d6212b21372145da178"
             },
@@ -4460,7 +4791,7 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2016-11-19 07:33:16"
+            "time": "2016-11-19T07:33:16+00:00"
         },
         {
             "name": "sebastian/resource-operations",
@@ -4472,7 +4803,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/sebastian-resource-operations-ce990bb21759f94aeafd30209e8cfcdfa8bc3f52-zip-4a3a08.zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/resource-operations/zipball/ce990bb21759f94aeafd30209e8cfcdfa8bc3f52",
                 "reference": "ce990bb21759f94aeafd30209e8cfcdfa8bc3f52",
                 "shasum": "802655ec9257eb3fd1d138a6bf3c915f899857f9"
             },
@@ -4502,7 +4833,7 @@
             ],
             "description": "Provides a list of PHP built-in functions that operate on resources",
             "homepage": "https://www.github.com/sebastianbergmann/resource-operations",
-            "time": "2015-07-28 20:34:47"
+            "time": "2015-07-28T20:34:47+00:00"
         },
         {
             "name": "sebastian/version",
@@ -4514,7 +4845,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/sebastian-version-99732be0ddb3361e16ad77b68ba41efc8e979019-zip-0eee83.zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/version/zipball/99732be0ddb3361e16ad77b68ba41efc8e979019",
                 "reference": "99732be0ddb3361e16ad77b68ba41efc8e979019",
                 "shasum": "08569cd774eefa985d765989f5cfe2ba4c8aa6fe"
             },
@@ -4545,7 +4876,63 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
-            "time": "2016-10-03 07:35:21"
+            "time": "2016-10-03T07:35:21+00:00"
+        },
+        {
+            "name": "symfony/class-loader",
+            "version": "v3.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/class-loader.git",
+                "reference": "0152f7a47acd564ca62c652975c2b32ac6d613a6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/class-loader/zipball/0152f7a47acd564ca62c652975c2b32ac6d613a6",
+                "reference": "0152f7a47acd564ca62c652975c2b32ac6d613a6",
+                "shasum": "816baa14354f58aed004546b0515ace47ebd9277"
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "symfony/finder": "~2.8|~3.0",
+                "symfony/polyfill-apcu": "~1.1"
+            },
+            "suggest": {
+                "symfony/polyfill-apcu": "For using ApcClassLoader on HHVM"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\ClassLoader\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony ClassLoader Component",
+            "homepage": "https://symfony.com",
+            "time": "2017-01-10T14:14:38+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -4557,7 +4944,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/symfony-css-selector-722a87478a72d95dc2a3bcf41dc9c2d13fd4cb2d-zip-04eb01.zip",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/722a87478a72d95dc2a3bcf41dc9c2d13fd4cb2d",
                 "reference": "722a87478a72d95dc2a3bcf41dc9c2d13fd4cb2d",
                 "shasum": "a0896c29491980e62409cdb26a1c280fdfbfb4da"
             },
@@ -4598,7 +4985,7 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-            "time": "2017-01-02 20:31:54"
+            "time": "2017-01-02T20:31:54+00:00"
         },
         {
             "name": "symfony/dom-crawler",
@@ -4610,7 +4997,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/symfony-dom-crawler-7eede2a901a19928494194f7d1815a77b9a473a0-zip-226824.zip",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/7eede2a901a19928494194f7d1815a77b9a473a0",
                 "reference": "7eede2a901a19928494194f7d1815a77b9a473a0",
                 "shasum": "9838fea8c25662f01481a4590b972daf6fba1a08"
             },
@@ -4654,7 +5041,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-            "time": "2017-01-21 17:13:55"
+            "time": "2017-01-21T17:13:55+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -4666,7 +5053,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/symfony-yaml-50eadbd7926e31842893c957eca362b21592a97d-zip-6c80f3.zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/50eadbd7926e31842893c957eca362b21592a97d",
                 "reference": "50eadbd7926e31842893c957eca362b21592a97d",
                 "shasum": "49cd7a151764ea903e75806561314bad077af4d6"
             },
@@ -4709,7 +5096,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-01-03 13:51:32"
+            "time": "2017-01-03T13:51:32+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -4721,7 +5108,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://composer.upr.edu.cu/dist/webmozart-assert-2db61e59ff05fe5126d152bd0655c9ea113e550f-zip-36e9ad.zip",
+                "url": "https://api.github.com/repos/webmozart/assert/zipball/2db61e59ff05fe5126d152bd0655c9ea113e550f",
                 "reference": "2db61e59ff05fe5126d152bd0655c9ea113e550f",
                 "shasum": "7fc3ba89ea4564fa1a585bc32fca04c9c42746b2"
             },
@@ -4759,7 +5146,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2016-11-23 20:04:58"
+            "time": "2016-11-23T20:04:58+00:00"
         }
     ],
     "aliases": [],

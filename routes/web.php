@@ -12,5 +12,22 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if (!Auth::user())
+        return redirect()->to('login');
+    else
+        return redirect()->to('/dashboard');
 });
+
+Route::get('/dashboard', 'HomeController@index')->name('admin.dashboard');
+
+Route::resource('/proxies', 'ReverseProxyController');
+
+Route::resource('/files', 'FileManController');
+
+Route::get('/preferences/scripts', 'PreferencesController@scripts_index')
+    ->name('preferences.scripts.index');
+
+Route::put('/preferences/scripts', 'PreferencesController@scripts_update')
+    ->name('preferences.scripts.update');
+
+Auth::routes();
