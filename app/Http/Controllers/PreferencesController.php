@@ -41,6 +41,6 @@ class PreferencesController extends Controller
      * when I need it.
     */
     public function routes_index() {
-        throw new Exception('Not implemented');
+        
     }
 }
