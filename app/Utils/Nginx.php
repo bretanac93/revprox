@@ -91,6 +91,7 @@ class Nginx
         // Make a backup in case the file exists.
         if (file_exists("/etc/nginx/sites-available/$proxy_dns")) {
             $this->exec("mv /etc/nginx/sites-available/$proxy_dns /etc/nginx/sites-available/$proxy_dns.bak");
+            $this->exec("rm /etc/nginx/sites-enabled/$proxy_dns");
         }
 
         $script = $has_ssl ? "gen_ssl_file.sh" : "gen_http_file.sh";
@@ -119,7 +120,7 @@ class Nginx
      * and the second one will be the reason, if the pos0 == true then pos1 = null.
      */
     public function removeFile($proxy_dns) {
-        $this->exec("rm -f /etc/nginx/sites-available/$proxy_dns");
+        $this->exec("rm -f /etc/nginx/sites-available/$proxy_dns && rm /etc/nginx/sites-enabled/$proxy_dns");
         $res = $this->testConfiguration();
         if ($res == null) {
             $this->rebootNginxInstance();
