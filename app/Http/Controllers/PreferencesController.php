@@ -53,7 +53,6 @@ class PreferencesController extends Controller
     }
 
     public function routes_edit($id) {
-        $data = Input::all();
         $nginx_route = NginxRoute::whereId($id);
         if ($nginx_route == null) {
             return view('errors.404', [], 404);
@@ -69,11 +68,10 @@ class PreferencesController extends Controller
             return view('errors.404', [], 404);
         }
         $nginx_route->update($data);
-        return redirect()->to(route('preferences.routes.index'));
+        return redirect()->to(route('admin.preferences.index_routes'));
     }
 
     public function routes_remove($id) {
-        $data = Input::all();
         $nginx_route = NginxRoute::whereId($id);
         if ($nginx_route == null) {
             return view('errors.404', [], 404);

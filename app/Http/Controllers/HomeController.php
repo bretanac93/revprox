@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+//        dd(\Auth::user());
         return view('admin.home')
             ->with('proxy_count', ReverseProxy::all()->count());
     }
