@@ -166,6 +166,8 @@ return [
         /*
          * Package Service Providers...
          */
+        Adldap\Laravel\AdldapServiceProvider::class,
+        Adldap\Laravel\AdldapAuthServiceProvider::class,
 
         //
 //        Barryvdh\Elfinder\ElfinderServiceProvider::class,
@@ -227,7 +229,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Flash' => Laracasts\Flash\Flash::class,
-        'Nginx' => App\Facades\NginxFacade::class
+        'Nginx' => App\Facades\NginxFacade::class,
+        'Adldap' => Adldap\Laravel\Facades\Adldap::class,
     ],
 
 ];

@@ -11,7 +11,8 @@
         "backpack/base": "^0.7.14",
         "backpack/crud": "^3.1",
         "proengsoft/laravel-jsvalidation": "^1.5",
-        "laracasts/flash": "^2.0"
+        "laracasts/flash": "^2.0",
+        "adldap2/adldap2-laravel": "^3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
