@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use League\Flysystem\Exception;
+use App\NginxRoute;
 use Symfony\Component\Process\Process;
 
 class PreferencesController extends Controller
@@ -35,12 +35,50 @@ class PreferencesController extends Controller
         return redirect()->back();
     }
 
-    /*
-     * TODO: Nginx firewall routes on demand, this means that I will
-     * make a bunch of files in the server, and copy them to the nginx config dir
-     * when I need it.
-    */
     public function routes_index() {
-        
+        // Get all files and list them
+        // Make a copy of them in the db
+        return view('admin.preferences.index_routes')
+            ->with(['nginx_routes' => NginxRoute::all()]);
+    }
+
+    public function routes_create() {
+        return view('admin.preferences.create_routes');
+    }
+
+    public function routes_store() {
+        $data = Input::all();
+        NginxRoute::create($data);
+        return redirect()->to(route('preferences.routes.index'));
+    }
+
+    public function routes_edit($id) {
+        $data = Input::all();
+        $nginx_route = NginxRoute::whereId($id);
+        if ($nginx_route == null) {
+            return view('errors.404', [], 404);
+        }
+        return view('admin.preferences.update_routes')
+            ->with(['nginx_route' => $nginx_route]);
+    }
+
+    public function routes_update($id) {
+        $data = Input::all();
+        $nginx_route = NginxRoute::whereId($id);
+        if ($nginx_route == null) {
+            return view('errors.404', [], 404);
+        }
+        $nginx_route->update($data);
+        return redirect()->to(route('preferences.routes.index'));
+    }
+
+    public function routes_remove($id) {
+        $data = Input::all();
+        $nginx_route = NginxRoute::whereId($id);
+        if ($nginx_route == null) {
+            return view('errors.404', [], 404);
+        }
+        $nginx_route->delete();
+        return redirect()->to(route('preferences.routes.index'));
     }
 }
