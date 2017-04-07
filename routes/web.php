@@ -42,7 +42,7 @@ Route::post('/preferences/nginx_routes', 'PreferencesController@routes_store')
 Route::get('/preferences/nginx_routes/{id}', 'PreferencesController@routes_edit')
     ->name('preferences.routes.edit');
 
-Route::put('/preferences/nginx_routes/{id}', 'PreferencesController@routes_update')
+Route::put('/preferences/nginx_routes/{id}/update', 'PreferencesController@routes_update')
     ->name('preferences.routes.update');
 
 Route::delete('/preferences/nginx_routes/{id}', 'PreferencesController@routes_remove')

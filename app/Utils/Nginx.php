@@ -224,8 +224,8 @@ class Nginx
         foreach ($data as $item) {
             /* Check if the length of the current item is greater than 2.
              * This operation is because is a fact that the only item with more than 2
-             * elements is `listen`, but this rule is not mandatory, can exists the possibility
-             * that the value of this key be 443 without ssl or 80, in this case we got to check this as well.
+             * elements is `listen`, but this rule is not mandatory, it can exists the possibility
+             * that the value of this key is 443 without ssl or 80, in this case we have to check this as well.
             */
             if (strcmp($item[0], 'listen') == 0) {
                 $pattern[$translator[$item[0]]] = strcmp("443", $item[1]) == 0;
@@ -236,6 +236,38 @@ class Nginx
         }
         return $pattern;
     }
+
+    /**
+     * @param $name The filename to be used
+     * @param $ip_blocks The IP Blocks in CSV format
+     * @return bool Whether the file was created or not
+     */
+    public function createRouteFile($name, $ip_blocks) {
+        // Split the ip_blocks, is a csv so it's easy to parse :)
+        // We put the result array on a Eloquent Collection for concat every
+        // ip address with `allow `, using this we build the nginx route file
+        $blocks = collect(explode(',', $ip_blocks))->map(function ($item) {
+            return "allow $item;";
+        })->toArray();
+
+        array_push($blocks, "deny all;");
+//        dd($blocks);
+
+        $str = "";
+
+        foreach ($blocks as $item) {
+            $str .= "$item\r\n";
+        }
+        $slug = str_slug($name);
+        $res = file_put_contents("nginx_routes/$slug.conf", $str);
+
+        return true ? $res > 0 : false;
+    }
+
+    public function removeRouteFile($slug) {
+        $this->exec("rm -rf nginx_routes/$slug.conf");
+    }
+
     private function cleanIp($ip) {
         return trim($ip, "http://");
     }

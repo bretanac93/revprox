@@ -42,8 +42,8 @@
                                 <div class="btn-group">
                                     <a class="btn btn-default btn-sm" href="#"><i class="fa fa-refresh"></i></a>
                                     <a class="btn btn-default btn-sm" href="{{ url(route('proxies.edit', ['id' => $item->id])) }}"><i class="fa fa-edit"></i></a>
-                                    <a class="btn btn-default btn-sm" href="#" onclick="if(confirm('Estas seguro?')) event.preventDefault(); document.getElementById('destroy-form').submit();"><i class="fa fa-remove"></i></a>
-                                    <form id="destroy-form" action="{{ url(route('proxies.destroy', ['id' => $item->id])) }}" method="POST" style="display: none;">
+                                    <a class="btn btn-default btn-sm" href="#" onclick="if(confirm('Estas seguro?')) event.preventDefault(); document.getElementById('destroy-form-{{ $item->id }}').submit();"><i class="fa fa-remove"></i></a>
+                                    <form id="destroy-form-{{ $item->id }}" action="{{ url(route('proxies.destroy', ['id' => $item->id])) }}" method="POST" style="display: none;">
                                         {{ csrf_field() }}
                                         <input type="hidden" name="_method" value="DELETE">
                                     </form>

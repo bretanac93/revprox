@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Facades\NginxFacade;
 use App\NginxRoute;
 use Symfony\Component\Process\Process;
+use Illuminate\Support\Facades\Input;
 
 class PreferencesController extends Controller
 {
@@ -43,40 +45,62 @@ class PreferencesController extends Controller
     }
 
     public function routes_create() {
-        return view('admin.preferences.create_routes');
+        return view('admin.preferences.create_route')
+            ->with('route', new NginxRoute);
     }
 
     public function routes_store() {
         $data = Input::all();
-        NginxRoute::create($data);
+
+        $res = NginxFacade::createRouteFile(str_slug($data['name']), $data['ip_allow']);
+
+        if ($res)
+            NginxRoute::create($data);
+        else
+            \Flash::error("Error inesperado generando el fichero de rutas, intente de nuevo");
+
         return redirect()->to(route('preferences.routes.index'));
     }
 
     public function routes_edit($id) {
-        $nginx_route = NginxRoute::whereId($id);
+        $nginx_route = NginxRoute::whereId($id)->get()->first();
         if ($nginx_route == null) {
             return view('errors.404', [], 404);
         }
-        return view('admin.preferences.update_routes')
-            ->with(['nginx_route' => $nginx_route]);
+
+        return view('admin.preferences.update_route')
+            ->with(['route' => $nginx_route]);
     }
 
     public function routes_update($id) {
         $data = Input::all();
-        $nginx_route = NginxRoute::whereId($id);
+        $nginx_route = NginxRoute::whereId($id)->get()->first();
+
         if ($nginx_route == null) {
             return view('errors.404', [], 404);
         }
-        $nginx_route->update($data);
-        return redirect()->to(route('admin.preferences.index_routes'));
+        $res = NginxFacade::createRouteFile(str_slug($data['name']), $data['ip_allow']);
+
+        if ($res)
+            $nginx_route->update($data);
+        else
+            \Flash::error("Error inesperado generando el fichero de rutas, intente de nuevo");
+        return redirect()->to(route('preferences.routes.index'));
     }
 
     public function routes_remove($id) {
-        $nginx_route = NginxRoute::whereId($id);
+        $nginx_route = NginxRoute::find($id);
+        dd($nginx_route);
         if ($nginx_route == null) {
             return view('errors.404', [], 404);
         }
-        $nginx_route->delete();
+        $res = NginxFacade::removeRouteFile(str_slug($nginx_route->name));
+
+        if ($res)
+            $nginx_route->delete();
+        else
+            \Flash::error("Error inesperado eliminando el fichero de rutas, intente de nuevo");
+
         return redirect()->to(route('preferences.routes.index'));
     }
 }

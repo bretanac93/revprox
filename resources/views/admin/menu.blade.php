@@ -21,7 +21,7 @@
     </a>
     <ul class="treeview-menu">
         <li class="{{ Request::is('preferences/scripts*') ? 'active': '' }}"><a href="{!! url(route('preferences.scripts.index')) !!}"><i class="fa fa-terminal"></i> Scripts</a></li>
-        <li><a href="{{ Request::is('preferences/routes*') ? 'active': '' }}"><i class="fa fa-toggle-on"></i> Rutas</a></li>
+        <li class="{{ Request::is('preferences/nginx_routes*') ? 'active': '' }}"><a href="{!! url(route('preferences.routes.index')) !!}"><i class="fa fa-toggle-on"></i> Rutas</a></li>
     </ul>
 </li>
 <li><a href="{{ url('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i> <span>Salir</span></a></li>

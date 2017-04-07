@@ -15,6 +15,7 @@ class CreateNginxRoutesTable extends Migration
     {
         Schema::create('nginx_routes', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->string('ip_allow'); // CSV
             $table->timestamps();
         });
