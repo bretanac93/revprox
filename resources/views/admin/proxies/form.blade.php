@@ -21,6 +21,14 @@
             <span class="help-block">{{ $errors->first('proxy_dns') }}</span>
         </div>
 
+        <div class="form-group col-md-12">
+            <label for="route" class="sr-only"></label>
+            <select name="route" id="route" class="form-control">
+                @foreach($routes as $item)
+                    <option value="{{ str_slug($item->name) }}">{{ $item->name }}</option>
+                @endforeach
+            </select>
+        </div>
         {{--has_ssl--}}
         <div class="form-group col-md-12">
             <div class="checkbox">

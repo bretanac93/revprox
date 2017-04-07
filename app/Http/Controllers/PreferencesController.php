@@ -90,16 +90,13 @@ class PreferencesController extends Controller
 
     public function routes_remove($id) {
         $nginx_route = NginxRoute::find($id);
-        dd($nginx_route);
+//        dd($nginx_route);
         if ($nginx_route == null) {
             return view('errors.404', [], 404);
         }
-        $res = NginxFacade::removeRouteFile(str_slug($nginx_route->name));
+        NginxFacade::removeRouteFile(str_slug($nginx_route->name));
 
-        if ($res)
-            $nginx_route->delete();
-        else
-            \Flash::error("Error inesperado eliminando el fichero de rutas, intente de nuevo");
+        $nginx_route->delete();
 
         return redirect()->to(route('preferences.routes.index'));
     }

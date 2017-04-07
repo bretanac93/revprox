@@ -77,12 +77,13 @@ class Nginx
      * Generates nginx configuration file corresponding to the following parameters.
      * @param $proxy_dns string Proxy DNS
      * @param $server_ip string Server IP
+     * @param $available_routes Determine which routes are going to be allowed to access to the service
      * @param $has_ssl boolean Determine whether the created proxy
      * should be secure or not
      * @return array The first position will contains if the operation was completed or not
      * and the second one will be the reason, if the pos0 == true then pos1 = null.
      */
-    public function genNginxFile($proxy_dns, $server_ip, $has_ssl) {
+    public function genNginxFile($proxy_dns, $server_ip, $available_routes, $has_ssl) {
 
         if (!$this->isRootProcess()) {
             throw new \BadMethodCallException('El proceso no está siendo ejecutado con permisos de administración.');
@@ -96,13 +97,16 @@ class Nginx
 
         $script = $has_ssl ? "gen_ssl_file.sh" : "gen_http_file.sh";
 
-        $p = new Process("sh $script $proxy_dns $server_ip");
+        $this->exec("cp nginx_routes/$available_routes.conf /etc/nginx/routes/$available_routes.conf");
+
+        $p = new Process("sh $script $proxy_dns $available_routes $server_ip");
         $p->run();
 
         if (!$p->isSuccessful()) {
             throw new \RuntimeException($p->getErrorOutput());
         }
         else {
+
             $res = $this->testConfiguration();
             if ($res == null) {
                 $this->rebootNginxInstance();
@@ -120,7 +124,7 @@ class Nginx
      * and the second one will be the reason, if the pos0 == true then pos1 = null.
      */
     public function removeFile($proxy_dns) {
-        $this->exec("rm -f /etc/nginx/sites-available/$proxy_dns && rm /etc/nginx/sites-enabled/$proxy_dns");
+        $this->exec("rm -f /etc/nginx/sites-available/$proxy_dns && rm -f /etc/nginx/sites-enabled/$proxy_dns && /etc/nginx/sites-available/$proxy_dns.bak");
         $res = $this->testConfiguration();
         if ($res == null) {
             $this->rebootNginxInstance();
@@ -207,7 +211,7 @@ class Nginx
 
         $data = $this->transformPattern($col);
         $data['server_ip'] = $this->cleanIp($data['server_ip']);
-        $gen_res = $this->genNginxFile($data["proxy_dns"], $data["server_ip"], $data["has_ssl"]);
+        $gen_res = $this->genNginxFile($data["proxy_dns"], $data["server_ip"], "mes", $data["has_ssl"]);
 
         return [$data, $gen_res];
     }
@@ -259,13 +263,13 @@ class Nginx
             $str .= "$item\r\n";
         }
         $slug = str_slug($name);
-        $res = file_put_contents("nginx_routes/$slug.conf", $str);
+        $res = file_put_contents("/etc/nginx/routes/$slug.conf", $str);
 
         return true ? $res > 0 : false;
     }
 
     public function removeRouteFile($slug) {
-        $this->exec("rm -rf nginx_routes/$slug.conf");
+        $this->exec("rm -rf /etc/nginx/routes/$slug.conf");
     }
 
     private function cleanIp($ip) {

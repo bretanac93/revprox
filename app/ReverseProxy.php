@@ -49,6 +49,7 @@ class ReverseProxy extends Model
         'name',
         'server_ip',
         'proxy_dns',
+        'route',
         'has_ssl'
     ];
 

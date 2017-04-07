@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Facades\NginxFacade;
 use App\Http\Requests\StoreRevProxyRequest;
+use App\NginxRoute;
 use App\ReverseProxy;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Input;
@@ -24,7 +25,10 @@ class ReverseProxyController extends Controller
 
     public function create() {
         return view('admin.proxies.create')
-            ->with('rev_prox', new ReverseProxy());
+            ->with([
+                'rev_prox' => new ReverseProxy(),
+                'routes' => NginxRoute::all()
+            ]);
     }
 
     public function store(StoreRevProxyRequest $request) {
@@ -58,7 +62,7 @@ class ReverseProxyController extends Controller
             else {
                 try {
 //                    $this->generate_nginx_file($data['proxy_dns'], $data['server_ip'], $data['has_ssl']);
-                    $res = NginxFacade::genNginxFile($data['proxy_dns'], $data['server_ip'], $data['has_ssl']);
+                    $res = NginxFacade::genNginxFile($data['proxy_dns'], $data['route'], $data['server_ip'], $data['has_ssl']);
 
                     if ($res[0] = true) {
                         ReverseProxy::create($data);
@@ -87,7 +91,10 @@ class ReverseProxyController extends Controller
             return view('errors.404', [], 404);
 
         return view('admin.proxies.edit')
-            ->with('rev_prox', $rev_proxy);
+            ->with([
+                'rev_prox' => $rev_proxy,
+                'routes' => NginxRoute::all()
+            ]);
     }
 
     public function update($id) {
@@ -115,6 +122,8 @@ class ReverseProxyController extends Controller
             $rev_proxy->name = $data['name'];
         if (isset($data['proxy_dns']))
             $rev_proxy->proxy_dns = $data['proxy_dns'];
+        if (isset($data['route']))
+            $rev_proxy->route = $data['route'];
         if (isset($data['server_ip']))
             $rev_proxy->server_ip = $data['server_ip'];
 
@@ -127,7 +136,7 @@ class ReverseProxyController extends Controller
                 return redirect()->back();
             }
 
-            $res = NginxFacade::genNginxFile($data['proxy_dns'], $data['server_ip'], $data['has_ssl']);
+            $res = NginxFacade::genNginxFile($data['proxy_dns'], $data['route'], $data['server_ip'], $data['has_ssl']);
 
             if ($res[0] = true) {
                 $rev_proxy->save();

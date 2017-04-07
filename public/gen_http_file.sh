@@ -14,6 +14,7 @@ block="server {
     location / {
       proxy_pass http://${2};
       include /etc/nginx/proxy_params;
+      include /etc/nginx/routes/${3}.conf;
     }
 
     access_log off;

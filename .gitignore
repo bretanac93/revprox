@@ -8,3 +8,4 @@ Homestead.yaml
 .DS_Store
 /.project
 /.phpintel
+public/nginx_routes
