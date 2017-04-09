@@ -8,7 +8,10 @@
 
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link href="{{ asset('plugins/pace-loader/flash-white.css') }}" rel="stylesheet" />
+
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+{{--    <link rel="stylesheet" href="{{ asset('plugins/datatables/dataTables.bootstrap.css') }}">--}}
+    <link rel="stylesheet" href="{{ asset('plugins/datatables/jquery.dataTables_themeroller.css') }}">
     {{-- Custom validation css tag --}}
     <style>
         .error,
@@ -22,6 +25,7 @@
         }
 
     </style>
+
     @yield('page_level_styles')
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -279,9 +283,12 @@
 <script src="{{ asset('plugins/jquery-validation/dist/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('plugins/jquery-validation/dist/additional-methods.js') }}"></script>
 <script src="{{ asset('js/ipValidation.js') }}"></script>
-<script src="{{ asset('plugins/pace-loader/pace.min.js') }}"></script>
+
+<script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
+
 <!-- AdminLTE App -->
-<script src="{{ asset('js/vendor.min.js') }}"></script>
+<script src="{{ asset('js/vendor.js') }}"></script>
 
 @yield('level_scripts')
 

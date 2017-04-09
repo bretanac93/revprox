@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d1fb0d16131743efceb6f890afebe54b",
+    "content-hash": "27b4a39027fbb26c0d317a6808578eb6",
     "packages": [
         {
             "name": "adldap2/adldap2",
@@ -1249,6 +1249,59 @@
                 "tokenizer"
             ],
             "time": "2016-12-07T09:37:55+00:00"
+        },
+        {
+            "name": "kassner/log-parser",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kassner/log-parser.git",
+                "reference": "c2d5c7fedfdd54aa1f93c0ee197888e3af8e9c06"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kassner/log-parser/zipball/c2d5c7fedfdd54aa1f93c0ee197888e3af8e9c06",
+                "reference": "c2d5c7fedfdd54aa1f93c0ee197888e3af8e9c06",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.4"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "^1.12",
+                "phpmd/phpmd": "~2.1",
+                "phpunit/phpunit": "~4.4",
+                "sebastian/phpcpd": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Kassner": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache 2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Rafael Kassner",
+                    "email": "kassner@gmail.com",
+                    "homepage": "http://www.kassner.com.br/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP Log Parser Library",
+            "homepage": "http://github.com/kassner/log-parser",
+            "keywords": [
+                "apache",
+                "format",
+                "log",
+                "log-format",
+                "nginx",
+                "parser"
+            ],
+            "time": "2017-01-30T21:27:27+00:00"
         },
         {
             "name": "laracasts/flash",

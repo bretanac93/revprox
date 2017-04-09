@@ -16,8 +16,6 @@ block="server {
       include /etc/nginx/proxy_params;
       include /etc/nginx/routes/${3}.conf;
     }
-
-    access_log off;
     error_log  /var/log/nginx/$1-error.log error;
 }
 "

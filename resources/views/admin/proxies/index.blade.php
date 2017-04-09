@@ -2,10 +2,6 @@
 @section('title', 'Listado de proxies')
 @section('page_header', 'Listado de servidores')
 
-@section('page_level_styles')
-    <link rel="stylesheet" href="{{ asset('plugins/datatables/dataTables.bootstrap.css') }}">
-@stop
-
 @section('content')
     <div class="box">
         <div class="box-header">
@@ -74,8 +70,6 @@
     {{--</ul>--}}
 @stop
 @section('level_scripts')
-    <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
     <script>
         $(function () {
             $('.table').DataTable();

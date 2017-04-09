@@ -24,6 +24,9 @@ Route::resource('/proxies', 'ReverseProxyController');
 
 Route::resource('/files', 'FileManController');
 
+Route::get('/access_logs', 'AccessLogController@index')
+    ->name('admin.access_log.index');
+
 Route::get('/preferences/scripts', 'PreferencesController@scripts_index')
     ->name('preferences.scripts.index');
 

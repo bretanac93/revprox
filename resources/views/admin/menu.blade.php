@@ -9,8 +9,8 @@
 <li class="{{ Request::is('files*') ? 'active': ''}}">
     <a href="{{ url('files') }}"><i class="fa fa-file-text-o"></i> <span>Archivos</span></a>
 </li>
-<li>
-    <a href="#"><i class="fa fa-history"></i> <span>Historial</span></a>
+<li class="{{ Request::is('access_logs*') ? 'active': ''}}">
+    <a href="{!! url(route('admin.access_log.index')) !!}"><i class="fa fa-history"></i> <span>Historial de acceso</span></a>
 </li>
 <li class="treeview {{ Request::is('preferences/*') ? 'active': '' }}">
     <a href="#">

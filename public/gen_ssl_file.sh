@@ -31,7 +31,6 @@ block="server {
       include /etc/nginx/routes/${3}.conf;
     }
 
-    access_log off;
     error_log  /var/log/nginx/$1-error.log error;
 
     ssl_certificate     /etc/nginx/ssl/$1.crt;

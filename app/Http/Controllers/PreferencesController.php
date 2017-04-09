@@ -100,4 +100,5 @@ class PreferencesController extends Controller
 
         return redirect()->to(route('preferences.routes.index'));
     }
+
 }
