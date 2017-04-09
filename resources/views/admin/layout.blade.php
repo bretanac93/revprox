@@ -9,6 +9,19 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link href="{{ asset('plugins/pace-loader/flash-white.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    {{-- Custom validation css tag --}}
+    <style>
+        .error,
+        .error:active,
+        .error:visited
+        {
+            border-color: #dd4b39;
+        }
+        label.error {
+            color: #dd4b39;
+        }
+
+    </style>
     @yield('page_level_styles')
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -263,15 +276,14 @@
 <script src="{{ asset('js/app.js') }}"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('plugins/jquery-validation/dist/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('plugins/jquery-validation/dist/additional-methods.js') }}"></script>
+<script src="{{ asset('js/ipValidation.js') }}"></script>
 <script src="{{ asset('plugins/pace-loader/pace.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('js/vendor.min.js') }}"></script>
 
 @yield('level_scripts')
 
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. Slimscroll is required when using the
-     fixed layout. -->
 </body>
 </html>

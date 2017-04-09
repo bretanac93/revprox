@@ -1,4 +1,4 @@
-    @extends('admin.layout')
+@extends('admin.layout')
 @section('title', 'Editar Proxy')
 @section('page_header', 'Editar Proxy')
 
@@ -14,4 +14,7 @@
         <!-- /.box -->
         </div>
     </div>
+@stop
+@section('level_scripts')
+    @include('admin.proxies.validations')
 @stop

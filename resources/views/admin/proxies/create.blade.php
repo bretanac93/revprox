@@ -14,3 +14,6 @@
         </div>
     </div>
 @stop
+@section('level_scripts')
+    @include('admin.proxies.validations')
+@stop

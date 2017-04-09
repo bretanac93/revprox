@@ -110,14 +110,6 @@ class ReverseProxyController extends Controller
 
         $rules = ReverseProxy::$rules;
 
-        $validator = \Validator::make($data, $rules);
-
-        if ($validator->fails()) {
-            return redirect()
-                ->back()
-                ->withErrors($validator);
-        }
-
         if (isset($data['name']))
             $rev_proxy->name = $data['name'];
         if (isset($data['proxy_dns']))
@@ -152,8 +144,6 @@ class ReverseProxyController extends Controller
             return redirect()->back();
         }
     }
-    //TODO: Get a file content for showing to users in the ui.
-    //TODO: Show and delete functions.
 
     public function destroy($id) {
         if ($id == null) {
