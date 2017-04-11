@@ -255,15 +255,15 @@ class Nginx
         })->toArray();
 
         array_push($blocks, "deny all;");
-//        dd($blocks);
 
         $str = "";
 
         foreach ($blocks as $item) {
             $str .= "$item";
         }
+        
         $slug = str_slug($name);
-        $this->exec("sudo touch /etc/nginx/routes/$slug.conf && sudo echo $str > /etc/nginx/routes/$slug.conf");
+        $this->exec("sudo touch /etc/nginx/routes/$slug.conf && sudo echo '$str' > /etc/nginx/routes/$slug.conf");
         // $res = file_put_contents("/etc/nginx/routes/$slug.conf", $str);
 
         return true;
