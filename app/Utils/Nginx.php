@@ -190,7 +190,7 @@ class Nginx
 
         for ($i = 0; $i < count($string_col); $i++) {
             $item = $string_col[$i];
-            if (!strpos($item, "listen") && !strpos($item, "server_name") && !strpos($item, "proxy_pass")) {
+            if (!strpos($item, "listen") && !strpos($item, "server_name") && !strpos($item, "proxy_pass") && !strpos('include')) {
                 array_push($to_forget, $i);
             }
         }
@@ -208,7 +208,7 @@ class Nginx
 
             return $col;
         });
-
+        dd($col);
         $data = $this->transformPattern($col);
         $data['server_ip'] = $this->cleanIp($data['server_ip']);
         $gen_res = $this->genNginxFile($data["proxy_dns"], $data["server_ip"], "mes", $data["has_ssl"]);
