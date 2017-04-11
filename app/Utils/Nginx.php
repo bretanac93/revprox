@@ -263,8 +263,8 @@ class Nginx
         }
 
         $slug = str_slug($name);
-        $this->exec("sudo touch /etc/nginx/routes/$slug.conf && sudo echo '$str' > /etc/nginx/routes/$slug.conf");
-        // $res = file_put_contents("/etc/nginx/routes/$slug.conf", $str);
+        $output = $this->exec("sudo touch /etc/nginx/routes/$slug.conf && sudo echo '$str' > /etc/nginx/routes/$slug.conf");
+        dd($output);
 
         return true;
     }
