@@ -170,7 +170,6 @@ return [
         Adldap\Laravel\AdldapAuthServiceProvider::class,
 
         //
-//        Barryvdh\Elfinder\ElfinderServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
 
         /*
