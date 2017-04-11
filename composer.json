@@ -8,9 +8,6 @@
     "require": {
         "php": ">=5.6.4",
         "laravel/framework": "5.3.*",
-        "backpack/base": "^0.7.14",
-        "backpack/crud": "^3.1",
-        "proengsoft/laravel-jsvalidation": "^1.5",
         "laracasts/flash": "^2.0",
         "adldap2/adldap2-laravel": "^3.0",
         "kassner/log-parser": "^1.2"
