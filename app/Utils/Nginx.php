@@ -178,11 +178,14 @@ class Nginx
     /**
      * Process the file content, extracts info and generates
      * the new configuration file
+     * @param $filename The file name
      * @param $file_content The File content
      * @return array The first position will hold the extracted data,
      * and the second one the result of the file generation.
      */
-    public function processFileData($file_content) {
+    public function processFileData($filename, $file_content) {
+
+        
         $string_col = explode("\r\n", $file_content);
 
         $col = collect($string_col);
@@ -211,7 +214,10 @@ class Nginx
         dd($col);
         $data = $this->transformPattern($col);
         $data['server_ip'] = $this->cleanIp($data['server_ip']);
-        $gen_res = $this->genNginxFile($data["proxy_dns"], $data["server_ip"], "mes", $data["has_ssl"]);
+        
+        $this->exec("sudo mv /etc/nginx/sites-available/$filename /etc/nginx/sites-available/$filename.bak");
+        $this->exec("sudo sh gen_file.sh '$file_content' /etc/nginx/sites-available/$filename");
+        // $gen_res = $this->genNginxFile($data["proxy_dns"], $data["server_ip"], "mes", $data["has_ssl"]);
 
         return [$data, $gen_res];
     }
