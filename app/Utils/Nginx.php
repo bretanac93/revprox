@@ -260,12 +260,13 @@ class Nginx
         $str = "";
 
         foreach ($blocks as $item) {
-            $str .= "$item\r\n";
+            $str .= "$item";
         }
         $slug = str_slug($name);
-        $res = file_put_contents("/etc/nginx/routes/$slug.conf", $str);
+        $this->exec("sudo echo $str > /etc/nginx/routes/$slug.conf");
+        // $res = file_put_contents("/etc/nginx/routes/$slug.conf", $str);
 
-        return true ? $res > 0 : false;
+        return true;
     }
 
     public function removeRouteFile($slug) {

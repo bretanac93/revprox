@@ -26,8 +26,8 @@ class PreferencesController extends Controller
         $file = $dict[request('_file_id')];
         $content = request('file_content');
 
-        $this->exec("mv $file $file.bak");
-        $this->exec("touch $file");
+        $this->exec("sudo mv $file $file.bak");
+        $this->exec("sudo touch $file");
 //        $this->exec("echo $content > $file");
         $res = file_put_contents($file, $content);
 
