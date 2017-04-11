@@ -55,13 +55,13 @@ class ReverseProxyController extends Controller
             $p->run();
             $whoami = $p->getOutput();
 
-            if ($whoami !== "root\n") {
+            if ($whoami !== "www-data\n") {
                 Flash::error('No posee los permisos suficientes para realizar la operación, intente reiniciando el servidor con permisos de administración.');
                 return redirect()->back();
             }
             else {
                 try {
-//                    $this->generate_nginx_file($data['proxy_dns'], $data['server_ip'], $data['has_ssl']);
+		    $data['route'] = "test.conf";                   
                     $res = NginxFacade::genNginxFile($data['proxy_dns'], $data['route'], $data['server_ip'], $data['has_ssl']);
 
                     if ($res[0] = true) {
@@ -75,8 +75,8 @@ class ReverseProxyController extends Controller
                     Flash::success('Proxy creado satisfactoriamente.');
                     return redirect(route('proxies.index'));
                 } catch (\RuntimeException $e) {
-                    Flash::error('Error inesperado, intente de nuevo');
-//                    dd($e->getMessage());
+                   // Flash::error('Error inesperado, intente de nuevo');
+                    dd($e->getMessage());
                     return redirect()->back();
                 }
             }

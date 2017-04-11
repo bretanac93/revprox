@@ -20,14 +20,14 @@ class Nginx
      */
     private function isRootProcess() {
 
-        return $this->exec('whoami') === "root\n";
+        return $this->exec('whoami') === "www-data\n";
     }
 
     /**
      * Remove the temp files created in the project.
      */
     private function flushTemp() {
-        $this->exec('rm -rf temp/');
+        $this->exec('sudo rm -rf temp/');
     }
 
 
@@ -35,12 +35,12 @@ class Nginx
      * Generates temp log file to check if the test command contains any error.
      */
     private function generateTestsFile() {
-        $output = $this->exec('nginx -t');
-        $this->exec("mkdir test && echo $output > temp/file.test");
+        $output = $this->exec('sudo nginx -t');
+        $this->exec("sudo mkdir test && sudo echo $output > temp/file.test");
     }
 
     private function testFileContent() {
-        return $this->exec('cat temp/file.test');
+        return $this->exec('sudo cat temp/file.test');
     }
 
     /**
@@ -48,7 +48,7 @@ class Nginx
      * @return bool
      */
     private function containsErrors() {
-        $output = $this->exec("cat temp/file.test| grep emerg");
+        $output = $this->exec("sudo cat temp/file.test| grep emerg");
         return strlen($output) != 0;
     }
     /**
@@ -70,7 +70,7 @@ class Nginx
      * Restart the nginx process.
      */
     public function rebootNginxInstance() {
-        $this->exec('service nginx restart');
+        $this->exec('sudo service nginx restart');
     }
 
     /**
@@ -91,15 +91,15 @@ class Nginx
 
         // Make a backup in case the file exists.
         if (file_exists("/etc/nginx/sites-available/$proxy_dns")) {
-            $this->exec("mv /etc/nginx/sites-available/$proxy_dns /etc/nginx/sites-available/$proxy_dns.bak");
-            $this->exec("rm /etc/nginx/sites-enabled/$proxy_dns");
+            $this->exec("sudo mv /etc/nginx/sites-available/$proxy_dns /etc/nginx/sites-available/$proxy_dns.bak");
+            $this->exec("sudo rm /etc/nginx/sites-enabled/$proxy_dns");
         }
 
         $script = $has_ssl ? "gen_ssl_file.sh" : "gen_http_file.sh";
 
-        $this->exec("cp nginx_routes/$available_routes.conf /etc/nginx/routes/$available_routes.conf");
+        $this->exec("sudo cp nginx_routes/$available_routes.conf /etc/nginx/routes/$available_routes.conf");
 
-        $p = new Process("sh $script $proxy_dns $available_routes $server_ip");
+        $p = new Process("sudo sh $script $proxy_dns $available_routes $server_ip");
         $p->run();
 
         if (!$p->isSuccessful()) {
@@ -124,7 +124,7 @@ class Nginx
      * and the second one will be the reason, if the pos0 == true then pos1 = null.
      */
     public function removeFile($proxy_dns) {
-        $this->exec("rm -f /etc/nginx/sites-available/$proxy_dns && rm -f /etc/nginx/sites-enabled/$proxy_dns && /etc/nginx/sites-available/$proxy_dns.bak");
+        $this->exec("sudo rm -f /etc/nginx/sites-available/$proxy_dns && sudo rm -f /etc/nginx/sites-enabled/$proxy_dns /etc/nginx/sites-available/$proxy_dns.bak");
         $res = $this->testConfiguration();
         if ($res == null) {
             $this->rebootNginxInstance();
@@ -140,7 +140,7 @@ class Nginx
      * @return string The content of the file
      */
     public function getFile($proxy_dns) {
-        return $this->exec("cat /etc/nginx/sites-available/$proxy_dns");
+        return $this->exec("sudo cat /etc/nginx/sites-available/$proxy_dns");
     }
 
     /**
@@ -148,7 +148,7 @@ class Nginx
      * @param $proxy_dns The filename
      */
     public function upSite($proxy_dns) {
-        $this->exec("ln -fs /etc/nginx/sites-available/$proxy_dns /etc/nginx/sites-enabled/$proxy_dns");
+        $this->exec("sudo ln -fs /etc/nginx/sites-available/$proxy_dns /etc/nginx/sites-enabled/$proxy_dns");
     }
 
     /**
@@ -156,7 +156,7 @@ class Nginx
      * @param $proxy_dns The filename
      */
     public function downSite($proxy_dns) {
-        $this->exec("rm -f /etc/nginx/sites-enabled/$proxy_dns");
+        $this->exec("sudo rm -f /etc/nginx/sites-enabled/$proxy_dns");
     }
 
     /**
@@ -164,7 +164,7 @@ class Nginx
      * @param $proxy_dns The filename
      */
     public function onMaintenance($proxy_dns) {
-        $this->exec("cp -f maintenance_templates/503.html /etc/nginx/maintenance/503_$proxy_dns.html");
+        $this->exec("sudo cp -f maintenance_templates/503.html /etc/nginx/maintenance/503_$proxy_dns.html");
     }
 
     /**
@@ -172,7 +172,7 @@ class Nginx
      * @param $proxy_dns The filename
      */
     public function offMaintenance($proxy_dns) {
-        $this->exec("rm -f /etc/nginx/maintenance/503_$proxy_dns.html");
+        $this->exec("sudo rm -f /etc/nginx/maintenance/503_$proxy_dns.html");
     }
 
     /**
@@ -269,7 +269,7 @@ class Nginx
     }
 
     public function removeRouteFile($slug) {
-        $this->exec("rm -rf /etc/nginx/routes/$slug.conf");
+        $this->exec("sudo rm -rf /etc/nginx/routes/$slug.conf");
     }
 
     private function cleanIp($ip) {
