@@ -24,19 +24,10 @@ class FileManController extends Controller
     public function update($id) {
         $content = request('file_content');
         $filename = ReverseProxy::find($id)->proxy_dns;
-        $func_res = NginxFacade::processFileData($filename, $content);
-        $data = $func_res[0];
-        $res = $func_res[1];
-
-        if ($res[0] = true) {
-            $proxy = ReverseProxy::whereId($id);
-            $proxy->update($data);
-        }
-
-        else {
-            Flash::error($res[1]);
-            return redirect()->back();
-        }
+        $data = NginxFacade::processFileData($filename, $content);
+        
+        $proxy = ReverseProxy::whereId($id);
+        $proxy->update($data);
 
         Flash::success('Fichero modificado satisfactoriamente.');
         return redirect(route('files.index'));

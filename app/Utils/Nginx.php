@@ -201,6 +201,19 @@ class Nginx
         }
         $col->forget($to_forget);
 
+	$arr_col = $col->toArray();
+	//dd($arr_col);
+	$normalized = [];
+	$pos = 0;
+	foreach($arr_col as $item) {
+		if (!strpos($item, "proxy_params"))
+			$normalized[$pos] = $item;
+		$pos++;
+	}
+	
+
+	$col = collect($normalized);
+
         // Parse the remaining settings keys and values
         $col = $col->map(function ($item) {
             $item = trim($item);
@@ -208,23 +221,20 @@ class Nginx
             $col = collect(explode(" ", $item))->toArray();
 
             for ($i = 0; $i < count($col); $i++) {
-                if ($this->contains(';', $col[$i]));
-                $col[$i] = trim($col[$i], ';');
+                if ($this->contains(';', $col[$i]))
+                	$col[$i] = trim($col[$i], ';');
             }
 
             return $col;
         });
-
-        dd($col);
         
         $data = $this->transformPattern($col);
         $data['server_ip'] = $this->cleanIp($data['server_ip']);
-        
         $this->exec("sudo mv /etc/nginx/sites-available/$filename /etc/nginx/sites-available/$filename.bak");
-        $this->exec("sudo sh gen_file.sh '$file_content' /etc/nginx/sites-available/$filename");
-        $gen_res = $this->genNginxFile($data["proxy_dns"], $data["server_ip"], "mes", $data["has_ssl"]);
+        $this->exec("sudo sh gen_file.sh '$file_content' /etc/nginx/sites-available/$filename");	
+        //$gen_res = $this->genNginxFile($data["proxy_dns"], $data["server_ip"], $data['route'], $data["has_ssl"]);
 
-        return [$data, $gen_res];
+        return $data;
     }
 
     /**
@@ -233,7 +243,7 @@ class Nginx
      * @return array The readable array.
      */
     public function transformPattern($data) {
-        $translator = ['server_name' => 'proxy_dns', 'proxy_pass' => 'server_ip', 'listen' => 'has_ssl'];
+        $translator = ['server_name' => 'proxy_dns', 'proxy_pass' => 'server_ip', 'listen' => 'has_ssl', 'include' => 'route', '#include' => 'route'];
         $pattern = [];
 
         foreach ($data as $item) {
@@ -274,8 +284,9 @@ class Nginx
         }
 
         $slug = str_slug($name);
-        $this->exec("sudo touch /etc/nginx/routes/$slug.conf");
-	$this->exec("sudo sh routes.sh '$str' $slug");
+	$path = "/etc/nginx/routes/$slug.conf";
+        $this->exec("sudo touch $path");
+	$this->exec("sudo sh gen_file.sh '$str' '$path'");
 
 	//dd("Llego aqui");
 	//dd($output);
