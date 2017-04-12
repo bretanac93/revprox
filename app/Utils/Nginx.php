@@ -195,7 +195,7 @@ class Nginx
         // forget everything I am not interested on sync with db
         for ($i = 0; $i < count($string_col); $i++) {
             $item = $string_col[$i];
-            if (!strpos($item, "listen") && !strpos($item, "server_name") && !strpos($item, "proxy_pass") && !strpos('include')) {
+            if (!strpos($item, "listen") && !strpos($item, "server_name") && !strpos($item, "proxy_pass") && !strpos($item, 'include')) {
                 array_push($to_forget, $i);
             }
         }
