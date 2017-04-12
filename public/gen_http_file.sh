@@ -14,7 +14,7 @@ block="server {
     location / {
       proxy_pass http://${2};
       include /etc/nginx/proxy_params;
-      include /etc/nginx/routes/${3};
+      include /etc/nginx/routes/${3}.conf;
     }
     error_log  /var/log/nginx/$1-error.log error;
 }
