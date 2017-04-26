@@ -6,6 +6,8 @@ use App\Facades\NginxFacade;
 use App\NginxRoute;
 use Symfony\Component\Process\Process;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Http\Request;
+
 
 class PreferencesController extends Controller
 {
@@ -49,18 +51,35 @@ class PreferencesController extends Controller
             ->with('route', new NginxRoute);
     }
 
-    public function routes_store() {
-        $data = Input::all();
+    public function routes_store(Request $request) {
+        $file = $request->file('visibility_file');
+        $filename = $file->getClientOriginalName();
 
-        $res = NginxFacade::createRouteFile(str_slug($data['name']), $data['ip_allow']);
-
-        if ($res)
-            NginxRoute::create($data);
-        else
-            \Flash::error("Error inesperado generando el fichero de rutas, intente de nuevo");
-
+        try {
+            $file->move(public_path('/visibility_files'), $filename);
+            $this->exec("sudo mv visibility_files/$filename /etc/nginx/routes/$filename");
+            // Once the file is copied then persist to the db
+            NginxRoute::create(['name' => "/etc/nginx/routes/$filename"]);
+        } catch (FileException $e) {
+            Flash::error('No se ha podido subir el fichero, intente de nuevo');
+        }
         return redirect()->to(route('preferences.routes.index'));
     }
+
+    // public function routes_store() {
+    //     $data = Input::all();
+    //
+    //     $file = $data['visibility_file'];
+    //
+    //     $res = NginxFacade::createRouteFile(str_slug($data['name']), $data['ip_allow']);
+    //
+    //     if ($res)
+    //         NginxRoute::create($data);
+    //     else
+    //         \Flash::error("Error inesperado generando el fichero de rutas, intente de nuevo");
+    //
+    //     return redirect()->to(route('preferences.routes.index'));
+    // }
 
     public function routes_edit($id) {
         $nginx_route = NginxRoute::whereId($id)->get()->first();
@@ -100,5 +119,4 @@ class PreferencesController extends Controller
 
         return redirect()->to(route('preferences.routes.index'));
     }
-
 }
