@@ -66,6 +66,11 @@ return [
             'driver' => 'local',
             'root' => public_path('uploads'),
         ],
+        'route_configs' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/visibility_files'),
+            'visibility' => 'public',
+        ],
     ],
 
 ];

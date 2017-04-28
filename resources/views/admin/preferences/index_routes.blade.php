@@ -48,12 +48,12 @@
                             <tbody>
                                 @foreach($nginx_routes as $item)
                                     <tr>
-                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->real_path }}</td>
                                         <td>
                                             <div class="btn-group">
                                                 <a class="btn btn-default btn-sm" href="{{ url(route('preferences.routes.download', ['id' => $item->id])) }}"><i class="fa fa-download"></i></a>
-                                                <a class="btn btn-default btn-sm" href="{{ url(route('preferences.routes.upload', ['id' => $item->id])) }}"><i class="fa fa-upload"></i></a>
-                                                <a class="btn btn-default btn-sm" href="#" onclick="if(confirm('Estas seguro?')) event.preventDefault(); document.getElementById('destroy-form-{{ $item->id }}').submit();"><i class="fa fa-remove"></i></a>
+                                                <a class="btn btn-default btn-sm" data-toggle="modal" data-target="#files-modal"><i class="fa fa-upload"></i></a>
+                                                <a class="btn btn-default btn-sm" href="#" id="route_rem"><i class="fa fa-remove"></i></a>
                                                 <form id="destroy-form-{{ $item->id }}" action="{{ url(route('preferences.routes.delete', ['id' => $item->id])) }}" method="POST" style="display: none;">
                                                     {{ csrf_field() }}
                                                     <input type="hidden" name="_method" value="DELETE">
@@ -75,4 +75,21 @@
             <!-- /.box-body -->
         </div>
     </div>
+@stop
+{{-- if(confirm('Estas seguro?')) event.preventDefault(); document.getElementById('destroy-form-{{ $item->id }}').submit();" --}}
+@section('level_scripts')
+    <script>
+
+        $('#route_rem').click(function (e) {
+            e.preventDefault();
+            var res = confirm('Estas seguro?');
+            console.log(res);
+
+        })
+
+        $.get('/ajax/bak/none2.conf', function (res) {
+            if (res.data === "")
+                console.log(null);
+        });
+    </script>
 @stop

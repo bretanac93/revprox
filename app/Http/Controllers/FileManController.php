@@ -9,6 +9,11 @@ use Flash;
 
 class FileManController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index() {
         return view('admin.files.index')
             ->with('proxy_list', ReverseProxy::all());
@@ -25,7 +30,7 @@ class FileManController extends Controller
         $content = request('file_content');
         $filename = ReverseProxy::find($id)->proxy_dns;
         $data = NginxFacade::processFileData($filename, $content);
-        
+
         $proxy = ReverseProxy::whereId($id);
         $proxy->update($data);
 
