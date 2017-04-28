@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 {{--    <link rel="stylesheet" href="{{ asset('plugins/datatables/dataTables.bootstrap.css') }}">--}}
     <link rel="stylesheet" href="{{ asset('plugins/datatables/jquery.dataTables_themeroller.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/sweetalert/sweetalert.css') }}">
     {{-- Custom validation css tag --}}
     <style>
         .error,
@@ -173,6 +174,8 @@
 
 <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
+
+<script src="{{ asset('plugins/sweetalert/sweetalert.min.js') }}"></script>
 
 <!-- AdminLTE App -->
 <script src="{{ asset('js/vendor.js') }}"></script>

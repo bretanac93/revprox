@@ -53,9 +53,10 @@
                                             <div class="btn-group">
                                                 <a class="btn btn-default btn-sm" href="{{ url(route('preferences.routes.download', ['id' => $item->id])) }}"><i class="fa fa-download"></i></a>
                                                 <a class="btn btn-default btn-sm" data-toggle="modal" data-target="#files-modal"><i class="fa fa-upload"></i></a>
-                                                <a class="btn btn-default btn-sm" href="#" id="route_rem"><i class="fa fa-remove"></i></a>
-                                                <form id="destroy-form-{{ $item->id }}" action="{{ url(route('preferences.routes.delete', ['id' => $item->id])) }}" method="POST" style="display: none;">
+                                                <a class="btn btn-default btn-sm destroy-btn" href="#" id="route_rem" o-target="{{ $item->filename }}" o-target-id="{{ $item->id }}"><i class="fa fa-remove"></i></a>
+                                                <form class="destroy-form-hidden" action="{{ url(route('preferences.routes.delete', ['id' => $item->id])) }}" method="POST" style="display: none;">
                                                     {{ csrf_field() }}
+                                                    <input type="hidden" id="with_backup" name="with_backup" value="false">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                 </form>
                                             </div>
@@ -79,17 +80,88 @@
 {{-- if(confirm('Estas seguro?')) event.preventDefault(); document.getElementById('destroy-form-{{ $item->id }}').submit();" --}}
 @section('level_scripts')
     <script>
-
-        $('#route_rem').click(function (e) {
+        $('.destroy-btn').click(function (e) {
             e.preventDefault();
-            var res = confirm('Estas seguro?');
-            console.log(res);
+            var self = $(this);
+            var file = self.attr('o-target');
+            var file_id = self.attr('o-target-id');
 
-        })
 
-        $.get('/ajax/bak/none2.conf', function (res) {
-            if (res.data === "")
-                console.log(null);
+
+            swal({
+                title: 'Esta seguro?',
+                text: 'Una vez eliminado el archivo será irrecuperable',
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Si, eliminar',
+                cancelButtonText: 'Volver atrás',
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                closeOnConfirm: false,
+                closeOnCancel: false
+            }, function (isConfirm) {
+
+                if (isConfirm === true) {
+                    $.get('/ajax/bak/' + file, function (res) {
+                        has_bak = res.data === "" ? false: true;
+                        if (has_bak) {
+                            swal({
+                                title: 'Archivo con backup',
+                                text: 'Este archivo contiene un backup, desea crear uno nuevo, o mantener el actual?',
+                                type: 'info',
+                                showCancelButton: true,
+                                confirmButtonText: 'Mantener el actual',
+                                cancelButtonText: 'Crear uno nuevo',
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                                closeOnConfirm: false,
+                                closeOnCancel: false
+                            }, function(isConfirm) {
+                                // Yes - Keep the current
+                                // No - Create a new one
+                                if (isConfirm === true) {
+
+                                    // Delete the file and keep the bak
+
+                                    $.ajax({
+                                        url: '/preferences/nginx_routes/' + file_id,
+                                        method: 'POST',
+                                        data: {
+                                            _method: 'DELETE',
+                                            _token: "{{ csrf_token() }}",
+                                            with_backup: 1
+                                        },
+                                        success: function (res) {
+                                            console.log(res);
+                                            swal('Eliminado!', 'El archivo ha sido eliminado correctamente dejando el respaldo anterior.', 'success');
+                                        }
+                                    });
+
+                                } else if (isConfirm === false) {
+                                    $.ajax({
+                                        url: '/preferences/nginx_routes/' + file_id,
+                                        method: 'POST',
+                                        data: {
+                                            _method: 'DELETE',
+                                            _token: "{{ csrf_token() }}",
+                                            with_backup: 2
+                                        },
+                                        success: function (res) {
+                                            console.log(res);
+                                            swal('Eliminado!', 'El archivo ha sido eliminado correctamente creando un nuevo respaldo antes de la eliminacion.', 'success');
+                                        }
+                                    });
+                                    // Delete the file and override the bak
+
+                                }
+                            });
+                        }
+                    });
+                } //isConfirm
+                else {
+                    swal.close();
+                }
+            })
         });
     </script>
 @stop
