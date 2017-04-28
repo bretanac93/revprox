@@ -9,3 +9,4 @@ Homestead.yaml
 /.project
 /.phpintel
 public/nginx_routes
+public/visibility_files/*
