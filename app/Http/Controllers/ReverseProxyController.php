@@ -55,12 +55,12 @@ class ReverseProxyController extends Controller
             $p->run();
             $whoami = $p->getOutput();
 
-            if ($whoami !== "www-data\n") {
+            if ($whoami !== "root\n") {
                 Flash::error('No posee los permisos suficientes para realizar la operación, intente reiniciando el servidor con permisos de administración.');
                 return redirect()->back();
             }
             else {
-                try {                   
+                try {
                     $res = NginxFacade::genNginxFile($data['proxy_dns'], $data['route'], $data['server_ip'], $data['has_ssl']);
 
                     if ($res[0] = true) {
