@@ -1,6 +1,4 @@
-#!/usr/bin/env bash
-
-#Usage:
+# Usage:
 # sh gen_ssl_file.sh <proxy_dns> <server_ip>
 
 #TODO: Replace openssl for letsencrypt
@@ -13,8 +11,9 @@ block="server {
 
     location / {
       proxy_pass http://${2};
-      include /etc/nginx/routes/${3}.conf;     
+
       include /etc/nginx/proxy_params;
+      include /etc/nginx/routes/${3}.conf;
 
     }
     error_log  /var/log/nginx/$1-error.log error;
@@ -23,3 +22,5 @@ block="server {
 
 echo "$block" > "/etc/nginx/sites-available/$1"
 ln -fs "/etc/nginx/sites-available/$1" "/etc/nginx/sites-enabled/$1"
+
+

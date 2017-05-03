@@ -28,13 +28,10 @@ class PreferencesController extends Controller
 
         $this->exec("sudo mv $file $file.bak");
         $this->exec("sudo touch $file");
-//        $this->exec("echo $content > $file");
-        $res = file_put_contents($file, $content);
+	//file_put_contents($file, $content);
+	$this->exec("sudo gen_file.sh '$content' '$file'");
 
-        if ($res != false) {
-            return redirect()->to(route('preferences.scripts.index'));
-        }
-        return redirect()->back();
+        return redirect()->to(route('preferences.scripts.index'));
     }
 
     public function routes_index() {
