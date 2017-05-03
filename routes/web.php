@@ -43,12 +43,14 @@ Route::post('/preferences/nginx_routes', 'PreferencesController@routes_store')
     ->name('preferences.routes.store');
 
 Route::get('/preferences/nginx_routes/{id}', 'PreferencesController@routes_edit')
-    ->name('preferences.routes.edit');
+    ->name('preferences.routes.download');
 
 Route::put('/preferences/nginx_routes/{id}/update', 'PreferencesController@routes_update')
-    ->name('preferences.routes.update');
+    ->name('preferences.routes.upload');
 
 Route::delete('/preferences/nginx_routes/{id}', 'PreferencesController@routes_remove')
     ->name('preferences.routes.delete');
+
+Route::get('/ajax/bak/{filename}', 'PreferencesController@check_bak');
 
 Auth::routes();

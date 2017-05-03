@@ -97,8 +97,6 @@ class Nginx
 
         $script = $has_ssl ? "gen_ssl_file.sh" : "gen_http_file.sh";
 
-        $this->exec("sudo cp nginx_routes/$available_routes.conf /etc/nginx/routes/$available_routes.conf");
-
         $p = new Process("sudo sh $script $proxy_dns $available_routes $server_ip");
         $p->run();
 
@@ -184,7 +182,7 @@ class Nginx
      * and the second one the result of the file generation.
      */
     public function processFileData($filename, $file_content) {
-        
+
         // Separate by lines
         $string_col = explode("\r\n", $file_content);
 
@@ -210,7 +208,7 @@ class Nginx
 			$normalized[$pos] = $item;
 		$pos++;
 	}
-	
+
 
 	$col = collect($normalized);
 
@@ -227,11 +225,11 @@ class Nginx
 
             return $col;
         });
-        
+
         $data = $this->transformPattern($col);
         $data['server_ip'] = $this->cleanIp($data['server_ip']);
         $this->exec("sudo mv /etc/nginx/sites-available/$filename /etc/nginx/sites-available/$filename.bak");
-        $this->exec("sudo sh gen_file.sh '$file_content' /etc/nginx/sites-available/$filename");	
+        $this->exec("sudo sh gen_file.sh '$file_content' /etc/nginx/sites-available/$filename");
         //$gen_res = $this->genNginxFile($data["proxy_dns"], $data["server_ip"], $data['route'], $data["has_ssl"]);
 
         return $data;

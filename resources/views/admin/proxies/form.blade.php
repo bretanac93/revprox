@@ -25,7 +25,7 @@
             <label for="route" class="sr-only"></label>
             <select name="route" id="route" class="form-control">
                 @foreach($routes as $item)
-                    <option value="{{ str_slug($item->name) }}">{{ $item->name }}</option>
+                    <option value="{{ $item->filename }}">{{ $item->filename }}</option>
                 @endforeach
             </select>
         </div>

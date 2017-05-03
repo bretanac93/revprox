@@ -6,8 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class NginxRoute extends Model
 {
-    protected $fillable = [
-        'name',
-        'ip_allow'
-    ];
+    protected $fillable = ['real_path', 'downloadable', 'filename'];
 }

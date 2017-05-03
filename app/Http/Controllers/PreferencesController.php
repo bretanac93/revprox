@@ -6,9 +6,16 @@ use App\Facades\NginxFacade;
 use App\NginxRoute;
 use Symfony\Component\Process\Process;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PreferencesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function scripts_index() {
         $p = new Process('cat gen_http_file.sh');
         $p->run();
@@ -41,61 +48,83 @@ class PreferencesController extends Controller
             ->with(['nginx_routes' => NginxRoute::all()]);
     }
 
-    public function routes_create() {
-        return view('admin.preferences.create_route')
-            ->with('route', new NginxRoute);
-    }
+    public function routes_store(Request $request) {
+        $file = $request->file('visibility_file');
+        $filename = $file->getClientOriginalName();
 
-    public function routes_store() {
-        $data = Input::all();
+        try {
+            if (file_exists("visibility_files/$filename")) {
+                $path = public_path().'/visibility_files';
+                $original = "$path/$filename";
 
-        $res = NginxFacade::createRouteFile(str_slug($data['name']), $data['ip_allow']);
+                // Backup to the downloadable file
+                $this->exec("mv $original $path/$filename.bak");
 
-        if ($res)
-            NginxRoute::create($data);
-        else
-            \Flash::error("Error inesperado generando el fichero de rutas, intente de nuevo");
+                // Copy the uploaded file to the downloadable directory
+                $file->move(public_path('/visibility_files'), $filename);
 
+                // Backup the file in the nginx routes dir
+                $this->exec("sudo mv /etc/nginx/routes/$filename /etc/nginx/routes/$filename.bak");
+
+                // And copy the new one.
+                $this->exec("sudo cp visibility_files/$filename /etc/nginx/routes/$filename");
+            }
+
+            else {
+                // The file is new, so let's copy it for the first time.
+                $file->move(public_path('/visibility_files'), $filename);
+                $this->exec("sudo cp visibility_files/$filename /etc/nginx/routes/$filename");
+
+                NginxRoute::create([
+                    'real_path' => "/etc/nginx/routes/$filename",
+                    'downloadable' => "visibility_files/$filename",
+                    'filename' => $filename
+                ]);
+            }
+            // Once the file is copied then persist to the db
+        } catch (FileException $e) {
+            Flash::error('No se ha podido subir el fichero, intente de nuevo');
+        }
         return redirect()->to(route('preferences.routes.index'));
     }
 
+    // Download
     public function routes_edit($id) {
         $nginx_route = NginxRoute::whereId($id)->get()->first();
+
         if ($nginx_route == null) {
             return view('errors.404', [], 404);
         }
 
-        return view('admin.preferences.update_route')
-            ->with(['route' => $nginx_route]);
+        return response()->download($nginx_route->downloadable);
     }
 
-    public function routes_update($id) {
-        $data = Input::all();
-        $nginx_route = NginxRoute::whereId($id)->get()->first();
-
-        if ($nginx_route == null) {
-            return view('errors.404', [], 404);
-        }
-        $res = NginxFacade::createRouteFile(str_slug($data['name']), $data['ip_allow']);
-
-        if ($res)
-            $nginx_route->update($data);
-        else
-            \Flash::error("Error inesperado generando el fichero de rutas, intente de nuevo");
-        return redirect()->to(route('preferences.routes.index'));
+    public function check_bak($filename) {
+        $data = trim($this->exec("sudo ls /etc/nginx/routes | grep $filename.bak"));
+        return ['data' => $data];
     }
 
     public function routes_remove($id) {
         $nginx_route = NginxRoute::find($id);
-//        dd($nginx_route);
         if ($nginx_route == null) {
             return view('errors.404', [], 404);
         }
-        NginxFacade::removeRouteFile(str_slug($nginx_route->name));
+
+        $choice = request('with_backup');
+
+        $path = public_path().'/visibility_files';
+
+        if ($choice == 1) {
+            $this->exec("sudo rm -f /etc/nginx/routes/$nginx_route->filename");
+        }
+        else {
+            $this->exec("sudo mv /etc/nginx/routes/$nginx_route->filename /etc/nginx/routes/$nginx_route->filename.bak");
+        }
 
         $nginx_route->delete();
+        $this->exec("sudo rm -rf $path/$nginx_route->filename");
+        $this->exec("sudo rm -rf $path/$nginx_route->filename.bak");
 
-        return redirect()->to(route('preferences.routes.index'));
+        return response(['data' => 'Successfully', 'code' => 200], 200);
     }
-
 }

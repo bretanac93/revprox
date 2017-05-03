@@ -60,7 +60,7 @@ class ReverseProxyController extends Controller
                 return redirect()->back();
             }
             else {
-                try {                   
+                try {
                     $res = NginxFacade::genNginxFile($data['proxy_dns'], $data['route'], $data['server_ip'], $data['has_ssl']);
 
                     if ($res[0] = true) {
