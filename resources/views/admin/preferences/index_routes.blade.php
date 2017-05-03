@@ -47,7 +47,7 @@
                         </thead>
                             <tbody>
                                 @foreach($nginx_routes as $item)
-                                    <tr>
+                                    <tr id="route-{{ $item->id }}">
                                         <td>{{ $item->real_path }}</td>
                                         <td>
                                             <div class="btn-group">
@@ -86,8 +86,6 @@
             var file = self.attr('o-target');
             var file_id = self.attr('o-target-id');
 
-
-
             swal({
                 title: 'Esta seguro?',
                 text: 'Una vez eliminado el archivo será irrecuperable',
@@ -122,7 +120,6 @@
                                 if (isConfirm === true) {
 
                                     // Delete the file and keep the bak
-
                                     $.ajax({
                                         url: '/preferences/nginx_routes/' + file_id,
                                         method: 'POST',
@@ -132,11 +129,13 @@
                                             with_backup: 1
                                         },
                                         success: function (res) {
-                                            console.log(res);
-                                            swal('Eliminado!', 'El archivo ha sido eliminado correctamente dejando el respaldo anterior.', 'success');
+                                            if (res.code == 200) {
+                                                swal('Eliminado!', 'El archivo ha sido eliminado correctamente dejando el respaldo anterior.', 'success');
+                                                $('#route-'+file_id).remove();
+                                            }
                                         }
                                     });
-
+                                    // Delete the file and override the bak
                                 } else if (isConfirm === false) {
                                     $.ajax({
                                         url: '/preferences/nginx_routes/' + file_id,
@@ -147,12 +146,31 @@
                                             with_backup: 2
                                         },
                                         success: function (res) {
-                                            console.log(res);
-                                            swal('Eliminado!', 'El archivo ha sido eliminado correctamente creando un nuevo respaldo antes de la eliminacion.', 'success');
+                                            if (res.code == 200)
+                                                swal('Eliminado!', 'El archivo ha sido eliminado correctamente creando un nuevo respaldo antes de la eliminacion.', 'success');
+                                                $('#route-'+file_id).remove();
                                         }
                                     });
-                                    // Delete the file and override the bak
 
+                                }
+
+                            });
+                        }
+                        else {
+                            // Without bak, delete the file and create a new one.
+                            $.ajax({
+                                url: '/preferences/nginx_routes/' + file_id,
+                                method: 'POST',
+                                data: {
+                                    _method: 'DELETE',
+                                    _token: "{{ csrf_token() }}",
+                                    with_backup: 3
+                                },
+                                success: function (res) {
+                                    if (res.code == 200) {
+                                        swal('Eliminado!', 'El archivo ha sido eliminado correctamente creando un nuevo respaldo antes de la eliminacion.', 'success');
+                                        $('#route-'+file_id).remove();
+                                    }
                                 }
                             });
                         }

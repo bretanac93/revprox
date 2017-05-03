@@ -115,16 +115,19 @@ class PreferencesController extends Controller
 
         $choice = request('with_backup');
 
-        // Keep the backup and remove the file.
+        $path = public_path().'/visibility_files';
+
         if ($choice == 1) {
-            $this->exec("sudo rm -rf /etc/nginx/routes/$nginx_route->filename");
+            $this->exec("sudo rm -f /etc/nginx/routes/$nginx_route->filename");
         }
         else {
-            $this->exec("sudo mv /etc/nginx/routes/$nginx_route->filename.bak");
+            $this->exec("sudo mv /etc/nginx/routes/$nginx_route->filename /etc/nginx/routes/$nginx_route->filename.bak");
         }
 
         $nginx_route->delete();
+        $this->exec("sudo rm -rf $path/$nginx_route->filename");
+        $this->exec("sudo rm -rf $path/$nginx_route->filename.bak");
 
-        return redirect()->to(route('preferences.routes.index'));
+        return response(['data' => 'Successfully', 'code' => 200], 200);
     }
 }
