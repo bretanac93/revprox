@@ -20,7 +20,7 @@ class Nginx
      */
     private function isRootProcess() {
 
-        return $this->exec('whoami') === "root\n";
+        return $this->exec('whoami') === "www-data\n";
     }
 
     /**
