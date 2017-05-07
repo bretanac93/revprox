@@ -51,7 +51,7 @@
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>r</b>P</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>rev</b>Proxy</span>
+            <span class="logo-lg"><b>rev</b>Prox</span>
         </a>
 
         <!-- Header Navbar -->
