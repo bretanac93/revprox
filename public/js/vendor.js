@@ -98,7 +98,7 @@ $.AdminLTE.options = {
   //Direct Chat plugin options
   directChat: {
     //Enable direct chat by default
-    enable: true,
+    enable: false,
     //The button to open and close the chat contacts pane
     contactToggleSelector: '[data-widget="chat-pane-toggle"]'
   },
