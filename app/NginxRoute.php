@@ -10,6 +10,6 @@ class NginxRoute extends Model
 
     public function reverse_proxies()
     {
-    	return $this->hasMany(ReverseProxy::class, 'id');
+    	return $this->hasMany(ReverseProxy::class, 'route_id', 'id');
     }
 }

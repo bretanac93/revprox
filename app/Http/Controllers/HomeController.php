@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\ReverseProxy;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -23,8 +22,25 @@ class HomeController extends Controller
      */
     public function index()
     {
-//        dd(\Auth::user());
         return view('admin.home')
             ->with('proxy_count', ReverseProxy::all()->count());
+    }
+
+    public function sites_per_file()
+    {
+        $n_r     = \App\NginxRoute::all();
+        $res_arr = [];
+
+        foreach ($n_r as $item) {
+            $res_arr[] = ['label' => $item->filename, 'value' => count($item->reverse_proxies)];
+        };
+
+        return $res_arr;
+    }
+
+    public function online_users()
+    {
+        $users = \App\User::where('is_online', true)->limit(8)->get();
+        return $users;
     }
 }

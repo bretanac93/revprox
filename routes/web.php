@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/sites_per_file', 'HomeController@sites_per_file');
+Route::get('/online_users', 'HomeController@online_users');
+// Route::get('/latest_operations', 'HomeController@latest_operations');
+
 Route::get('/', function () {
     if (!Auth::user())
         return redirect()->to('login');
