@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Facades\NginxFacade;
 use App\NginxRoute;
-use Symfony\Component\Process\Process;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Symfony\Component\Process\Process;
 
 class PreferencesController extends Controller
 {
@@ -16,7 +13,8 @@ class PreferencesController extends Controller
         $this->middleware('auth');
     }
 
-    public function scripts_index() {
+    public function scripts_index()
+    {
         $p = new Process('cat gen_http_file.sh');
         $p->run();
         $sc1 = $p->getOutput();
@@ -28,9 +26,10 @@ class PreferencesController extends Controller
             ->with(['sc1_content' => $sc1, 'sc2_content' => $sc2]);
     }
 
-    public function scripts_update() {
-        $dict = ['http' => 'gen_http_file.sh', 'https' => 'gen_ssl_file.sh'];
-        $file = $dict[request('_file_id')];
+    public function scripts_update()
+    {
+        $dict    = ['http' => 'gen_http_file.sh', 'https' => 'gen_ssl_file.sh'];
+        $file    = $dict[request('_file_id')];
         $content = request('file_content');
 
         $this->exec("sudo mv $file $file.bak");
@@ -44,20 +43,22 @@ class PreferencesController extends Controller
         return redirect()->back();
     }
 
-    public function routes_index() {
+    public function routes_index()
+    {
         // Get all files and list them
         // Make a copy of them in the db
         return view('admin.preferences.index_routes')
             ->with(['nginx_routes' => NginxRoute::all()]);
     }
 
-    public function routes_store(Request $request) {
-        $file = $request->file('visibility_file');
+    public function routes_store(Request $request)
+    {
+        $file     = $request->file('visibility_file');
         $filename = $file->getClientOriginalName();
 
         try {
             if (file_exists("visibility_files/$filename")) {
-                $path = public_path().'/visibility_files';
+                $path     = public_path() . '/visibility_files';
                 $original = "$path/$filename";
 
                 // Backup to the downloadable file
@@ -71,17 +72,15 @@ class PreferencesController extends Controller
 
                 // And copy the new one.
                 $this->exec("sudo cp visibility_files/$filename /etc/nginx/routes/$filename");
-            }
-
-            else {
+            } else {
                 // The file is new, so let's copy it for the first time.
                 $file->move(public_path('/visibility_files'), $filename);
                 $this->exec("sudo cp visibility_files/$filename /etc/nginx/routes/$filename");
 
                 NginxRoute::create([
-                    'real_path' => "/etc/nginx/routes/$filename",
+                    'real_path'    => "/etc/nginx/routes/$filename",
                     'downloadable' => "visibility_files/$filename",
-                    'filename' => $filename
+                    'filename'     => $filename,
                 ]);
             }
             // Once the file is copied then persist to the db
@@ -92,7 +91,8 @@ class PreferencesController extends Controller
     }
 
     // Download
-    public function routes_edit($id) {
+    public function routes_edit($id)
+    {
         $nginx_route = NginxRoute::whereId($id)->get()->first();
 
         if ($nginx_route == null) {
@@ -102,12 +102,14 @@ class PreferencesController extends Controller
         return response()->download($nginx_route->downloadable);
     }
 
-    public function check_bak($filename) {
+    public function check_bak($filename)
+    {
         $data = trim($this->exec("sudo ls /etc/nginx/routes | grep $filename.bak"));
         return ['data' => $data];
     }
-
-    public function routes_remove($id) {
+    // Ajax
+    public function routes_remove($id)
+    {
         $nginx_route = NginxRoute::find($id);
         if ($nginx_route == null) {
             return view('errors.404', [], 404);
@@ -115,14 +117,17 @@ class PreferencesController extends Controller
 
         $choice = request('with_backup');
 
-        $path = public_path().'/visibility_files';
+        $path = public_path() . '/visibility_files';
 
         if ($choice == 1) {
             $this->exec("sudo rm -f /etc/nginx/routes/$nginx_route->filename");
-        }
-        else {
+        } else {
             $this->exec("sudo mv /etc/nginx/routes/$nginx_route->filename /etc/nginx/routes/$nginx_route->filename.bak");
         }
+
+        // Need to mv the websites conf files belonging to the visibility file we want to remove.
+
+        // $nginx_route->reverse_proxies;
 
         $nginx_route->delete();
         $this->exec("sudo rm -rf $path/$nginx_route->filename");
