@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\ReverseProxy;
 use App\Facades\NginxFacade;
-
+use App\ReverseProxy;
 use Flash;
 
 class FileManController extends Controller
@@ -13,23 +12,26 @@ class FileManController extends Controller
     {
         $this->middleware('auth');
     }
-    
-    public function index() {
+
+    public function index()
+    {
         return view('admin.files.index')
             ->with('proxy_list', ReverseProxy::all());
     }
 
-    public function edit($id) {
+    public function edit($id)
+    {
         return view('admin.files.edit', [
             'content' => NginxFacade::getFile(ReverseProxy::find($id)->proxy_dns),
-            'id' => $id
+            'id'      => $id,
         ]);
     }
 
-    public function update($id) {
-        $content = request('file_content');
+    public function update($id)
+    {
+        $content  = request('file_content');
         $filename = ReverseProxy::find($id)->proxy_dns;
-        $data = NginxFacade::processFileData($filename, $content);
+        $data     = NginxFacade::processFileData($filename, $content);
 
         $proxy = ReverseProxy::whereId($id);
         $proxy->update($data);

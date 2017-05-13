@@ -5,7 +5,6 @@
 @section('content')
     <div class="box">
         <div class="box-header">
-            <a class="btn btn-info pull-right" href="{{ url('proxies/create') }}"><i class="fa fa-plus"></i> <span>Añadir nuevo</span></a>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -55,7 +54,9 @@
 @section('level_scripts')
     <script>
         $(function () {
-            $('.table').DataTable();
+            $('.table').DataTable({
+                
+            });
         })
     </script>
 @stop

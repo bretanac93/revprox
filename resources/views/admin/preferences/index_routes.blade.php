@@ -28,7 +28,7 @@
                 </div>
             </div>
         </div>
-
+        
         <div class="box">
             <div class="box-header">
                 <a class="btn btn-info pull-right" data-toggle="modal" data-target="#files-modal"><i class="fa fa-plus"></i> <span>Añadir nuevo</span></a>

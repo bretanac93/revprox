@@ -6,7 +6,6 @@ use App\Facades\NginxFacade;
 use App\Http\Requests\StoreRevProxyRequest;
 use App\NginxRoute;
 use App\ReverseProxy;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Input;
 use Laracasts\Flash\Flash;
 use Symfony\Component\Process\Process;
@@ -18,22 +17,25 @@ class ReverseProxyController extends Controller
         $this->middleware('auth');
     }
 
-    public function index() {
+    public function index()
+    {
         return view('admin.proxies.index')
             ->with('proxy_list', ReverseProxy::all());
     }
 
-    public function create() {
+    public function create()
+    {
         return view('admin.proxies.create')
             ->with([
                 'rev_prox' => new ReverseProxy(),
-                'routes' => NginxRoute::all()
+                'routes'   => NginxRoute::all(),
             ]);
     }
 
-    public function store(StoreRevProxyRequest $request) {
+    public function store(StoreRevProxyRequest $request)
+    {
         $data = $request->all();
-
+        // dd($data);
         if (!isset($data['has_ssl'])) {
             $data['has_ssl'] = false;
         } else {
@@ -49,24 +51,22 @@ class ReverseProxyController extends Controller
             return redirect()
                 ->back()
                 ->withErrors($validator);
-        }
-        else {
+        } else {
             $p = new Process('whoami');
             $p->run();
             $whoami = $p->getOutput();
 
-            if ($whoami !== "www-data\n") {
+            if ($whoami !== "root\n") {
                 Flash::error('No posee los permisos suficientes para realizar la operación, intente reiniciando el servidor con permisos de administración.');
                 return redirect()->back();
-            }
-            else {
+            } else {
                 try {
-                    $res = NginxFacade::genNginxFile($data['proxy_dns'], $data['route'], $data['server_ip'], $data['has_ssl']);
+                    $route = NginxRoute::find($data['route_id'])->filename;
+                    $res   = NginxFacade::genNginxFile($data['proxy_dns'], $route, $data['server_ip'], $data['has_ssl']);
 
                     if ($res[0] = true) {
                         ReverseProxy::create($data);
-                    }
-                    else {
+                    } else {
                         Flash::error($res[1]);
                         return redirect()->back();
                     }
@@ -74,7 +74,7 @@ class ReverseProxyController extends Controller
                     Flash::success('Proxy creado satisfactoriamente.');
                     return redirect(route('proxies.index'));
                 } catch (\RuntimeException $e) {
-                   // Flash::error('Error inesperado, intente de nuevo');
+                    // Flash::error('Error inesperado, intente de nuevo');
                     dd($e->getMessage());
                     return redirect()->back();
                 }
@@ -82,26 +82,34 @@ class ReverseProxyController extends Controller
         }
     }
 
-    public function edit($id) {
-        if ($id == null)
+    public function edit($id)
+    {
+        if ($id == null) {
             return view('errors.400', [], 400);
+        }
+
         $rev_proxy = ReverseProxy::find($id);
-        if ($rev_proxy == null)
+        if ($rev_proxy == null) {
             return view('errors.404', [], 404);
+        }
 
         return view('admin.proxies.edit')
             ->with([
                 'rev_prox' => $rev_proxy,
-                'routes' => NginxRoute::all()
+                'routes'   => NginxRoute::all(),
             ]);
     }
 
-    public function update($id) {
-        if ($id == null)
+    public function update($id)
+    {
+        if ($id == null) {
             return view('errors.400', [], 400);
+        }
+
         $rev_proxy = ReverseProxy::find($id);
-        if ($rev_proxy == null)
+        if ($rev_proxy == null) {
             return view('errors.404', [], 404);
+        }
 
         $old_dns = $rev_proxy->proxy_dns;
 
@@ -109,20 +117,26 @@ class ReverseProxyController extends Controller
 
         $rules = ReverseProxy::$rules;
 
-        if (isset($data['name']))
+        if (isset($data['name'])) {
             $rev_proxy->name = $data['name'];
-        if (isset($data['proxy_dns']))
+        }
+
+        if (isset($data['proxy_dns'])) {
             $rev_proxy->proxy_dns = $data['proxy_dns'];
-        if (isset($data['route']))
+        }
+
+        if (isset($data['route'])) {
             $rev_proxy->route = $data['route'];
-        if (isset($data['server_ip']))
+        }
+
+        if (isset($data['server_ip'])) {
             $rev_proxy->server_ip = $data['server_ip'];
+        }
 
         try {
             $rm_res = NginxFacade::removeFile($old_dns);
 
-            if (!$rm_res[0])
-            {
+            if (!$rm_res[0]) {
                 Flash::error($rm_res[1]);
                 return redirect()->back();
             }
@@ -133,8 +147,7 @@ class ReverseProxyController extends Controller
                 $rev_proxy->save();
                 Flash::success('Proxy creado satisfactoriamente.');
                 return redirect(route('proxies.index'));
-            }
-            else {
+            } else {
                 Flash::error($res[1]);
                 return redirect()->back();
             }
@@ -144,7 +157,8 @@ class ReverseProxyController extends Controller
         }
     }
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
         if ($id == null) {
             return view('errors.400', [], 400);
         }
@@ -159,6 +173,7 @@ class ReverseProxyController extends Controller
             return redirect()->back();
         }
         $prox->delete();
+
         return redirect()->to(route('proxies.index'));
     }
 }

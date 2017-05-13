@@ -18,28 +18,31 @@ class Nginx
      * Check if the server is running by a root user.
      * @return bool $result
      */
-    private function isRootProcess() {
+    private function isRootProcess()
+    {
 
-        return $this->exec('whoami') === "www-data\n";
+        return $this->exec('whoami') === "www-data\n" || $this->exec('whoami') === "root\n";
     }
 
     /**
      * Remove the temp files created in the project.
      */
-    private function flushTemp() {
+    private function flushTemp()
+    {
         $this->exec('sudo rm -rf temp/');
     }
-
 
     /**
      * Generates temp log file to check if the test command contains any error.
      */
-    private function generateTestsFile() {
+    private function generateTestsFile()
+    {
         $output = $this->exec('sudo nginx -t');
         $this->exec("sudo mkdir test && sudo echo $output > temp/file.test");
     }
 
-    private function testFileContent() {
+    private function testFileContent()
+    {
         return $this->exec('sudo cat temp/file.test');
     }
 
@@ -47,21 +50,24 @@ class Nginx
      * Check if the test file contains any error
      * @return bool
      */
-    private function containsErrors() {
+    private function containsErrors()
+    {
         $output = $this->exec("sudo cat temp/file.test| grep emerg");
         return strlen($output) != 0;
     }
     /**
      * Executes a `nginx -t` command to check if everything is good.
      */
-    public function testConfiguration() {
+    public function testConfiguration()
+    {
         if (!$this->isRootProcess()) {
             throw new \BadMethodCallException('El proceso no está siendo ejecutado con permisos de administración.');
-        }
-        else {
+        } else {
             $this->generateTestsFile();
-            if ($this->containsErrors())
+            if ($this->containsErrors()) {
                 return $this->testFileContent();
+            }
+
             return null;
         }
     }
@@ -69,7 +75,8 @@ class Nginx
     /**
      * Restart the nginx process.
      */
-    public function rebootNginxInstance() {
+    public function rebootNginxInstance()
+    {
         $this->exec('sudo service nginx restart');
     }
 
@@ -83,7 +90,8 @@ class Nginx
      * @return array The first position will contains if the operation was completed or not
      * and the second one will be the reason, if the pos0 == true then pos1 = null.
      */
-    public function genNginxFile($proxy_dns, $server_ip, $available_routes, $has_ssl) {
+    public function genNginxFile($proxy_dns, $server_ip, $available_routes, $has_ssl)
+    {
 
         if (!$this->isRootProcess()) {
             throw new \BadMethodCallException('El proceso no está siendo ejecutado con permisos de administración.');
@@ -102,8 +110,7 @@ class Nginx
 
         if (!$p->isSuccessful()) {
             throw new \RuntimeException($p->getErrorOutput());
-        }
-        else {
+        } else {
 
             $res = $this->testConfiguration();
             if ($res == null) {
@@ -121,7 +128,8 @@ class Nginx
      * @return array The first position will contains if the operation was completed or not
      * and the second one will be the reason, if the pos0 == true then pos1 = null.
      */
-    public function removeFile($proxy_dns) {
+    public function removeFile($proxy_dns)
+    {
         $this->exec("sudo rm -f /etc/nginx/sites-available/$proxy_dns && sudo rm -f /etc/nginx/sites-enabled/$proxy_dns /etc/nginx/sites-available/$proxy_dns.bak");
         $res = $this->testConfiguration();
         if ($res == null) {
@@ -137,7 +145,8 @@ class Nginx
      * @param $proxy_dns The filename
      * @return string The content of the file
      */
-    public function getFile($proxy_dns) {
+    public function getFile($proxy_dns)
+    {
         return $this->exec("sudo cat /etc/nginx/sites-available/$proxy_dns");
     }
 
@@ -145,7 +154,8 @@ class Nginx
      * Makes a symlink of a file on sites_enabled to activate the site
      * @param $proxy_dns The filename
      */
-    public function upSite($proxy_dns) {
+    public function upSite($proxy_dns)
+    {
         $this->exec("sudo ln -fs /etc/nginx/sites-available/$proxy_dns /etc/nginx/sites-enabled/$proxy_dns");
     }
 
@@ -153,7 +163,8 @@ class Nginx
      * Removes the symlink of the file on sites_enabled to deactivate the site
      * @param $proxy_dns The filename
      */
-    public function downSite($proxy_dns) {
+    public function downSite($proxy_dns)
+    {
         $this->exec("sudo rm -f /etc/nginx/sites-enabled/$proxy_dns");
     }
 
@@ -161,7 +172,8 @@ class Nginx
      * Activates maintenance mode of a website given the dns
      * @param $proxy_dns The filename
      */
-    public function onMaintenance($proxy_dns) {
+    public function onMaintenance($proxy_dns)
+    {
         $this->exec("sudo cp -f maintenance_templates/503.html /etc/nginx/maintenance/503_$proxy_dns.html");
     }
 
@@ -169,7 +181,8 @@ class Nginx
      * Deactivates maintenance mode of a website given the dns
      * @param $proxy_dns The filename
      */
-    public function offMaintenance($proxy_dns) {
+    public function offMaintenance($proxy_dns)
+    {
         $this->exec("sudo rm -f /etc/nginx/maintenance/503_$proxy_dns.html");
     }
 
@@ -181,13 +194,14 @@ class Nginx
      * @return array The first position will hold the extracted data,
      * and the second one the result of the file generation.
      */
-    public function processFileData($filename, $file_content) {
+    public function processFileData($filename, $file_content)
+    {
 
         // Separate by lines
         $string_col = explode("\r\n", $file_content);
 
         // build a collection with the remaining array.
-        $col = collect($string_col);
+        $col       = collect($string_col);
         $to_forget = [];
 
         // forget everything I am not interested on sync with db
@@ -199,18 +213,19 @@ class Nginx
         }
         $col->forget($to_forget);
 
-	$arr_col = $col->toArray();
-	//dd($arr_col);
-	$normalized = [];
-	$pos = 0;
-	foreach($arr_col as $item) {
-		if (!strpos($item, "proxy_params"))
-			$normalized[$pos] = $item;
-		$pos++;
-	}
+        $arr_col = $col->toArray();
+        //dd($arr_col);
+        $normalized = [];
+        $pos        = 0;
+        foreach ($arr_col as $item) {
+            if (!strpos($item, "proxy_params")) {
+                $normalized[$pos] = $item;
+            }
 
+            $pos++;
+        }
 
-	$col = collect($normalized);
+        $col = collect($normalized);
 
         // Parse the remaining settings keys and values
         $col = $col->map(function ($item) {
@@ -219,15 +234,20 @@ class Nginx
             $col = collect(explode(" ", $item))->toArray();
 
             for ($i = 0; $i < count($col); $i++) {
-                if ($this->contains(';', $col[$i]))
-                	$col[$i] = trim($col[$i], ';');
+                if ($this->contains(';', $col[$i])) {
+                    $col[$i] = trim($col[$i], ';');
+                }
+
             }
 
             return $col;
         });
 
-        $data = $this->transformPattern($col);
+        $data              = $this->transformPattern($col);
         $data['server_ip'] = $this->cleanIp($data['server_ip']);
+        $data['route_id'] = \App\NginxRoute::where('real_path', $data['route'])->first()->id;
+        $data = collect($data)->forget(['route'])->toArray();
+
         $this->exec("sudo mv /etc/nginx/sites-available/$filename /etc/nginx/sites-available/$filename.bak");
         $this->exec("sudo sh gen_file.sh '$file_content' /etc/nginx/sites-available/$filename");
         //$gen_res = $this->genNginxFile($data["proxy_dns"], $data["server_ip"], $data['route'], $data["has_ssl"]);
@@ -240,20 +260,20 @@ class Nginx
      * @param $data array|Collection The extracted data from the modified file.
      * @return array The readable array.
      */
-    public function transformPattern($data) {
-        $translator = ['server_name' => 'proxy_dns', 'proxy_pass' => 'server_ip', 'listen' => 'has_ssl', 'include' => 'route', '#include' => 'route'];
-        $pattern = [];
+    public function transformPattern($data)
+    {
+        $translator = ['server_name' => 'proxy_dns', 'proxy_pass' => 'server_ip', 'listen' => 'has_ssl', 'include' => 'route', '#include' => 'route', '# include' => 'route'];
+        $pattern    = [];
 
         foreach ($data as $item) {
             /* Check if the length of the current item is greater than 2.
              * This operation is because is a fact that the only item with more than 2
              * elements is `listen`, but this rule is not mandatory, it can exists the possibility
              * that the value of this key is 443 without ssl or 80, in this case we have to check this as well.
-            */
+             */
             if (strcmp($item[0], 'listen') == 0) {
                 $pattern[$translator[$item[0]]] = strcmp("443", $item[1]) == 0;
-            }
-            else {
+            } else {
                 $pattern[$translator[$item[0]]] = $item[1];
             }
         }
@@ -265,7 +285,8 @@ class Nginx
      * @param $ip_blocks The IP Blocks in CSV format
      * @return bool Whether the file was created or not
      */
-    public function createRouteFile($name, $ip_blocks) {
+    public function createRouteFile($name, $ip_blocks)
+    {
         // Split the ip_blocks, is a csv so it's easy to parse :)
         // We put the result array on a Eloquent Collection for concat every
         // ip address with `allow `, using this we build the nginx route file
@@ -282,21 +303,20 @@ class Nginx
         }
 
         $slug = str_slug($name);
-	$path = "/etc/nginx/routes/$slug.conf";
+        $path = "/etc/nginx/routes/$slug.conf";
         $this->exec("sudo touch $path");
-	$this->exec("sudo sh gen_file.sh '$str' '$path'");
-
-	//dd("Llego aqui");
-	//dd($output);
+        $this->exec("sudo sh gen_file.sh '$str' '$path'");
 
         return true;
     }
 
-    public function removeRouteFile($slug) {
+    public function removeRouteFile($slug)
+    {
         $this->exec("sudo rm -rf /etc/nginx/routes/$slug.conf");
     }
 
-    private function cleanIp($ip) {
+    private function cleanIp($ip)
+    {
         return trim($ip, "http://");
     }
 }

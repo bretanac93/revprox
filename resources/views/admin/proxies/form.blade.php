@@ -4,30 +4,37 @@
     </div>
     <div class="box-body row">
         <div class="form-group col-md-12 {{ $errors->has('name') ? 'has-error' : '' }}">
-            <label for="name" class="sr-only">Nombre</label>
-            <input type="text" name="name" placeholder="Nombre" value="{{ Request::is('proxies/create') ? old('name') : $rev_prox->name }}" class="form-control" required>
+            <label for="name" class="sr-only">Nombre de referencia</label>
+            <input type="text" name="name" value="{{ Request::is('proxies/create') ? old('name') : $rev_prox->name }}" class="form-control" required aria-describedby="nameHelp">
+            <small id="nameHelp" class="form-text text-muted">Nombre descriptivo para facilidad de búsqueda en el panel de administración.</small>
             <span class="help-block">{{ $errors->first('name') }}</span>
+
         </div>
 
         <div class="form-group col-md-12 {{ $errors->has('server_ip') ? 'has-error' : '' }}">
-            <label for="server_ip" class="sr-only"></label>
-            <input type="text" name="server_ip" placeholder="IP del Servidor" value="{{ Request::is('proxies/create') ? old('server_ip') : $rev_prox->server_ip }}" class="form-control" required>
+            <label for="server_ip" class="sr-only">IP del sistema</label>
+            <input type="text" name="server_ip" value="{{ Request::is('proxies/create') ? old('server_ip') : $rev_prox->server_ip }}" class="form-control" required aria-describedby="ipHelp">
+            <small id="ipHelp" class="form-text text-muted">Dirección IP del sistema (ej: 10.2.24.48)</small>
             <span class="help-block">{{ $errors->first('server_ip') }}</span>
+
         </div>
 
         <div class="form-group col-md-12 {{ $errors->has('proxy_dns') ? 'has-error' : '' }}">
-            <label for="proxy_dns" class="sr-only"></label>
-            <input required type="text" name="proxy_dns" placeholder="DNS Proxy" value="{{ Request::is('proxies/create') ? old('proxy_dns') : $rev_prox->proxy_dns }}" class="form-control">
+            <label for="proxy_dns" class="sr-only">Subdominio</label>
+            <input required type="text" name="proxy_dns" value="{{ Request::is('proxies/create') ? old('proxy_dns') : $rev_prox->proxy_dns }}" class="form-control" aria-describedby="subdomainHelp">
+            <small id="subdomainHelp" class="form-text text-muted">Subdominio. (ej: intranet.upr.edu.cu)</small>
             <span class="help-block">{{ $errors->first('proxy_dns') }}</span>
+
         </div>
 
         <div class="form-group col-md-12">
-            <label for="route" class="sr-only"></label>
-            <select name="route" id="route" class="form-control">
-                @foreach($routes as $item)
-                    <option value="{{ $item->filename }}">{{ $item->filename }}</option>
+            <label for="route" class="sr-only">Archivo de visibilidad</label>
+            <select name="route_id" id="route" class="form-control">
+                @foreach(App\NginxRoute::all() as $item)
+                    <option value="{{ $item->id }}">{{ $item->filename }}</option>
                 @endforeach
             </select>
+            <small id="routeHelp" class="form-text text-muted">Archivo de visibilidad</small>
         </div>
         {{--has_ssl--}}
         <div class="form-group col-md-12">
