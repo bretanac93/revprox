@@ -82,38 +82,12 @@
                 <!-- /.box-header -->
                 <div class="box-body no-padding">
                   <ul class="users-list clearfix">
-                    <li>
-                      <img src="img/avatar04.png" alt="User Image">
-                      <a class="users-list-name" href="#">Alexander Pierce</a>
-                    </li>
-                    <li>
-                      <img src="img/avatar04.png" alt="User Image">
-                      <a class="users-list-name" href="#">Norman</a>
-                    </li>
-                    <li>
-                      <img src="img/avatar04.png" alt="User Image">
-                      <a class="users-list-name" href="#">Jane</a>
-                    </li>
-                    <li>
-                      <img src="img/avatar04.png" alt="User Image">
-                      <a class="users-list-name" href="#">John</a>
-                    </li>
-                    <li>
-                      <img src="img/avatar04.png" alt="User Image">
-                      <a class="users-list-name" href="#">Alexander</a>
-                    </li>
-                    <li>
-                      <img src="img/avatar04.png" alt="User Image">
-                      <a class="users-list-name" href="#">Sarah</a>
-                    </li>
-                    <li>
-                      <img src="img/avatar04.png" alt="User Image">
-                      <a class="users-list-name" href="#">Nora</a>
-                    </li>
-                    <li>
-                      <img src="img/avatar04.png" alt="User Image">
-                      <a class="users-list-name" href="#">Nadia</a>
-                    </li>
+                    @foreach($users as $item)
+                      <li>
+                        <img src="img/avatar04.png" alt="User Image">
+                        <a class="users-list-name" href="#">{{ $item->name }}</a>
+                      </li>
+                    @endforeach
                   </ul>
                   <!-- /.users-list -->
                 </div>
