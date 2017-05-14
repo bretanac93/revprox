@@ -25,6 +25,8 @@ class HomeController extends Controller
         return view('admin.home')
             ->with([
                 'proxy_count' => ReverseProxy::all()->count(),
+                'proxy_active' => ReverseProxy::where('is_active', true)->count(),
+                'proxy_inactive' => ReverseProxy::where('is_active', false)->count(),
                 'users'       => \App\User::where('is_online', true)->limit(8)->get(),
                 'operations'  => \App\Audit::orderBy('created_at', 'DESC')->limit(5)->get(),
             ]);

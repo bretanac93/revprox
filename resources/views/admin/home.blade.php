@@ -25,7 +25,7 @@
             <!-- small box -->
             <div class="small-box bg-green">
                 <div class="inner">
-                    <h3>{{ $proxy_count }}</h3>
+                    <h3>{{ $proxy_active }}</h3>
 
                     <p>Online</p>
                 </div>
@@ -39,7 +39,7 @@
             <!-- small box -->
             <div class="small-box bg-red">
                 <div class="inner">
-                    <h3>0</h3>
+                    <h3>{{ $proxy_inactive }}</h3>
                     <p>Offline</p>
                 </div>
                 <div class="icon">
