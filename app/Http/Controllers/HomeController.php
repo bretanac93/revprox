@@ -23,7 +23,10 @@ class HomeController extends Controller
     public function index()
     {
         return view('admin.home')
-            ->with('proxy_count', ReverseProxy::all()->count());
+            ->with([
+                'proxy_count' => ReverseProxy::all()->count(),
+                'users' => \App\User::where('is_online', true)->limit(8)->get()
+            ]);
     }
 
     public function sites_per_file()

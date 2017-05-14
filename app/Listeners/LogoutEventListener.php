@@ -2,13 +2,11 @@
 
 namespace App\Listeners;
 
-use App\Events\UserLoggedIn;
-use Illuminate\Auth\Events\Login;
-
+use Illuminate\Auth\Events\Logout;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Carbon\Carbon;
-class LoginEventListener
+
+class LogoutEventListener
 {
     /**
      * Create the event listener.
@@ -23,16 +21,14 @@ class LoginEventListener
     /**
      * Handle the event.
      *
-     * @param  Login  $event
+     * @param  Logout  $event
      * @return void
      */
-    public function handle(Login $event)
+    public function handle(Logout $event)
     {
         $user = $event->user;
-        $user->is_online = true;
-        $user->last_logged_in = Carbon::now();
+        $user->is_online = false;
         $user->save();
-        
-        event(new UserLoggedIn($user));
+        // dd($user);
     }
 }
