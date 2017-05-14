@@ -51,7 +51,7 @@
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>r</b>P</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>rev</b>Proxy</span>
+            <span class="logo-lg"><b>rev</b>Prox</span>
         </a>
 
         <!-- Header Navbar -->
@@ -176,7 +176,7 @@
 <script src="{{ asset('plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
 
 <script src="{{ asset('plugins/sweetalert/sweetalert.min.js') }}"></script>
-
+<script src="{{ asset('plugins/chartjs/Chart.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('js/vendor.js') }}"></script>
 <script>
