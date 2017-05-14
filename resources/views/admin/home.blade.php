@@ -111,43 +111,19 @@
             <!-- /.box-header -->
             <div class="box-body">
               <ul class="products-list product-list-in-box">
-                <!-- /.item -->
-                <li class="item">
-                  <div class="product-img">
-                    <img class="img-circle" src="img/avatar04.png" alt="Product Image">
-                  </div>
-                  <div class="product-info">
-                    <p class="product-title">John Doe</p>
-                        <span class="product-description">
-                          Descargó fichero de visibilidad: intranet.conf
-                        </span>
-                  </div>
-                </li>
-                <!-- /.item -->
-                <li class="item">
-                  <div class="product-img">
-                    <img class="img-circle" src="img/avatar04.png" alt="Product Image">
-                  </div>
-                  <div class="product-info">
-                    <p class="product-title">John Doe</p>
-                        <span class="product-description">
-                          Descargó fichero de visibilidad: intranet.conf
-                        </span>
-                  </div>
-                </li>
-                <!-- /.item -->
-                <li class="item">
-                  <div class="product-img">
-                    <img class="img-circle" src="img/avatar04.png" alt="Product Image">
-                  </div>
-                  <div class="product-info">
-                    <p class="product-title">John Doe</p>
-                        <span class="product-description">
-                          Descargó fichero de visibilidad: intranet.conf
-                        </span>
-                  </div>
-                </li>
-                <!-- /.item -->
+                @foreach($operations as $item)
+                  <li class="item">
+                    <div class="product-img">
+                      <img class="img-circle" src="img/avatar04.png" alt="Product Image">
+                    </div>
+                    <div class="product-info">
+                      <p class="product-title">{{ $item->user->name }}<span class="label label-info pull-right">{{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span></p>
+                          <span class="product-description">
+                            {{ $item->description }}
+                          </span>
+                    </div>
+                  </li>
+                @endforeach
               </ul>
             </div>
             <!-- /.box-body -->

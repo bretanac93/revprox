@@ -72,6 +72,11 @@ class PreferencesController extends Controller
 
                 // And copy the new one.
                 $this->exec("sudo cp visibility_files/$filename /etc/nginx/routes/$filename");
+
+                $n_route = NginxRoute::where('filename', $filename);
+                $n_route->update([
+                    'updated_at' => \Carbon\Carbon::now()
+                ]);
             } else {
                 // The file is new, so let's copy it for the first time.
                 $file->move(public_path('/visibility_files'), $filename);

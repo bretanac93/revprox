@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\NginxRoute;
+use App\Observers\NginxRouteObserver;
+use App\Observers\ReverseProxyObserver;
+use App\ReverseProxy;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +17,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        NginxRoute::observe(NginxRouteObserver::class);
+        ReverseProxy::observe(ReverseProxyObserver::class);
     }
 
     /**
