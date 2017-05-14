@@ -133,6 +133,8 @@ class ReverseProxyController extends Controller
             $rev_proxy->server_ip = $data['server_ip'];
         }
 
+        $rev_proxy->is_active = true;
+
         try {
             $rm_res = NginxFacade::removeFile($old_dns);
 

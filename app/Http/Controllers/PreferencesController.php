@@ -34,13 +34,10 @@ class PreferencesController extends Controller
 
         $this->exec("sudo mv $file $file.bak");
         $this->exec("sudo touch $file");
-//        $this->exec("echo $content > $file");
-        $res = file_put_contents($file, $content);
+	//file_put_contents($file, $content);
+	$this->exec("sudo gen_file.sh '$content' '$file'");
 
-        if ($res != false) {
-            return redirect()->to(route('preferences.scripts.index'));
-        }
-        return redirect()->back();
+        return redirect()->to(route('preferences.scripts.index'));
     }
 
     public function routes_index()
@@ -132,11 +129,17 @@ class PreferencesController extends Controller
 
         // Need to mv the websites conf files belonging to the visibility file we want to remove.
 
-        // $nginx_route->reverse_proxies;
+        $proxies = $nginx_route->reverse_proxies;
 
         $nginx_route->delete();
         $this->exec("sudo rm -rf $path/$nginx_route->filename");
         $this->exec("sudo rm -rf $path/$nginx_route->filename.bak");
+
+        foreach ($proxies as $item) {
+            $item->is_active = false;
+            $this->exec("sudo rm /etc/nginx/sites-enabled/$item->proxy_dns");
+            $item->save();
+        }
 
         return response(['data' => 'Successfully', 'code' => 200], 200);
     }
