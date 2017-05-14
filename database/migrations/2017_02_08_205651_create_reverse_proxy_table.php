@@ -21,7 +21,7 @@ class CreateReverseProxyTable extends Migration
             $table->integer('route_id')->unsigned();
             $table->foreign('route_id')->references('id')->on('nginx_routes');
             $table->boolean('has_ssl');
-            $table->boolean('is_active')->default('true');
+            $table->boolean('is_active')->default(true);
 
             $table->timestamps();
         });

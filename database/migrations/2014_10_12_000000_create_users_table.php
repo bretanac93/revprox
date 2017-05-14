@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->datetime('last_logged_in')->nullable();
-            $table->boolean('is_online')->default('true');
+            $table->boolean('is_online')->default(true);
             $table->rememberToken();
             $table->timestamps();
         });
