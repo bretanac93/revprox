@@ -4,6 +4,7 @@ namespace App\Listeners;
 
 use App\Events\UserLoggedIn;
 use Illuminate\Auth\Events\Login;
+
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Carbon\Carbon;
@@ -31,7 +32,7 @@ class LoginEventListener
         $user->is_online = true;
         $user->last_logged_in = Carbon::now();
         $user->save();
-        // dd($user);
+        
         event(new UserLoggedIn($user));
     }
 }

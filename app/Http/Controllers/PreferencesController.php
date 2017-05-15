@@ -69,6 +69,11 @@ class PreferencesController extends Controller
 
                 // And copy the new one.
                 $this->exec("sudo cp visibility_files/$filename /etc/nginx/routes/$filename");
+
+                $n_route = NginxRoute::where('filename', $filename);
+                $n_route->update([
+                    'updated_at' => \Carbon\Carbon::now()
+                ]);
             } else {
                 // The file is new, so let's copy it for the first time.
                 $file->move(public_path('/visibility_files'), $filename);
@@ -124,11 +129,17 @@ class PreferencesController extends Controller
 
         // Need to mv the websites conf files belonging to the visibility file we want to remove.
 
-        // $nginx_route->reverse_proxies;
+        $proxies = $nginx_route->reverse_proxies;
 
         $nginx_route->delete();
         $this->exec("sudo rm -rf $path/$nginx_route->filename");
         $this->exec("sudo rm -rf $path/$nginx_route->filename.bak");
+
+        foreach ($proxies as $item) {
+            $item->is_active = false;
+            $this->exec("sudo rm /etc/nginx/sites-enabled/$item->proxy_dns");
+            $item->save();
+        }
 
         return response(['data' => 'Successfully', 'code' => 200], 200);
     }

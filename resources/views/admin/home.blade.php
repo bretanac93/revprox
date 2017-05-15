@@ -25,7 +25,7 @@
             <!-- small box -->
             <div class="small-box bg-green">
                 <div class="inner">
-                    <h3>{{ $proxy_count }}</h3>
+                    <h3>{{ $proxy_active }}</h3>
 
                     <p>Online</p>
                 </div>
@@ -39,7 +39,7 @@
             <!-- small box -->
             <div class="small-box bg-red">
                 <div class="inner">
-                    <h3>0</h3>
+                    <h3>{{ $proxy_inactive }}</h3>
                     <p>Offline</p>
                 </div>
                 <div class="icon">
@@ -82,38 +82,12 @@
                 <!-- /.box-header -->
                 <div class="box-body no-padding">
                   <ul class="users-list clearfix">
-                    <li>
-                      <img src="img/avatar04.png" alt="User Image">
-                      <a class="users-list-name" href="#">Alexander Pierce</a>
-                    </li>
-                    <li>
-                      <img src="img/avatar04.png" alt="User Image">
-                      <a class="users-list-name" href="#">Norman</a>
-                    </li>
-                    <li>
-                      <img src="img/avatar04.png" alt="User Image">
-                      <a class="users-list-name" href="#">Jane</a>
-                    </li>
-                    <li>
-                      <img src="img/avatar04.png" alt="User Image">
-                      <a class="users-list-name" href="#">John</a>
-                    </li>
-                    <li>
-                      <img src="img/avatar04.png" alt="User Image">
-                      <a class="users-list-name" href="#">Alexander</a>
-                    </li>
-                    <li>
-                      <img src="img/avatar04.png" alt="User Image">
-                      <a class="users-list-name" href="#">Sarah</a>
-                    </li>
-                    <li>
-                      <img src="img/avatar04.png" alt="User Image">
-                      <a class="users-list-name" href="#">Nora</a>
-                    </li>
-                    <li>
-                      <img src="img/avatar04.png" alt="User Image">
-                      <a class="users-list-name" href="#">Nadia</a>
-                    </li>
+                    @foreach($users as $item)
+                      <li>
+                        <img src="img/avatar04.png" alt="User Image">
+                        <a class="users-list-name" href="#">{{ $item->name }}</a>
+                      </li>
+                    @endforeach
                   </ul>
                   <!-- /.users-list -->
                 </div>
@@ -137,43 +111,19 @@
             <!-- /.box-header -->
             <div class="box-body">
               <ul class="products-list product-list-in-box">
-                <!-- /.item -->
-                <li class="item">
-                  <div class="product-img">
-                    <img class="img-circle" src="img/avatar04.png" alt="Product Image">
-                  </div>
-                  <div class="product-info">
-                    <p class="product-title">John Doe</p>
-                        <span class="product-description">
-                          Descargó fichero de visibilidad: intranet.conf
-                        </span>
-                  </div>
-                </li>
-                <!-- /.item -->
-                <li class="item">
-                  <div class="product-img">
-                    <img class="img-circle" src="img/avatar04.png" alt="Product Image">
-                  </div>
-                  <div class="product-info">
-                    <p class="product-title">John Doe</p>
-                        <span class="product-description">
-                          Descargó fichero de visibilidad: intranet.conf
-                        </span>
-                  </div>
-                </li>
-                <!-- /.item -->
-                <li class="item">
-                  <div class="product-img">
-                    <img class="img-circle" src="img/avatar04.png" alt="Product Image">
-                  </div>
-                  <div class="product-info">
-                    <p class="product-title">John Doe</p>
-                        <span class="product-description">
-                          Descargó fichero de visibilidad: intranet.conf
-                        </span>
-                  </div>
-                </li>
-                <!-- /.item -->
+                @foreach($operations as $item)
+                  <li class="item">
+                    <div class="product-img">
+                      <img class="img-circle" src="img/avatar04.png" alt="Product Image">
+                    </div>
+                    <div class="product-info">
+                      <p class="product-title">{{ $item->user->name }}<span class="label label-info pull-right">{{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span></p>
+                          <span class="product-description">
+                            {{ $item->description }}
+                          </span>
+                    </div>
+                  </li>
+                @endforeach
               </ul>
             </div>
             <!-- /.box-body -->

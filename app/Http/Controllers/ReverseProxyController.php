@@ -125,13 +125,15 @@ class ReverseProxyController extends Controller
             $rev_proxy->proxy_dns = $data['proxy_dns'];
         }
 
-        if (isset($data['route'])) {
-            $rev_proxy->route = $data['route'];
+        if (isset($data['route_id'])) {
+            $rev_proxy->route_id = $data['route_id'];
         }
 
         if (isset($data['server_ip'])) {
             $rev_proxy->server_ip = $data['server_ip'];
         }
+
+        $rev_proxy->is_active = true;
 
         try {
             $rm_res = NginxFacade::removeFile($old_dns);
@@ -141,7 +143,7 @@ class ReverseProxyController extends Controller
                 return redirect()->back();
             }
 
-            $res = NginxFacade::genNginxFile($data['proxy_dns'], $data['route'], $data['server_ip'], $data['has_ssl']);
+            $res = NginxFacade::genNginxFile($data['proxy_dns'], NginxRoute::find($data['route_id'])->filename, $data['server_ip'], isset($data['has_ssl']));
 
             if ($res[0] = true) {
                 $rev_proxy->save();
