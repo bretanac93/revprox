@@ -58,3 +58,7 @@ Route::delete('/preferences/nginx_routes/{id}', 'PreferencesController@routes_re
 Route::get('/ajax/bak/{filename}', 'PreferencesController@check_bak');
 
 Auth::routes();
+
+Route::get('/register', function () {
+    return redirect()->to('/login');
+});
