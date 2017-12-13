@@ -32,10 +32,10 @@ class PreferencesController extends Controller
         $file    = $dict[request('_file_id')];
         $content = request('file_content');
 
-        $this->exec("sudo mv $file $file.bak");
-        $this->exec("sudo touch $file");
-	//file_put_contents($file, $content);
-	$this->exec("sudo gen_file.sh '$content' '$file'");
+        $this->exec("mv $file $file.bak");
+        //$this->exec("touch $file");
+	file_put_contents($file, $content);
+	//$this->exec("gen_file.sh '$content' '$file'");
 
         return redirect()->to(route('preferences.scripts.index'));
     }
